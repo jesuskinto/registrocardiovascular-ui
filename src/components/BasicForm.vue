@@ -44,6 +44,13 @@
     <b-field label="Dirección">
       <b-input type="textarea" v-model="form.address" placeholder="Tu dirección" />
     </b-field>
+    <div v-show="$route.name === 'basic'">
+      <hr />
+      <div class="buttons">
+        <b-button>Cancelar</b-button>
+        <b-button type="is-primary">Guardar</b-button>
+      </div>
+    </div>
   </div>
 </template>
 

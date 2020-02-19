@@ -413,6 +413,11 @@
     <b-field label="Tratamiento actual">
       <b-input type="textarea" v-model="form.tratamiento_actual" placeholder="Tratamiento actual" />
     </b-field>
+    <hr />
+    <div class="buttons">
+      <b-button>Cancelar</b-button>
+      <b-button type="is-primary">Guardar</b-button>
+    </div>
   </div>
 </template>
 

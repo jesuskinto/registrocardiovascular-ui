@@ -25,6 +25,6 @@ export default {
   padding: 30px
 
 .view
-  max-width: 800px
+  max-width: 1024px
   margin: 0 auto
 </style>

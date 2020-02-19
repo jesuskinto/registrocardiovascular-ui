@@ -153,6 +153,11 @@
         </b-select>
       </b-field>
     </b-field>
+    <hr />
+    <div class="buttons">
+      <b-button>Cancelar</b-button>
+      <b-button type="is-primary">Guardar</b-button>
+    </div>
   </div>
 </template>
 

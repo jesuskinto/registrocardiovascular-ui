@@ -58,6 +58,11 @@
     <b-field label="Ticagrelor">
       <b-switch v-model="form.ticagrelor">{{ form.ticagrelor | btm }}</b-switch>
     </b-field>
+    <hr />
+    <div class="buttons">
+      <b-button>Cancelar</b-button>
+      <b-button type="is-primary">Guardar</b-button>
+    </div>
   </div>
 </template>
 

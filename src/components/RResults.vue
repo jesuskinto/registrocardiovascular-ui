@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class="columns is-mobile is-multiline">
-      <div class="column is-6-mobile is-4-tablet" v-for="a in [0,1,2,3,4,5,6,7,8,9,10]" :key="a">
+      <div
+        class="column is-6-mobile is-4-tablet is-3-desktop"
+        v-for="a in [0,1,2,3,4,5,6,7,8,9,10]"
+        :key="a"
+      >
         <div class="card">Hola Mundo</div>
       </div>
     </div>

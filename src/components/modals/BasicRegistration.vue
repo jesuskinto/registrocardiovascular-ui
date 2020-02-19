@@ -25,7 +25,7 @@ export default {
   methods: {
     makeClient() {
       this.$parent.close();
-      this.$router.push("/formulario");
+      this.$router.push({ name: "basic" });
     }
   }
 };
