@@ -327,7 +327,7 @@
         </div>
       </div>
     </b-field>
-    <p>
+    <p class="has-text-danger">
       FEVI
       Dilatación Aurícula Izquierda
       Dilatacionde orejuela izquierda
@@ -355,7 +355,7 @@
         </div>
       </div>
     </b-field>
-    <p>
+    <p class="has-text-danger">
       Engrosamiento de PericardiO
       ENGROSAMIENTO SEPTAL
     </p>

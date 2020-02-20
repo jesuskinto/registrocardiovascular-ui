@@ -60,7 +60,7 @@
         </div>
       </div>
     </b-field>
-    <h4>Control Postoperatorio</h4>
+    <h4 class="subtitle is-4">Control Postoperatorio</h4>
     <b-field label="Control a los 15 días">
       <b-input v-model="form.control_postoperatorio.dias_15" type="textarea" />
     </b-field>

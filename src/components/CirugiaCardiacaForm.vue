@@ -20,7 +20,7 @@
       />
     </b-field>
     <hr />
-    <h4>Reemplazo de Válvula Ahortico</h4>
+    <h4 class="subtitle is-4">Reemplazo de Válvula Ahortico</h4>
     <b-field grouped>
       <b-field label="Prótesis Biológica" expanded>
         <b-select v-model="form.protesis_biologica" placeholder="Prótesis Biológica" expanded>
@@ -55,7 +55,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Reemplazo válvular mitral</h4>
+    <h4 class="subtitle is-4">Reemplazo válvular mitral</h4>
     <b-field grouped>
       <b-field label="Prótesis Biológica" expanded>
         <b-select
@@ -139,13 +139,13 @@
         </b-select>
       </b-field>
     </b-field>
-    <p>
+    <p class="has-text-danger">
       Cirugía de Bentall
       Biovalsalva. Tubo valvulado prótesis mecánica
       Nro
       Hemiarco Arco aortico
     </p>
-    <p>
+    <p class="has-text-danger">
       Revascularizacion coronaria
       Conducto
       Safena interna
@@ -181,7 +181,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Cirugía de arco aortico</h4>
+    <h4 class="subtitle is-4">Cirugía de arco aortico</h4>
     <b-field grouped>
       <b-field label="Tubo de dacron" expanded>
         <b-input
@@ -204,7 +204,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Cierre de comunicación interauricular</h4>
+    <h4 class="subtitle is-4">Cierre de comunicación interauricular</h4>
     <b-field grouped>
       <b-field label="T. de defecto auricular" expanded>
         <b-input
@@ -232,7 +232,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Cierre de CIV</h4>
+    <h4 class="subtitle is-4">Cierre de CIV</h4>
     <b-field grouped>
       <b-field label="Clasificación" expanded>
         <b-select v-model="form.cierre_civ.clasificacion" placeholder="Clasificación" expanded>
@@ -259,7 +259,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Ventriculoseptoplastia</h4>
+    <h4 class="subtitle is-4">Ventriculoseptoplastia</h4>
     <b-field label="Parche" expanded>
       <b-select v-model="form.ventriculoseptoplastia.parche" placeholder="Parche" expanded>
         <option :value="null">Ninguna</option>
@@ -268,13 +268,13 @@
       </b-select>
     </b-field>
     <hr />
-    <h4>Pericardiectomia anterior</h4>
+    <h4 class="subtitle is-4">Pericardiectomia anterior</h4>
     <b-field label="Pericardiectomia anterior">
       <b-switch v-model="form.pericardiectomia_anterior">{{ form.pericardiectomia_anterior | btm }}</b-switch>
     </b-field>
     <hr />
     <h3>Complicaciones</h3>
-    <h4>Reintervención</h4>
+    <h4 class="subtitle is-4">Reintervención</h4>
     <b-field grouped>
       <b-field label="Causa" expanded>
         <b-input
@@ -294,7 +294,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Derrame pericardico</h4>
+    <h4 class="subtitle is-4">Derrame pericardico</h4>
     <b-field expanded>
       <b-select v-model="form.complicaciones.derrame_pericardico" placeholder="Tipo" expanded>
         <option :value="null">Ninguna</option>
@@ -304,7 +304,7 @@
       </b-select>
     </b-field>
     <hr />
-    <h4>Accidente vascular cerebral</h4>
+    <h4 class="subtitle is-4">Accidente vascular cerebral</h4>
     <b-field expanded>
       <b-select
         v-model="form.complicaciones.accidente_vascular_cerebra"
@@ -317,14 +317,14 @@
       </b-select>
     </b-field>
     <hr />
-    <h4>Delirio y alucinaciones</h4>
+    <h4 class="subtitle is-4">Delirio y alucinaciones</h4>
     <b-field>
       <b-switch
         v-model="form.complicaciones.delirio_alucinaciones"
       >{{ form.complicaciones.delirio_alucinaciones | btm }}</b-switch>
     </b-field>
     <hr />
-    <h4>Arritmias</h4>
+    <h4 class="subtitle is-4">Arritmias</h4>
     <b-field>
       <b-select v-model="form.complicaciones.arritmias" placeholder="Tipo" expanded>
         <option :value="null">Ninguna</option>
@@ -334,7 +334,7 @@
       </b-select>
     </b-field>
     <hr />
-    <h4>Bloqueo AV</h4>
+    <h4 class="subtitle is-4">Bloqueo AV</h4>
     <b-field grouped>
       <b-field label="Tipo" expanded>
         <b-select v-model="form.complicaciones.bloqueo_av.tipo" placeholder="Tipo" expanded>
@@ -353,7 +353,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Infección de Herida operatoria superficial</h4>
+    <h4 class="subtitle is-4">Infección de Herida operatoria superficial</h4>
     <b-field grouped>
       <b-field label="Cultivo" expanded>
         <b-input
@@ -371,7 +371,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Infeccion de Herida operatoria profunda</h4>
+    <h4 class="subtitle is-4">Infeccion de Herida operatoria profunda</h4>
     <b-field grouped>
       <b-field label="Cultivo" expanded>
         <b-input
@@ -396,7 +396,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Dehiscencia Esternal</h4>
+    <h4 class="subtitle is-4">Dehiscencia Esternal</h4>
     <b-field>
       <b-field label="Tratamiento">
         <b-input
@@ -407,7 +407,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Derrame pleural</h4>
+    <h4 class="subtitle is-4">Derrame pleural</h4>
     <b-field label="Tipo">
       <b-select v-model="form.complicaciones.derrame_pleural" placeholder="Tipo" expanded>
         <option :value="null">Ninguna</option>
@@ -417,7 +417,7 @@
       </b-select>
     </b-field>
     <hr />
-    <h4>Mediastinitis</h4>
+    <h4 class="subtitle is-4">Mediastinitis</h4>
     <b-field grouped>
       <b-field label="Cultivo" expanded>
         <b-input
@@ -455,7 +455,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Endocarditis de válvula protesica</h4>
+    <h4 class="subtitle is-4">Endocarditis de válvula protesica</h4>
     <b-field grouped>
       <b-field label="Precoz Tardía" expanded>
         <b-input
@@ -493,7 +493,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Muerte</h4>
+    <h4 class="subtitle is-4">Muerte</h4>
     <b-field grouped>
       <b-field label="Causa" expanded>
         <b-input

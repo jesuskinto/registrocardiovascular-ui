@@ -15,7 +15,7 @@
           <option :value="null">Ninguno</option>
         </b-select>
       </b-field>
-      <p>
+      <p class="has-text-danger">
         Estadio:
         Dialisis: peritoneal. Hemodiálisis
       </p>
@@ -84,7 +84,7 @@
         </b-field>
       </div>
     </div>
-    <h4>Cancer</h4>
+    <h4 class="subtitle is-4">Cancer</h4>
     <b-field grouped>
       <b-field label="Tipo">
         <b-input type="text" v-model="form.cancer.tipo" placeholder="Tipo de cancer" />

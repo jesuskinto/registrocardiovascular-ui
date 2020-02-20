@@ -54,7 +54,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Canulación</h4>
+    <h4 class="subtitle is-4">Canulación</h4>
     <b-field grouped>
       <b-field label="Arterial" expanded>
         <b-select v-model="form.canulacion.arterial" placeholder="Arterial" expanded>
@@ -74,7 +74,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Tiempo de arresto circulatorio</h4>
+    <h4 class="subtitle is-4">Tiempo de arresto circulatorio</h4>
     <b-field grouped>
       <b-field label="Técnica Alpha" expanded>
         <b-select
@@ -134,7 +134,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4>Perfusion cerebral</h4>
+    <h4 class="subtitle is-4">Perfusion cerebral</h4>
     <b-field grouped>
       <b-field label="Anterograda" expanded>
         <b-select v-model="form.perfusion_cerebral.anterograda" placeholder="Anterograda" expanded>

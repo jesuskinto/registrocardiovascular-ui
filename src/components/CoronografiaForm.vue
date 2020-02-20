@@ -32,7 +32,7 @@
         <b-input type="number" v-model="form.fevi" placeholder="FEVI %" expanded />
       </b-field>
     </b-field>
-    <p>PCTA. Metálico. Fármaco activo</p>
+    <p class="has-text-danger">PCTA. Metálico. Fármaco activo</p>
     <b-field grouped>
       <b-field label="Arterias revascularizadas" expanded>
         <b-input
