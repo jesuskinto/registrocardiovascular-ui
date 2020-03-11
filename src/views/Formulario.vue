@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import RMenuForm from "@/components/MenuForm.vue";
+import RMenuForm from "@/components/Menu.vue";
 
 export default {
   components: {

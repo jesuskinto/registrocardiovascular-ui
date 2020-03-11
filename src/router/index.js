@@ -2,14 +2,14 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Formulario from "../views/Formulario.vue";
-import RBasicForm from "@/components/BasicForm.vue";
-import RAppForm from "@/components/APPForm.vue";
-import RCoronografiaForm from "@/components/CoronografiaForm.vue";
-import REscocardiogramaForm from "@/components/EscocardiogramaForm.vue";
-import RCirugiaCardiacaForm from "@/components/CirugiaCardiacaForm.vue";
-import RCirculacionExtracorporeaForm from "@/components/CirculacionExtracorporeaForm.vue";
-import ROtrosForm from "@/components/OtrosForm.vue";
-import RProtocoloQuirugicoForm from "@/components/ProtocoloQuirugicoForm.vue";
+import RBasicForm from "@/components/forms/BasicForm.vue";
+import RAppForm from "@/components/forms/APPForm.vue";
+import RCoronografiaForm from "@/components/forms/CoronografiaForm.vue";
+import REscocardiogramaForm from "@/components/forms/EscocardiogramaForm.vue";
+import RCirugiaCardiacaForm from "@/components/forms/CirugiaCardiacaForm.vue";
+import RCirculacionExtracorporeaForm from "@/components/forms/CirculacionExtracorporeaForm.vue";
+import ROtrosForm from "@/components/forms/OtrosForm.vue";
+import RProtocoloQuirugicoForm from "@/components/forms/ProtocoloQuirugicoForm.vue";
 import Login from "../views/Login.vue";
 
 Vue.use(VueRouter);
@@ -73,9 +73,9 @@ const routes = [
     component: Login
   },
   {
-    path: "/about",
-    name: "About",
-    component: () => import("../views/About.vue")
+    path: "*",
+    name: "NotFound",
+    component: () => import("@/views/NotFound.vue")
   }
 ];
 

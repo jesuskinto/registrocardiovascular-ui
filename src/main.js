@@ -13,7 +13,9 @@ import {
   Datetimepicker,
   Switch,
   Checkbox,
-  Clockpicker
+  Clockpicker,
+  Collapse,
+  Loading
 } from "buefy";
 import "buefy/dist/buefy.css";
 
@@ -36,7 +38,8 @@ Vue.use(Switch);
 Vue.use(Checkbox);
 Vue.use(Clockpicker);
 Vue.use(Datetimepicker);
-
+Vue.use(Collapse);
+Vue.use(Loading);
 Vue.use(booleanToHumman);
 Vue.config.productionTip = false;
 

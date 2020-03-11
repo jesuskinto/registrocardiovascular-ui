@@ -1,15 +1,26 @@
 <template>
   <div id="app">
-    <r-header />
-    <router-view class="view" />
+    <div class="content-wrapper">
+      <r-header />
+      <router-view class="view" />
+    </div>
+    <r-footer />
+    <b-loading :is-full-page="true" :active.sync="isLoading"></b-loading>
   </div>
 </template>
 
 <script>
-import RHeader from "@/components/layout/RHeader.vue";
+import RHeader from "@/components/layout/Header.vue";
+import RFooter from "@/components/layout/Footer.vue";
 export default {
   components: {
-    RHeader
+    RHeader,
+    RFooter
+  },
+  data() {
+    return {
+      isLoading: false
+    };
   }
 };
 </script>
@@ -21,7 +32,7 @@ export default {
 .padding-30
   padding: 30px
 
-#app
+.content-wrapper
   padding: 30px
 
 .view

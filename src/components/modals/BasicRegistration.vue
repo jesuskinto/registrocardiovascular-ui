@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import RBasicForm from "@/components/BasicForm.vue";
+import RBasicForm from "@/components/forms/BasicForm.vue";
 
 export default {
   components: {
