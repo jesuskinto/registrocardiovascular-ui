@@ -32,7 +32,21 @@
         <b-input type="number" v-model="form.fevi" placeholder="FEVI %" expanded />
       </b-field>
     </b-field>
-    <p class="has-text-danger">PCTA. Metálico. Fármaco activo</p>
+    <hr />
+    <h4 class="subtitle is-4">Angioplastia</h4>
+    <b-field grouped>
+      <b-field label="Presente" expanded>
+        <b-switch v-model="form.angioplastia.presente">{{ form.angioplastia.presente | btm }}</b-switch>
+      </b-field>
+      <b-field label="PCTA" expanded>
+        <b-select v-model="form.angioplastia.pcta" placeholder="PCTA" expanded>
+          <option value="metalico">Metálico</option>
+          <option value="farmacoactivo">Fármaco activo</option>
+          <option :value="null">Ninguno</option>
+        </b-select>
+      </b-field>
+    </b-field>
+    <hr />
     <b-field grouped>
       <b-field label="Arterias revascularizadas" expanded>
         <b-input
@@ -45,12 +59,8 @@
         <b-input type="textarea" v-model="form.complicaciones" placeholder="Complicaciones" />
       </b-field>
     </b-field>
-    <b-field label="Nro de coronariografias">
-      <b-input
-        type="number"
-        v-model="form.nro_coronariografias"
-        placeholder="Nro de coronariografias"
-      />
+    <b-field label="Coronariografias Previas">
+      <b-input type="textarea" v-model="form.nro_coronariografias" placeholder="Coronariografias" />
     </b-field>
     <b-field label="Clopidogrel">
       <b-switch v-model="form.clopidogrel">{{ form.clopidogrel | btm }}</b-switch>
@@ -78,9 +88,13 @@ export default {
         fevi: null,
         arterias_revascularizadas: "",
         complicaciones: "",
-        nro_coronariografias: 0,
+        nro_coronariografias: "",
         clopidogrel: false,
-        ticagrelor: false
+        ticagrelor: false,
+        angioplastia: {
+          presente: null,
+          pcta: null
+        }
       }
     };
   }

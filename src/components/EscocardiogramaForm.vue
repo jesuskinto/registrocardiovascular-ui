@@ -17,15 +17,15 @@
           </div>
         </div>
         <div class="column">
-          <div class="field">
-            <b-checkbox v-model="form.esternosis_aortica.valor" native-value="ava">AVA</b-checkbox>
-          </div>
-          <div class="field">
-            <b-checkbox v-model="form.esternosis_aortica.valor" native-value="vmax">Vmax</b-checkbox>
-          </div>
-          <div class="field">
-            <b-checkbox v-model="form.esternosis_aortica.valor" native-value="gmed">Gmed</b-checkbox>
-          </div>
+          <b-field label="Detalles">
+            <b-input type="textarea" v-model="form.esternosis_aortica.ava" placeholder="AVA" />
+          </b-field>
+          <b-field>
+            <b-input type="textarea" v-model="form.esternosis_aortica.vmax" placeholder="Vmax" />
+          </b-field>
+          <b-field>
+            <b-input type="textarea" v-model="form.esternosis_aortica.gmed" placeholder="Gmed" />
+          </b-field>
         </div>
       </div>
     </b-field>
@@ -65,37 +65,42 @@
         </div>
         <div class="column">
           <div class="field">
-            <b-checkbox
-              v-model="form.insuficiencia_aortica.valor"
-              native-value="dilatacion_anular"
-            >Dilatación anular</b-checkbox>
+            <b-input
+              type="textarea"
+              v-model="form.insuficiencia_aortica.dilatacion_anular"
+              placeholder="Dilatación anular"
+            />
           </div>
           <div class="field">
-            <b-checkbox
-              v-model="form.insuficiencia_aortica.valor"
-              native-value="prolapso_velo"
-            >Prolapso de velo</b-checkbox>
+            <b-input
+              type="textarea"
+              v-model="form.insuficiencia_aortica.prolapso_velo"
+              placeholder="Prolapso de velo"
+            />
           </div>
           <div class="field">
-            <b-checkbox
-              v-model="form.insuficiencia_aortica.valor"
-              native-value="perforacion_velo"
-            >Perforación del velo</b-checkbox>
+            <b-input
+              type="textarea"
+              v-model="form.insuficiencia_aortica.perforacion_velo"
+              placeholder="Perforación del velo"
+            />
           </div>
           <div class="field">
-            <b-checkbox
-              v-model="form.insuficiencia_aortica.valor"
-              native-value="vena_contracta"
-            >Vena contracta</b-checkbox>
+            <b-input
+              type="textarea"
+              v-model="form.insuficiencia_aortica.vena_contracta"
+              placeholder="Vena contracta"
+            />
           </div>
           <div class="field">
-            <b-checkbox
-              v-model="form.insuficiencia_aortica.valor"
-              native-value="vol_regurgitante"
-            >Vol regurgitante</b-checkbox>
+            <b-input
+              type="textarea"
+              v-model="form.insuficiencia_aortica.vol_regurgitante"
+              placeholder="Vol regurgitante"
+            />
           </div>
           <div class="field">
-            <b-checkbox v-model="form.insuficiencia_aortica.valor" native-value="ore">ORE</b-checkbox>
+            <b-input type="textarea" v-model="form.insuficiencia_aortica.ore" placeholder="ORE" />
           </div>
         </div>
       </div>
@@ -127,10 +132,10 @@
             >Degenerativa</b-checkbox>
           </div>
           <div class="field">
-            <b-checkbox v-model="form.estenosis_mitral.valor" native-value="ava">AVA</b-checkbox>
+            <b-input type="textarea" v-model="form.estenosis_mitral.AVA" placeholder="AVA" />
           </div>
           <div class="field">
-            <b-checkbox v-model="form.estenosis_mitral.valor" native-value="gmed">GMED</b-checkbox>
+            <b-input type="textarea" v-model="form.estenosis_mitral.GMED" placeholder="GMED" />
           </div>
         </div>
       </div>
@@ -327,16 +332,86 @@
         </div>
       </div>
     </b-field>
-    <p class="has-text-danger">
-      FEVI
-      Dilatación Aurícula Izquierda
-      Dilatacionde orejuela izquierda
-      Presencia de trombos
-      Dilatación de VI. DIÁMETRO AL FINAL DE DIASTOLE. DSF
-      TRASTORNOS DE CONTRACTILIDAD
-      Dilatación de Raíz aortica
-      Dilatación de aorta ascendente
-    </p>
+    <b-field grouped>
+      <b-field label="FEVI" expanded>
+        <b-input type="textarea" v-model="form.fevi" placeholder="Fevi" expanded />
+      </b-field>
+      <b-field label="Dilatación Aurícula Izquierda" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.dilatacion_auricula_izquierda"
+          placeholder="Dilatación Aurícula Izquierda"
+          expanded
+        />
+      </b-field>
+    </b-field>
+    <b-field grouped>
+      <b-field label="Dilatacionde orejuela izquierda" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.dilatacionde_orejuela_izquierda"
+          placeholder="Dilatacionde orejuela izquierda"
+          expanded
+        />
+      </b-field>
+      <b-field label="Dilatación de VI" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.dilatación_de_vi"
+          placeholder="Dilatación de VI"
+          expanded
+        />
+      </b-field>
+    </b-field>
+    <b-field grouped>
+      <b-field label="Dilatación de Raíz aortica" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.dilatación_raiz_aortica"
+          placeholder="Dilatación de Raíz aortica"
+          expanded
+        />
+      </b-field>
+      <b-field label="Dilatación de aorta ascendente" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.dilatacion_aorta_ascendente"
+          placeholder="Dilatación de aorta ascendente"
+          expanded
+        />
+      </b-field>
+    </b-field>
+    <b-field grouped>
+      <b-field label="Presencia de trombos" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.presencia_trombos"
+          placeholder="Presencia de trombos"
+          expanded
+        />
+      </b-field>
+      <b-field label="Diámetro al final de diastole" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.diametro_al_final_de_diastole"
+          placeholder="Diámetro al final de diastole"
+          expanded
+        />
+      </b-field>
+    </b-field>
+    <b-field grouped>
+      <b-field label="DSF" expanded>
+        <b-input type="textarea" v-model="form.DSF" placeholder="DSF" expanded />
+      </b-field>
+      <b-field label="Transtornos de Contractivilidad" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.trasntorno_contractivilidad"
+          placeholder="Transtornos de Contractivilidad"
+          expanded
+        />
+      </b-field>
+    </b-field>
     <b-field label="Derrame pericardico" expanded>
       <div class="columns">
         <div class="column">
@@ -355,10 +430,24 @@
         </div>
       </div>
     </b-field>
-    <p class="has-text-danger">
-      Engrosamiento de PericardiO
-      ENGROSAMIENTO SEPTAL
-    </p>
+    <b-field grouped>
+      <b-field label="Engrosamiento de Pericardio" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.engrosamiento_pericardio"
+          placeholder="Engrosamiento de Pericardio"
+          expanded
+        />
+      </b-field>
+      <b-field label="ENGROSAMIENTO SEPTAL" expanded>
+        <b-input
+          type="textarea"
+          v-model="form.engrosamiento_septal"
+          placeholder="ENGROSAMIENTO SEPTAL"
+          expanded
+        />
+      </b-field>
+    </b-field>
     <b-field grouped>
       <b-field label="Ecocardiograma Stress con dobutamina" expanded>
         <div class="columns">
@@ -385,22 +474,35 @@
         <div class="columns">
           <div class="column">
             <div class="field">
-              <b-radio v-model="form.resonancia_cardiaca" :native-value="null">Ninguno</b-radio>
-            </div>
-            <div class="field">
-              <b-radio v-model="form.resonancia_cardiaca" native-value="viabilidad">Viabilidad</b-radio>
-            </div>
-            <div class="field">
-              <b-radio v-model="form.resonancia_cardiaca" native-value="no_viabilidad">No viabilidad</b-radio>
-            </div>
-            <div class="field">
-              <b-radio v-model="form.resonancia_cardiaca" native-value="fevi">FEVI</b-radio>
+              <b-radio v-model="form.resonancia_cardiaca.viabilidad" :native-value="null">Ninguno</b-radio>
             </div>
             <div class="field">
               <b-radio
-                v-model="form.resonancia_cardiaca"
-                native-value="septum_ventricular"
-              >SEPTUM VENTRICULAR</b-radio>
+                v-model="form.resonancia_cardiaca.viabilidad"
+                native-value="viabilidad"
+              >Viabilidad</b-radio>
+            </div>
+            <div class="field">
+              <b-radio
+                v-model="form.resonancia_cardiaca.viabilidad"
+                native-value="no_viabilidad"
+              >No viabilidad</b-radio>
+            </div>
+            <div class="field">
+              <b-input
+                type="textarea"
+                v-model="form.resonancia_cardiaca.fevi"
+                placeholder="FEVI"
+                expanded
+              />
+            </div>
+            <div class="field">
+              <b-input
+                type="textarea"
+                v-model="form.resonancia_cardiaca.septum_ventricular"
+                placeholder="Septum Ventricular"
+                expanded
+              />
             </div>
           </div>
         </div>
@@ -429,16 +531,25 @@ export default {
       form: {
         esternosis_aortica: {
           tipo: null,
-          valor: []
+          vmax: null,
+          ava: null,
+          gmed: null
         },
         valvula: null,
         insuficiencia_aortica: {
           tipo: null,
-          valor: []
+          dilatacion_anular: null,
+          prolapso_velo: null,
+          perforacion_velo: null,
+          vena_contracta: null,
+          vol_regurgitante: null,
+          ore: null
         },
         estenosis_mitral: {
           tipo: null,
-          valor: []
+          valor: [],
+          AVA: null,
+          GMED: null
         },
         insuficiencia_mitral: {
           tipo: null,
@@ -462,8 +573,24 @@ export default {
         derrame_pericardico: {
           tipo: null
         },
+        fevi: null,
+        dilatacion_auricula_izquierda: null,
+        dilatacionde_orejuela_izquierda: null,
+        dilatación_de_vi: null,
+        dilatación_raiz_aortica: null,
+        dilatacion_aorta_ascendente: null,
+        presencia_trombos: null,
+        diametro_al_final_de_diastole: null,
+        DSF: null,
+        engrosamiento_pericardio: null,
+        engrosamiento_septal: null,
+        trasntorno_contractivilidad: null,
         ecocardiograma_stress_dobutamina: null,
-        resonancia_cardiaca: null,
+        resonancia_cardiaca: {
+          fevi: null,
+          septum_ventricular: null,
+          viabilidad: null
+        },
         score_fragilidad: null,
         tratamiento_actual: ""
       },

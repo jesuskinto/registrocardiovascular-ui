@@ -9,6 +9,7 @@ import REscocardiogramaForm from "@/components/EscocardiogramaForm.vue";
 import RCirugiaCardiacaForm from "@/components/CirugiaCardiacaForm.vue";
 import RCirculacionExtracorporeaForm from "@/components/CirculacionExtracorporeaForm.vue";
 import ROtrosForm from "@/components/OtrosForm.vue";
+import RProtocoloQuirugicoForm from "@/components/ProtocoloQuirugicoForm.vue";
 import Login from "../views/Login.vue";
 
 Vue.use(VueRouter);
@@ -58,6 +59,11 @@ const routes = [
         path: "otros",
         name: "otros",
         component: ROtrosForm
+      },
+      {
+        path: "protocolo-quirurgico",
+        name: "protocolo-quirurgico",
+        component: RProtocoloQuirugicoForm
       }
     ]
   },

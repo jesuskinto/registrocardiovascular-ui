@@ -43,6 +43,12 @@
         :to="{ name: 'otros'}"
         label="Otros"
       ></b-menu-item>
+      <b-menu-item
+        tag="router-link"
+        :active="$route.name === 'protocolo-quirurgico'"
+        :to="{ name: 'protocolo-quirurgico'}"
+        label="Protocolo Quirurgico"
+      ></b-menu-item>
     </b-menu-list>
   </b-menu>
 </template>

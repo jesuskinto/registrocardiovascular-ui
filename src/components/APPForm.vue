@@ -8,17 +8,6 @@
           <option :value="null">Ninguno</option>
         </b-select>
       </b-field>
-      <b-field label="Enfermedad renal" expanded>
-        <b-select v-model="form.enfermedad_renal" placeholder="Enfermedad renal" expanded>
-          <option value="aguda">Aguda</option>
-          <option value="cronica">Cronica</option>
-          <option :value="null">Ninguno</option>
-        </b-select>
-      </b-field>
-      <p class="has-text-danger">
-        Estadio:
-        Dialisis: peritoneal. Hemodiálisis
-      </p>
       <b-field label="Enfermedad cerebro vascular" expanded>
         <b-select
           v-model="form.enfermedad_cerebro_vascular"
@@ -31,6 +20,34 @@
         </b-select>
       </b-field>
     </b-field>
+    <hr />
+    <h4 class="subtitle is-4">Enfermedad renal</h4>
+    <b-field grouped>
+      <b-field label="Tipo" expanded>
+        <b-select v-model="form.enfermedad_renal.tipo" placeholder="Enfermedad renal" expanded>
+          <option value="aguda">Aguda</option>
+          <option value="cronica">Cronica</option>
+          <option :value="null">Ninguno</option>
+        </b-select>
+      </b-field>
+      <b-field label="Estadio" expanded>
+        <b-select v-model="form.enfermedad_renal.estadio" placeholder="Estadio" expanded>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option :value="null">Ninguno</option>
+        </b-select>
+      </b-field>
+      <b-field label="Dialisis" expanded>
+        <b-select v-model="form.enfermedad_renal.dialisis" placeholder="Dialisis" expanded>
+          <option value="peritoneal">Peritoneal</option>
+          <option value="hemodiálisis">Hemodiálisis</option>
+          <option :value="null">Ninguno</option>
+        </b-select>
+      </b-field>
+    </b-field>
+    <hr />
     <div class="columns">
       <div class="column">
         <b-field label=" Hipertensión Arterial" expanded>
@@ -84,6 +101,7 @@
         </b-field>
       </div>
     </div>
+    <hr />
     <h4 class="subtitle is-4">Cancer</h4>
     <b-field grouped>
       <b-field label="Tipo">
@@ -97,6 +115,7 @@
         />
       </b-field>
     </b-field>
+    <hr />
     <b-field label="Endocarditis">
       <b-select v-model="form.endocarditis" placeholder="Endocarditis" expanded>
         <option value="mitral">Mitral</option>
@@ -163,14 +182,18 @@
           <option :value="null">Ninguno</option>
         </b-select>
       </b-field>
-      <b-field label="BLOQUEO AV" expanded>
-        <b-select v-model="form.bloqueo_av" placeholder="BLOQUEO AV" expanded>
-          <option value="primer_grado">PRIMER GRADO</option>
-          <option value="segundo_grado">SEGUNDO GRADO</option>
-          <option value="tercer_grado">TERCER GRADO</option>
-          <option value="portador_marcapasos">PORTADOR DE MARCAPASO</option>
-          <option value="bicameral">BICAMERAL</option>
-          <option value="unicameral">UNICAMERAL</option>
+      <b-field label="Bloqueo AV" expanded>
+        <b-select v-model="form.bloqueo_av.grado" placeholder="Bloqueo AV" expanded>
+          <option value="primer_grado">Primer grado</option>
+          <option value="segundo_grado">Segundo grado</option>
+          <option value="tercer_grado">Tercer grado</option>
+          <option :value="null">Ninguno</option>
+        </b-select>
+      </b-field>
+      <b-field label="Portador de marcapaso">
+        <b-select v-model="form.bloqueo_av.marcapaso" placeholder="Portador de marcapaso" expanded>
+          <option value="bicameral">Bicameral</option>
+          <option value="unicameral">Unicameral</option>
           <option :value="null">Ninguno</option>
         </b-select>
       </b-field>
@@ -210,12 +233,28 @@
           <option :value="null">Ninguno</option>
         </b-select>
       </b-field>
-      <b-field label="Shock Cardiogenico:" expanded>
-        <b-select v-model="form.shock_cardiogenico" placeholder="Shock Cardiogenico:" expanded>
-          <option value="BCIA">BCIA</option>
-          <option value="ECMO">ECMO</option>
-          <option :value="null">Ninguno</option>
-        </b-select>
+    </b-field>
+    <hr />
+    <h4 class="subtitle is-4">Shock Cardiogenico</h4>
+    <b-field grouped>
+      <b-field expanded>
+        <b-field label="Presente" expanded>
+          <b-switch
+            v-model="form.shock_cardiogenico.presente"
+          >{{ form.shock_cardiogenico.presente | btm }}</b-switch>
+        </b-field>
+        <b-field label="Colocación" expanded>
+          <b-select
+            v-model="form.shock_cardiogenico.colocacion"
+            placeholder="Shock Cardiogenico:"
+            expanded
+            :disabled="!form.shock_cardiogenico.presente"
+          >
+            <option value="BCIA">BCIA</option>
+            <option value="ECMO">ECMO</option>
+            <option :value="null">Ninguno</option>
+          </b-select>
+        </b-field>
       </b-field>
     </b-field>
     <hr />
@@ -234,7 +273,11 @@ export default {
         diabetes: null,
         hipertencion: false,
         asma: false,
-        enfermedad_renal: null,
+        enfermedad_renal: {
+          tipo: null,
+          estadio: null,
+          dialisis: null
+        },
         enfermedad_arterial_periferica: false,
         enfermedad_cerebro_vascular: null,
         enfermedad_pulmonar_obstructiva_cronica: false,
@@ -256,11 +299,17 @@ export default {
         fibrilacion_auricular: null,
         flutter_auricular: false,
         arritmia_ventriculares: null,
-        bloqueo_av: null,
+        bloqueo_av: {
+          grado: null,
+          marcapaso: null
+        },
         infarto_agudo_miocardio: null,
         infarto_agudo_miocardio_tratamiento: "",
         clase_funcional_nyha: null,
-        shock_cardiogenico: null
+        shock_cardiogenico: {
+          colocacion: null,
+          presente: null
+        }
       }
     };
   }

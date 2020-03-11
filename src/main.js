@@ -10,6 +10,7 @@ import {
   Pagination,
   Navbar,
   Datepicker,
+  Datetimepicker,
   Switch,
   Checkbox,
   Clockpicker
@@ -34,6 +35,7 @@ Vue.use(Datepicker);
 Vue.use(Switch);
 Vue.use(Checkbox);
 Vue.use(Clockpicker);
+Vue.use(Datetimepicker);
 
 Vue.use(booleanToHumman);
 Vue.config.productionTip = false;

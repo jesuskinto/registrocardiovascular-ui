@@ -41,25 +41,30 @@
         </b-select>
       </b-field>
     </b-field>
-    <b-field label="Ecocardiograma Postoperatorio">
-      <div class="column">
-        <div class="field">
-          <b-checkbox v-model="form.ecocardiograma_postoperatorio" native-value="fevi">FEVI</b-checkbox>
-        </div>
-        <div class="field">
-          <b-checkbox
-            v-model="form.ecocardiograma_postoperatorio"
-            native-value="cinesia_ventricular"
-          >CINESIA VENTRICULAR</b-checkbox>
-        </div>
-        <div class="field">
-          <b-checkbox
-            v-model="form.ecocardiograma_postoperatorio"
-            native-value="protesis_valvular"
-          >PRÓTESIS VALVULAR</b-checkbox>
-        </div>
-      </div>
+    <hr />
+    <h4 class="subtitle is-4">Ecocardiograma Postoperatorio</h4>
+    <b-field label="FEVI">
+      <b-input
+        type="textarea"
+        v-model="form.ecocardiograma_postoperatorio.fevi"
+        placeholder="FEVI"
+      />
     </b-field>
+    <b-field label="CINESIA VENTRICULAR">
+      <b-input
+        type="textarea"
+        v-model="form.ecocardiograma_postoperatorio.cinesia_ventricular"
+        placeholder="Cinesia Ventricular"
+      />
+    </b-field>
+    <b-field label="PRÓTESIS VALVULAR">
+      <b-input
+        type="textarea"
+        v-model="form.ecocardiograma_postoperatorio.protesis_valvular"
+        placeholder="Prótesis Valvular"
+      />
+    </b-field>
+    <hr />
     <h4 class="subtitle is-4">Control Postoperatorio</h4>
     <b-field label="Control a los 15 días">
       <b-input v-model="form.control_postoperatorio.dias_15" type="textarea" />
@@ -91,7 +96,11 @@ export default {
           tiene: false,
           tipo: null
         },
-        ecocardiograma_postoperatorio: [],
+        ecocardiograma_postoperatorio: {
+          fevi: null,
+          cinesia_ventricular: null,
+          protesis_valvular: null
+        },
         control_postoperatorio: {
           dias_15: null,
           mes_1: null,

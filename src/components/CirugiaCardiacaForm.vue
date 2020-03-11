@@ -10,6 +10,9 @@
       <b-field label="Urgencia" expanded>
         <b-switch v-model="form.urgencia">{{ form.urgencia | btm }}</b-switch>
       </b-field>
+      <b-field label="Emergencia" expanded>
+        <b-switch v-model="form.emergencia">{{ form.emergencia | btm }}</b-switch>
+      </b-field>
     </b-field>
     <b-field label="Programada" expanded>
       <b-datepicker
@@ -20,7 +23,7 @@
       />
     </b-field>
     <hr />
-    <h4 class="subtitle is-4">Reemplazo de Válvula Ahortico</h4>
+    <h4 class="subtitle is-4">Reemplazo de Válvula Aórtica</h4>
     <b-field grouped>
       <b-field label="Prótesis Biológica" expanded>
         <b-select v-model="form.protesis_biologica" placeholder="Prótesis Biológica" expanded>
@@ -139,31 +142,159 @@
         </b-select>
       </b-field>
     </b-field>
-    <p class="has-text-danger">
-      Cirugía de Bentall
-      Biovalsalva. Tubo valvulado prótesis mecánica
-      Nro
-      Hemiarco Arco aortico
-    </p>
-    <p class="has-text-danger">
-      Revascularizacion coronaria
-      Conducto
-      Safena interna
-      Izquierda derecha ambas
-      Técnica abierta Tecnica Cerrada
-      Arteria radial
-      Izquierda Derecha
-      LIMA RIMA AMBAS
-      LIMA -DA
-      RIMA-DA
-      LIMA-DA +PAC A CX
-      LIMA-DA + PAC A CX + PAC A DP
-      LIMA-DA + PAC A CX + PAC A CD
-      LIMA -DA + PAC A RI
-      LIMA-DA +RIMA A CD +PAC A CX
-      LIMA-DA +RIMA EN Y A CX + PAC A CD
-      PAC A ADA + PAC A CX
-    </p>
+    <hr />
+    <h4 class="subtitle is-4">Cirugía de Bentall</h4>
+    <b-field grouped>
+      <b-field label="Presente" expanded>
+        <b-switch v-model="form.cirugia_bentall.presente">{{ form.cirugia_bentall.presente | btm }}</b-switch>
+      </b-field>
+      <b-field label="Tipo" expanded>
+        <b-select
+          v-model="form.cirugia_bentall.tipo"
+          placeholder="Tipo"
+          :disabled="!form.cirugia_bentall.presente"
+          expanded
+        >
+          <option :value="null">Ninguna</option>
+          <option value="biovalsalva">Biovalsalva</option>
+          <option value="tubo_valvulado_protesis_mecanica">Tubo valvulado prótesis mecánica</option>
+        </b-select>
+      </b-field>
+      <b-field label="Nro" expanded>
+        <b-input
+          v-model="form.cirugia_bentall.nro"
+          :disabled="!form.cirugia_bentall.presente"
+          placeholder="Nro"
+          expanded
+        />
+      </b-field>
+    </b-field>
+    <b-field label="Clase" expanded>
+      <b-select
+        v-model="form.cirugia_bentall.clase"
+        :disabled="!form.cirugia_bentall.presente"
+        placeholder="Clase"
+        expanded
+      >
+        <option :value="null">Ninguna</option>
+        <option value="hemiarco">Hemiarco</option>
+        <option value="arco_aortico">Arco aortico</option>
+      </b-select>
+    </b-field>
+    <hr />
+    <h4 class="subtitle is-4">Revascularizacion coronaria</h4>
+    <b-field label="Conducto Safena interna" expanded>
+      <b-switch
+        v-model="form.revascularizacion_coronaria.presente"
+      >{{ form.revascularizacion_coronaria.presente | btm }}</b-switch>
+    </b-field>
+    <b-field grouped>
+      <b-field label="Conducto Safena interna" expanded>
+        <b-select
+          v-model="form.revascularizacion_coronaria.conducto_safena_interna"
+          :disabled="!form.revascularizacion_coronaria.presente"
+          placeholder="Conducto Safena Interna"
+          expanded
+        >
+          <option :value="null">Ninguna</option>
+          <option value="izquierda">Izquierda</option>
+          <option value="derecha">Derecha</option>
+          <option value="ambas">Ambas</option>
+        </b-select>
+      </b-field>
+      <b-field label="Técnica" expanded>
+        <b-select
+          v-model="form.revascularizacion_coronaria.tecnica"
+          :disabled="!form.revascularizacion_coronaria.presente"
+          placeholder="Tecnica"
+          expanded
+        >
+          <option :value="null">Ninguna</option>
+          <option value="abierta">Abierta</option>
+          <option value="cerrada">Cerrada</option>
+        </b-select>
+      </b-field>
+    </b-field>
+    <b-field grouped>
+      <b-field label="Arteria radial" expanded>
+        <b-select
+          v-model="form.revascularizacion_coronaria.arteria_radial"
+          :disabled="!form.revascularizacion_coronaria.presente"
+          placeholder="Arteria radial"
+          expanded
+        >
+          <option :value="null">Ninguna</option>
+          <option value="izquierda">Izquierda</option>
+          <option value="derecha">Derecha</option>
+        </b-select>
+      </b-field>
+    </b-field>
+    <hr />
+    <h4 class="subtitle is-4">Opciones Quirurgicas</h4>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <b-radio v-model="form.opciones_quirurgicas.lima_rima" native-value="LIMA">LIMA</b-radio>
+        </div>
+        <div class="field">
+          <b-radio v-model="form.opciones_quirurgicas.lima_rima" native-value="RIMA">RIMA</b-radio>
+        </div>
+        <div class="field">
+          <b-radio v-model="form.opciones_quirurgicas.lima_rima" native-value="AMBAS">AMBAS</b-radio>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <b-checkbox v-model="form.opciones_quirurgicas.opciones" native-value="LIMA -DA">LIMA -DA</b-checkbox>
+        </div>
+        <div class="field">
+          <b-checkbox v-model="form.opciones_quirurgicas.opciones" native-value="RIMA-DA">RIMA-DA</b-checkbox>
+        </div>
+        <div class="field">
+          <b-checkbox
+            v-model="form.opciones_quirurgicas.opciones"
+            native-value="LIMA-DA +PAC A CX"
+          >LIMA-DA +PAC A CX</b-checkbox>
+        </div>
+        <div class="field">
+          <b-checkbox
+            v-model="form.opciones_quirurgicas.opciones"
+            native-value="LIMA-DA + PAC A CX + PAC A DP"
+          >LIMA-DA + PAC A CX + PAC A DP</b-checkbox>
+        </div>
+        <div class="field">
+          <b-checkbox
+            v-model="form.opciones_quirurgicas.opciones"
+            native-value="LIMA-DA + PAC A CX + PAC A CD"
+          >LIMA-DA + PAC A CX + PAC A CD</b-checkbox>
+        </div>
+        <div class="field">
+          <b-checkbox
+            v-model="form.opciones_quirurgicas.opciones"
+            native-value="LIMA -DA + PAC A RI"
+          >LIMA -DA + PAC A RI</b-checkbox>
+        </div>
+        <div class="field">
+          <b-checkbox
+            v-model="form.opciones_quirurgicas.opciones"
+            native-value="LIMA-DA +RIMA A CD +PAC A CX"
+          >LIMA-DA +RIMA A CD +PAC A CX</b-checkbox>
+        </div>
+        <div class="field">
+          <b-checkbox
+            v-model="form.opciones_quirurgicas.opciones"
+            native-value="LIMA-DA +RIMA EN Y A CX + PAC A CD"
+          >LIMA-DA +RIMA EN Y A CX + PAC A CD</b-checkbox>
+        </div>
+        <div class="field">
+          <b-checkbox
+            v-model="form.opciones_quirurgicas.opciones"
+            native-value="PAC A ADA + PAC A CX"
+          >PAC A ADA + PAC A CX</b-checkbox>
+        </div>
+      </div>
+    </div>
+    <hr />
     <b-field grouped>
       <b-field label="Miectomia septal" expanded>
         <b-select v-model="form.miectomia_septal" placeholder="Miectomia septal" expanded>
@@ -273,8 +404,8 @@
       <b-switch v-model="form.pericardiectomia_anterior">{{ form.pericardiectomia_anterior | btm }}</b-switch>
     </b-field>
     <hr />
-    <h3>Complicaciones</h3>
-    <h4 class="subtitle is-4">Reintervención</h4>
+    <h4 class="subtitle is-4">Complicaciones</h4>
+    <h3>Reintervención</h3>
     <b-field grouped>
       <b-field label="Causa" expanded>
         <b-input
@@ -293,19 +424,20 @@
         />
       </b-field>
     </b-field>
-    <hr />
-    <h4 class="subtitle is-4">Derrame pericardico</h4>
-    <b-field expanded>
-      <b-select v-model="form.complicaciones.derrame_pericardico" placeholder="Tipo" expanded>
+    <b-field label="Derrame pericardico" expanded>
+      <b-select v-model="form.complicaciones.derrame_pericardico.tipo" placeholder="Tipo" expanded>
         <option :value="null">Ninguna</option>
         <option value="hematico">Hematico</option>
         <option value="inflamatorio">Inflamatorio</option>
-        <option value="neumotorax">Neumotorax</option>
       </b-select>
     </b-field>
-    <hr />
-    <h4 class="subtitle is-4">Accidente vascular cerebral</h4>
-    <b-field expanded>
+    <b-field label="Neumotorax" expanded>
+      <b-switch
+        expanded
+        v-model="form.complicaciones.derrame_pericardico.neumotorax"
+      >{{ form.complicaciones.derrame_pericardico.neumotorax | btm }}</b-switch>
+    </b-field>
+    <b-field label="Accidente vascular cerebral" expanded>
       <b-select
         v-model="form.complicaciones.accidente_vascular_cerebra"
         placeholder="Tipo"
@@ -316,16 +448,12 @@
         <option value="hemorragico">Hemorragico</option>
       </b-select>
     </b-field>
-    <hr />
-    <h4 class="subtitle is-4">Delirio y alucinaciones</h4>
-    <b-field>
+    <b-field label="Delirio y alucinaciones">
       <b-switch
         v-model="form.complicaciones.delirio_alucinaciones"
       >{{ form.complicaciones.delirio_alucinaciones | btm }}</b-switch>
     </b-field>
-    <hr />
-    <h4 class="subtitle is-4">Arritmias</h4>
-    <b-field>
+    <b-field label="Arritmias">
       <b-select v-model="form.complicaciones.arritmias" placeholder="Tipo" expanded>
         <option :value="null">Ninguna</option>
         <option value="fa">FA</option>
@@ -397,10 +525,17 @@
     </b-field>
     <hr />
     <h4 class="subtitle is-4">Dehiscencia Esternal</h4>
-    <b-field>
-      <b-field label="Tratamiento">
+    <b-field grouped>
+      <b-field label="Presente" expanded>
+        <b-switch
+          v-model="form.complicaciones.dehiscencia_esternal.presente"
+        >{{ form.complicaciones.dehiscencia_esternal.presente | btm }}</b-switch>
+      </b-field>
+      <b-field label="Tratamiento" expanded>
         <b-input
+          type="textarea"
           v-model="form.complicaciones.dehiscencia_esternal.tratamiento"
+          :disabled="!form.complicaciones.dehiscencia_esternal.presente"
           placeholder="Tratamiento"
           expanded
         />
@@ -408,19 +543,37 @@
     </b-field>
     <hr />
     <h4 class="subtitle is-4">Derrame pleural</h4>
-    <b-field label="Tipo">
-      <b-select v-model="form.complicaciones.derrame_pleural" placeholder="Tipo" expanded>
-        <option :value="null">Ninguna</option>
-        <option value="derecho">Derecho</option>
-        <option value="izquierdo">Izquierdo</option>
-        <option value="bilateral">Bilateral</option>
-      </b-select>
+    <b-field grouped>
+      <b-field label="Presente" expanded>
+        <b-switch
+          v-model="form.complicaciones.derrame_pleural.presente"
+        >{{ form.complicaciones.derrame_pleural.presente | btm }}</b-switch>
+      </b-field>
+      <b-field label="Tipo" expanded>
+        <b-select
+          v-model="form.complicaciones.derrame_pleural.tipo"
+          :disabled="!form.complicaciones.derrame_pleural.presente"
+          placeholder="Tipo"
+          expanded
+        >
+          <option :value="null">Ninguna</option>
+          <option value="derecho">Derecho</option>
+          <option value="izquierdo">Izquierdo</option>
+          <option value="bilateral">Bilateral</option>
+        </b-select>
+      </b-field>
     </b-field>
     <hr />
     <h4 class="subtitle is-4">Mediastinitis</h4>
+    <b-field label="Presente" expanded>
+      <b-switch
+        v-model="form.complicaciones.mediastinitis.presente"
+      >{{ form.complicaciones.mediastinitis.presente | btm }}</b-switch>
+    </b-field>
     <b-field grouped>
       <b-field label="Cultivo" expanded>
         <b-input
+          :disabled="!form.complicaciones.mediastinitis.presente"
           type="textarea"
           v-model="form.complicaciones.mediastinitis.cultivo"
           placeholder="Cultivo"
@@ -429,6 +582,7 @@
       </b-field>
       <b-field label="Hospitalización" expanded>
         <b-input
+          :disabled="!form.complicaciones.mediastinitis.presente"
           type="textarea"
           v-model="form.complicaciones.mediastinitis.hospitalizacion"
           placeholder="Hospitalización"
@@ -439,6 +593,7 @@
     <b-field grouped>
       <b-field label="Tiempo desde la cirugía" expanded>
         <b-input
+          :disabled="!form.complicaciones.mediastinitis.presente"
           type="textarea"
           v-model="form.complicaciones.mediastinitis.tiempo_desde_cirugia"
           placeholder="Tiempo desde la cirugía"
@@ -447,6 +602,7 @@
       </b-field>
       <b-field label="Tratamiento" expanded>
         <b-input
+          :disabled="!form.complicaciones.mediastinitis.presente"
           type="textarea"
           v-model="form.complicaciones.mediastinitis.tratamiento"
           placeholder="Tratamiento"
@@ -456,9 +612,15 @@
     </b-field>
     <hr />
     <h4 class="subtitle is-4">Endocarditis de válvula protesica</h4>
+    <b-field label="Presente" expanded>
+      <b-switch
+        v-model="form.complicaciones.endocarditis_valvula_protesica.presente"
+      >{{ form.complicaciones.endocarditis_valvula_protesica.presente | btm }}</b-switch>
+    </b-field>
     <b-field grouped>
       <b-field label="Precoz Tardía" expanded>
         <b-input
+          :disabled="!form.complicaciones.endocarditis_valvula_protesica.presente"
           type="textarea"
           v-model="form.complicaciones.endocarditis_valvula_protesica.precoz_tardia"
           placeholder="Precoz Tardía"
@@ -467,6 +629,7 @@
       </b-field>
       <b-field label="Tratamiento" expanded>
         <b-input
+          :disabled="!form.complicaciones.endocarditis_valvula_protesica.presente"
           type="textarea"
           v-model="form.complicaciones.endocarditis_valvula_protesica.tratamiento"
           placeholder="Tratamiento"
@@ -477,6 +640,7 @@
     <b-field grouped>
       <b-field label="Antibiotico" expanded>
         <b-input
+          :disabled="!form.complicaciones.endocarditis_valvula_protesica.presente"
           type="textarea"
           v-model="form.complicaciones.endocarditis_valvula_protesica.antibiotico"
           placeholder="Antibiotico"
@@ -485,6 +649,7 @@
       </b-field>
       <b-field label="Cultivo" expanded>
         <b-input
+          :disabled="!form.complicaciones.endocarditis_valvula_protesica.presente"
           type="textarea"
           v-model="form.complicaciones.endocarditis_valvula_protesica.cultivo"
           placeholder="Cultivo"
@@ -494,9 +659,25 @@
     </b-field>
     <hr />
     <h4 class="subtitle is-4">Muerte</h4>
+    <b-field label="Presente" expanded>
+      <b-switch
+        v-model="form.complicaciones.muerte.presente"
+      >{{ form.complicaciones.muerte.presente | btm }}</b-switch>
+    </b-field>
+    <b-field label="Fecha">
+      <b-datetimepicker
+        :disabled="!form.complicaciones.muerte.presente"
+        v-model="form.complicaciones.muerte.fecha"
+        :month-names="$monthNames"
+        :day-names="$dayNames"
+        :timepicker="{ enableSeconds: true, hourFormat: '12' }"
+        placeholder="Fecha de muerte"
+      />
+    </b-field>
     <b-field grouped>
       <b-field label="Causa" expanded>
         <b-input
+          :disabled="!form.complicaciones.muerte.presente"
           type="textarea"
           v-model="form.complicaciones.muerte.causa"
           placeholder="Causa"
@@ -505,6 +686,7 @@
       </b-field>
       <b-field label="Quirófano" expanded>
         <b-input
+          :disabled="!form.complicaciones.muerte.presente"
           type="textarea"
           v-model="form.complicaciones.muerte.quirofano"
           placeholder="Quirófano"
@@ -515,6 +697,7 @@
     <b-field grouped>
       <b-field label="UCO" expanded>
         <b-input
+          :disabled="!form.complicaciones.muerte.presente"
           type="textarea"
           v-model="form.complicaciones.muerte.uco"
           placeholder="UCO"
@@ -523,6 +706,7 @@
       </b-field>
       <b-field label="Hospitalización" expanded>
         <b-input
+          :disabled="!form.complicaciones.muerte.presente"
           type="textarea"
           v-model="form.complicaciones.muerte.hospitalizacion"
           placeholder="Hospitalización"
@@ -546,6 +730,7 @@ export default {
         redo: false,
         programada: null,
         urgencia: false,
+        emergencia: false,
         protesis_biologica: null,
         protesis_mecanica: null,
         valvula_mitral: {
@@ -554,6 +739,19 @@ export default {
           esternotomia: null,
           minimainvasiva: null,
           anuloplastia: null
+        },
+        revascularizacion_coronaria: {},
+        cirugia_bentall: {
+          presente: null,
+          tipo: null,
+          numero: null,
+          clase: null
+        },
+        conducto_safena_interna: {
+          conducto_safena_interna: null,
+          tipo: null,
+          tecnica: null,
+          arteria_radial: null
         },
         mixoma: null,
         cirugia_arco_aortico: {
@@ -575,12 +773,19 @@ export default {
           parche: null
         },
         pericardiectomia_anterior: false,
+        opciones_quirurgicas: {
+          lima_rima: null,
+          opciones: []
+        },
         complicaciones: {
           reintervencion: {
             causa: null,
             tiempo_despues: null
           },
-          derrame_pericardico: null,
+          derrame_pericardico: {
+            tipo: null,
+            neumotorax: null
+          },
           accidente_vascular_cerebra: null,
           delirio_alucinaciones: false,
           arritmias: null,
@@ -598,26 +803,34 @@ export default {
             hospitalizacion: null
           },
           dehiscencia_esternal: {
-            tratamiento: null
+            tratamiento: null,
+            presente: null
           },
-          derrame_pleural: null,
+          derrame_pleural: {
+            tipo: null,
+            presente: null
+          },
           mediastinitis: {
             cultivo: null,
             hospitalizacion: null,
             tiempo_desde_cirugia: null,
-            tratamiento: null
+            tratamiento: null,
+            presente: null
           },
           endocarditis_valvula_protesica: {
             precoz_tardia: null,
             tratamiento: null,
             antibiotico: null,
-            cultivo: null
+            cultivo: null,
+            presente: null
           },
           muerte: {
             causa: null,
             quirofano: null,
             uco: null,
-            Hospitalización: null
+            Hospitalización: null,
+            presente: null,
+            fecha: null
           }
         }
       }

@@ -27,28 +27,40 @@
         <b-input v-model="form.tiempo_cec_total" placeholder="Tiempo de CEC TOTAL" expanded />
       </b-field>
     </b-field>
+    <b-field label="Asistencia ventricular izquierda postoperatoria" expanded>
+      <b-select
+        v-model="form.asistencia_ventricular_izquierda_postoperatoria"
+        placeholder="Asistencia"
+        expanded
+      >
+        <option value="bcia">BCIA</option>
+        <option value="ecmo">ECMO</option>
+        <option :value="null">Ninguno</option>
+      </b-select>
+    </b-field>
+    <hr />
+    <h4 class="subtitle is-4">Cardioplegia</h4>
     <b-field grouped>
-      <b-field label="Cardioplegia" expanded>
+      <b-field expanded>
         <b-select v-model="form.cardioplegia" placeholder="Cardioplegia" expanded>
           <option value="raiz">Raiz</option>
           <option value="ostium">Ostium</option>
           <option value="retrograda">Retrograda</option>
-          <option value="fria">fria</option>
-          <option value="normotermica">Normotermica</option>
-          <option value="hematica">Hematica</option>
-          <option value="cristalode">Cristalode</option>
-          <option value="del_nido">Del Nido</option>
           <option :value="null">Ninguno</option>
         </b-select>
       </b-field>
-      <b-field label="Asistencia ventricular izquierda postoperatoria" expanded>
-        <b-select
-          v-model="form.asistencia_ventricular_izquierda_postoperatoria"
-          placeholder="Asistencia"
-          expanded
-        >
-          <option value="bcia">BCIA</option>
-          <option value="ecmo">ECMO</option>
+      <b-field expanded>
+        <b-select v-model="form.cardioplegia" placeholder="Cardioplegia" expanded>
+          <option value="fria">fria</option>
+          <option value="normotermica">Normotermica</option>
+          <option :value="null">Ninguno</option>
+        </b-select>
+      </b-field>
+      <b-field expanded>
+        <b-select v-model="form.cardioplegia" placeholder="Cardioplegia" expanded>
+          <option value="hematica">Hematica</option>
+          <option value="cristalode">Cristalode</option>
+          <option value="del_nido">Del Nido</option>
           <option :value="null">Ninguno</option>
         </b-select>
       </b-field>
@@ -76,10 +88,10 @@
     <hr />
     <h4 class="subtitle is-4">Tiempo de arresto circulatorio</h4>
     <b-field grouped>
-      <b-field label="Técnica Alpha" expanded>
+      <b-field label="Técnica de correción del PH" expanded>
         <b-select
-          v-model="form.tiempo_arresto_circulatorio.tecnica_alpha"
-          placeholder="Técnica Alpha"
+          v-model="form.tiempo_arresto_circulatorio.tecnica_correcion_ph"
+          placeholder="Técnica de correción del PH"
           expanded
         >
           <option value="stat">stat</option>
@@ -178,7 +190,7 @@ export default {
           venosa: null
         },
         tiempo_arresto_circulatorio: {
-          tecnica_alpha: null,
+          tecnica_correcion_ph: null,
           temperatura_descenso: null,
           tiempo_descenso: null,
           recalentamiento: null,
