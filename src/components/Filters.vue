@@ -1,19 +1,18 @@
 <template>
-  <div class="notification">
-    <div class="content">
-      <h3>Filtros</h3>
-      <b-select size="is-small" v-model="filters.primer_cirujano" placeholder="Primer Cirujano">
-        <option value="marcos">Marcos Durand</option>
-        <option value="felix">Felix Durand</option>
-        <option value="francisco">Francisco Durand</option>
-        <option :value="null">Ninguno</option>
-      </b-select>
-      <div class="options">
-        <div class="is-pulled-right">
-          <b-button size="is-small" class="button" @click="clean">Limpiar</b-button>
-        </div>
-      </div>
-    </div>
+  <div>
+    <b-select
+      size="is-small"
+      v-model="filters.primer_cirujano"
+      placeholder="Primer Cirujano"
+      rounded
+    >
+      <option
+        v-for="cirujano in cirujanos"
+        :value="cirujano.id"
+        :key="cirujano.id"
+      >{{ `${cirujano.user.first_name} ${cirujano.user.last_name}`}}</option>
+      <option :value="null">Ninguno</option>
+    </b-select>
   </div>
 </template>
 
@@ -23,7 +22,37 @@ export default {
     return {
       filters: {
         primer_cirujano: null
-      }
+      },
+      cirujanos: [
+        {
+          id: 11,
+          user: {
+            first_name: "Marcos",
+            last_name: "Durand"
+          }
+        },
+        {
+          id: 12,
+          user: {
+            first_name: "Felix",
+            last_name: "Durand"
+          }
+        },
+        {
+          id: 13,
+          user: {
+            first_name: "Francis",
+            last_name: "Durand"
+          }
+        },
+        {
+          id: 14,
+          user: {
+            first_name: "Francisco",
+            last_name: "Durand"
+          }
+        }
+      ]
     };
   },
   methods: {

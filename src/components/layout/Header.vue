@@ -1,32 +1,51 @@
 <template>
-  <b-navbar>
-    <template slot="brand">
-      <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        <img
-          src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png"
-          alt="Registro Medico"
-        />
-      </b-navbar-item>
-    </template>
-    <template slot="end">
-      <b-navbar-item tag="div" v-show="!isLogin()">
-        <div class="buttons">
-          <a class="button is-light" @click="logout">Log out</a>
-        </div>
-      </b-navbar-item>
-    </template>
-  </b-navbar>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" @click="$router.push({ name: 'Home' })">
+        <img src="/static/img/buefy-logo.png" alt="Registro" />
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-end" v-show="!isLogin()">
+        <b-dropdown position="is-bottom-left" aria-role="menu">
+          <a class="navbar-item" slot="trigger" role="button">
+            <span>Menu</span>
+            <b-icon icon="menu-down"></b-icon>
+          </a>
+          <b-dropdown-item custom aria-role="menuitem">
+            Logeado como
+            <b>{{ username }}</b>
+          </b-dropdown-item>
+          <hr class="dropdown-divider" aria-role="menuitem" />
+          <b-dropdown-item value="settings" @click="$router.push({ name: 'Configuraciones' })">
+            <b-icon icon="settings"></b-icon>Configuraciones
+          </b-dropdown-item>
+          <b-dropdown-item value="logout" aria-role="menuitem" @click="logout">
+            <b-icon icon="logout"></b-icon>Salir
+          </b-dropdown-item>
+        </b-dropdown>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
+import UserMixin from "@/mixins/userMixin.vue";
+
 export default {
+  mixins: [UserMixin],
+  data() {
+    return {
+      username: "Pepe"
+    };
+  },
   methods: {
-    logout() {
-      this.$router.push("/login");
-    },
     isLogin() {
       return this.$route.name === "Login";
     }
+  },
+  updated() {
+    this.username = this.getUserID().firstname;
   }
 };
 </script>

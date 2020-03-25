@@ -346,11 +346,11 @@
       </b-field>
     </b-field>
     <b-field grouped>
-      <b-field label="Dilatacionde orejuela izquierda" expanded>
+      <b-field label="Dilatacion de orejuela izquierda" expanded>
         <b-input
           type="textarea"
           v-model="form.dilatacionde_orejuela_izquierda"
-          placeholder="Dilatacionde orejuela izquierda"
+          placeholder="Dilatacion de orejuela izquierda"
           expanded
         />
       </b-field>
@@ -439,11 +439,11 @@
           expanded
         />
       </b-field>
-      <b-field label="ENGROSAMIENTO SEPTAL" expanded>
+      <b-field label="Engrosamiento septal" expanded>
         <b-input
           type="textarea"
           v-model="form.engrosamiento_septal"
-          placeholder="ENGROSAMIENTO SEPTAL"
+          placeholder="Engrosamiento septal"
           expanded
         />
       </b-field>

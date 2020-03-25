@@ -5,7 +5,6 @@
       <router-view class="view" />
     </div>
     <r-footer />
-    <b-loading :is-full-page="true" :active.sync="isLoading"></b-loading>
   </div>
 </template>
 
@@ -16,11 +15,6 @@ export default {
   components: {
     RHeader,
     RFooter
-  },
-  data() {
-    return {
-      isLoading: false
-    };
   }
 };
 </script>
@@ -31,6 +25,9 @@ export default {
 
 .padding-30
   padding: 30px
+
+.ml-10
+  margin-left: 10px
 
 .content-wrapper
   padding: 30px

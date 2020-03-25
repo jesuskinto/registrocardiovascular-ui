@@ -21,7 +21,7 @@
         />
       </b-field>
       <b-field label="Edad" expanded>
-        <b-input type="text" v-model="form.age" placeholder="Tu edad" disabled />
+        <b-input type="text" :value="form.birthdate | edad " placeholder="Tu edad" disabled />
       </b-field>
     </b-field>
     <b-field label="Cta. corriente">

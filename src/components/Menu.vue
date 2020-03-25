@@ -23,7 +23,7 @@
         tag="router-link"
         :active="$route.name === 'escocardiograma'"
         :to="{ name: 'escocardiograma'}"
-        label="Ecocardiograma transtoracico"
+        label="Ecocardiograma transtorácico"
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
@@ -45,9 +45,9 @@
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
-        :active="$route.name === 'protocolo-quirurgico'"
-        :to="{ name: 'protocolo-quirurgico'}"
-        label="Protocolo Quirurgico"
+        :active="$route.name === 'protocolos-quirurgicos'"
+        :to="{ name: 'protocolos-quirurgicos'}"
+        label="Protocolos Quirurgicos"
       ></b-menu-item>
     </b-menu-list>
   </b-menu>

@@ -1,11 +1,24 @@
 <template>
   <div class="card">
     <section>
-      <b-field label="Usuario">
-        <b-input v-model="username"></b-input>
+      <b-field label="Correo" :type="email.type" :message="email.message">
+        <b-input
+          v-model="form.email"
+          type="email"
+          icon="email"
+          placeholder="tucorreo@email.com"
+          maxlength="30"
+        ></b-input>
       </b-field>
-      <b-field label="Contraseña">
-        <b-input v-model="password" type="password"></b-input>
+      <b-field label="Contraseña" :type="password.type" :message="password.message">
+        <b-input
+          v-model="form.password"
+          type="password"
+          icon="key"
+          placeholder="*********"
+          password-reveal
+          v-on:keyup.native.enter="login"
+        ></b-input>
       </b-field>
       <b-button @click="login">Iniciar</b-button>
     </section>
@@ -13,17 +26,38 @@
 </template>
 
 <script>
+import Rest from "@/services/rest";
+
 export default {
   data() {
     return {
-      hasError: true,
-      username: "",
-      password: ""
+      email: {
+        type: null,
+        message: null
+      },
+      password: {
+        type: null,
+        message: null
+      },
+      form: {
+        email: "",
+        password: ""
+      }
     };
   },
   methods: {
-    login() {
-      this.$router.push("/");
+    async login() {
+      const loading = this.$buefy.loading.open();
+      try {
+        const res = await Rest.post("auth", this.form);
+        sessionStorage.setItem("token", res.data.token);
+        loading.close();
+        this.$success(res.data && res.data.message);
+        this.$router.push("/");
+      } catch ({ response: res }) {
+        this.$danger(res.data && res.data.message);
+        loading.close();
+      }
     }
   }
 };
@@ -35,4 +69,5 @@ export default {
     width: 400px
     margin: 0 auto
     margin-top: 18vh
+    margin-bottom: 18vh
 </style>

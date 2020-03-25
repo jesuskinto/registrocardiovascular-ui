@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Formulario from "../views/Formulario.vue";
+import Configuraciones from "../views/Configuraciones.vue";
 import RBasicForm from "@/components/forms/BasicForm.vue";
 import RAppForm from "@/components/forms/APPForm.vue";
 import RCoronografiaForm from "@/components/forms/CoronografiaForm.vue";
@@ -9,7 +10,7 @@ import REscocardiogramaForm from "@/components/forms/EscocardiogramaForm.vue";
 import RCirugiaCardiacaForm from "@/components/forms/CirugiaCardiacaForm.vue";
 import RCirculacionExtracorporeaForm from "@/components/forms/CirculacionExtracorporeaForm.vue";
 import ROtrosForm from "@/components/forms/OtrosForm.vue";
-import RProtocoloQuirugicoForm from "@/components/forms/ProtocoloQuirugicoForm.vue";
+import RProtocolosQuirugicos from "@/components/ProtocolosQuirugicos.vue";
 import Login from "../views/Login.vue";
 
 Vue.use(VueRouter);
@@ -61,9 +62,9 @@ const routes = [
         component: ROtrosForm
       },
       {
-        path: "protocolo-quirurgico",
-        name: "protocolo-quirurgico",
-        component: RProtocoloQuirugicoForm
+        path: "protocolos-quirurgicos",
+        name: "protocolos-quirurgicos",
+        component: RProtocolosQuirugicos
       }
     ]
   },
@@ -71,6 +72,11 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login
+  },
+  {
+    path: "/configuraciones",
+    name: "Configuraciones",
+    component: Configuraciones
   },
   {
     path: "*",
@@ -81,6 +87,17 @@ const routes = [
 
 const router = new VueRouter({
   routes
+});
+
+async function isAuthenticated() {
+  return await sessionStorage.getItem("token");
+}
+
+router.beforeEach(async (to, from, next) => {
+  const auth = await isAuthenticated();
+  if (to.name !== "Login" && !auth) return next({ name: "Login" });
+  if (to.name === "Login" && auth) return next({ name: "Home" });
+  return next();
 });
 
 export default router;

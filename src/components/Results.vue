@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="columns is-mobile is-multiline">
-      <div class="column is-6-mobile is-4-tablet is-3-desktop" v-for="a in results" :key="a">
-        <div class="card">Hola Mundo</div>
-      </div>
+      <r-result v-for="a in results" :key="a" />
     </div>
     <div v-show="results.length === 0">
       <div class="notification">
@@ -38,7 +36,12 @@
 </template>
 
 <script>
+import RResult from "@/components/Result.vue";
+
 export default {
+  components: {
+    RResult
+  },
   data() {
     return {
       results: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],

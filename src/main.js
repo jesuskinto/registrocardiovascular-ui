@@ -15,7 +15,13 @@ import {
   Checkbox,
   Clockpicker,
   Collapse,
-  Loading
+  Loading,
+  Dropdown,
+  Icon,
+  Tabs,
+  Table,
+  Taginput,
+  Toast
 } from "buefy";
 import "buefy/dist/buefy.css";
 
@@ -23,6 +29,7 @@ import App from "@/App.vue";
 import "@/registerServiceWorker";
 import router from "@/router";
 import booleanToHumman from "@/filters/booleanToHumman";
+import age from "@/filters/age";
 
 Vue.use(Button);
 Vue.use(Input);
@@ -40,7 +47,14 @@ Vue.use(Clockpicker);
 Vue.use(Datetimepicker);
 Vue.use(Collapse);
 Vue.use(Loading);
+Vue.use(Dropdown);
+Vue.use(Icon);
+Vue.use(Tabs);
+Vue.use(Table);
+Vue.use(Taginput);
+Vue.use(Toast);
 Vue.use(booleanToHumman);
+Vue.use(age);
 Vue.config.productionTip = false;
 
 Vue.prototype.$monthNames = [
@@ -59,6 +73,24 @@ Vue.prototype.$monthNames = [
 ];
 
 Vue.prototype.$dayNames = ["Do", "L", "Ma", "Mi", "Ju", "Vi", "Sa"];
+
+Vue.prototype.$danger = function (message) {
+  Vue.prototype.$buefy.toast.open({
+    duration: 2000,
+    message: message,
+    position: "is-top-right",
+    type: "is-danger"
+  });
+};
+
+Vue.prototype.$success = function (message) {
+  Vue.prototype.$buefy.toast.open({
+    duration: 2000,
+    message: message,
+    position: "is-top-right",
+    type: "is-success"
+  });
+};
 
 new Vue({
   router,

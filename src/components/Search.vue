@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import RBasicRegistration from "@/components/modals/BasicRegistration";
+import RBasicRegistration from "@/components/modals/BasicRegistrationModal";
 import RFilters from "@/components/Filters";
 
 export default {
