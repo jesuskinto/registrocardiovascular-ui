@@ -5,28 +5,28 @@
         <p class="modal-card-title">Registro</p>
       </header>
       <section class="modal-card-body">
-        <r-cirujano-form :modal="true" :id="id" />
+        <r-surgeon-form :modal="true" :id="id" :newU="newU" v-on:close-modal="$parent.close()" />
       </section>
-      <footer class="modal-card-foot">
-        <button class="button" type="button" @click="$parent.close()">Cancelar</button>
-        <button class="button is-primary" @click="$parent.close()">Crear</button>
-      </footer>
     </div>
   </form>
 </template>
 
 <script>
-import RCirujanoForm from "@/components/forms/CirujanoForm.vue";
+import RSurgeonForm from "@/components/forms/SurgeonForm.vue";
 
 export default {
   props: {
     id: {
       default: null,
-      type: Number
+      type: String
+    },
+    newU: {
+      default: false,
+      type: Boolean
     }
   },
   components: {
-    RCirujanoForm
+    RSurgeonForm
   }
 };
 </script>

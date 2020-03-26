@@ -4,8 +4,8 @@
     <hr />
     <b-table :data="users" v-if="users.length">
       <template slot-scope="props">
-        <b-table-column field="firstname" label="Nombre">{{ props.row.firstname }}</b-table-column>
-        <b-table-column field="lastname" label="Apellido">{{ props.row.lastname }}</b-table-column>
+        <b-table-column field="firstname" label="Nombres">{{ props.row.firstname }}</b-table-column>
+        <b-table-column field="lastname" label="Apellidos">{{ props.row.lastname }}</b-table-column>
         <b-table-column field="email" label="Correo">{{ props.row.email }}</b-table-column>
         <b-table-column field="edit">
           <b-button class="is-small ml-10" @click="newUser({ id: props.row._id})">Editar</b-button>
@@ -46,11 +46,15 @@ export default {
       });
     },
     async removeUser(id) {
+      const loading = this.$buefy.loading.open();
       try {
         await Rest.delete(`users/${id}`);
         this.getData();
-      } catch (err) {
-        console.log(err);
+        this.$success("Usuario eliminado");
+        loading.close();
+      } catch ({ response: res }) {
+        this.$danger(res.data && res.data.message);
+        loading.close();
       }
     },
     async getData() {

@@ -1,63 +1,31 @@
 <template>
   <div>
-    <b-select
-      size="is-small"
-      v-model="filters.primer_cirujano"
-      placeholder="Primer Cirujano"
-      rounded
-    >
+    <b-select size="is-small" v-model="filters.firstSurgeon" placeholder="Primer Cirujano" rounded>
       <option
-        v-for="cirujano in cirujanos"
-        :value="cirujano.id"
-        :key="cirujano.id"
-      >{{ `${cirujano.user.first_name} ${cirujano.user.last_name}`}}</option>
+        v-for="surgeon in surgeons"
+        :value="surgeon._id"
+        :key="surgeon._id"
+      >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
       <option :value="null">Ninguno</option>
     </b-select>
   </div>
 </template>
 
 <script>
+import surgeonMixin from "@/mixins/surgeonMixin.vue";
+
 export default {
+  mixins: [surgeonMixin],
   data() {
     return {
       filters: {
-        primer_cirujano: null
-      },
-      cirujanos: [
-        {
-          id: 11,
-          user: {
-            first_name: "Marcos",
-            last_name: "Durand"
-          }
-        },
-        {
-          id: 12,
-          user: {
-            first_name: "Felix",
-            last_name: "Durand"
-          }
-        },
-        {
-          id: 13,
-          user: {
-            first_name: "Francis",
-            last_name: "Durand"
-          }
-        },
-        {
-          id: 14,
-          user: {
-            first_name: "Francisco",
-            last_name: "Durand"
-          }
-        }
-      ]
+        firstSurgeon: null
+      }
     };
   },
   methods: {
     clean() {
-      this.filters.primer_cirujano = null;
+      this.filters.firstSurgeon = null;
     }
   }
 };

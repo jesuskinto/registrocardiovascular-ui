@@ -2,7 +2,7 @@
   <div class="column is-12-mobile is-6-tablet is-4-desktop">
     <div class="notification" @click="openResult">
       <div class="content">
-        <h3>No hay resultados</h3>
+        <h3>Pedro Perez</h3>
         <p>
           Intente ampliar su criterio de busqueda o
           <br />registre al paciente

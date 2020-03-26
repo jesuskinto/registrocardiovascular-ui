@@ -7,7 +7,7 @@
         </div>
       </b-tab-item>
       <b-tab-item label="Cirujanos">
-        <r-cirujanos-setting></r-cirujanos-setting>
+        <r-surgeons-setting></r-surgeons-setting>
       </b-tab-item>
       <b-tab-item label="Usuarios" v-if="isAdmin()">
         <r-user-setting></r-user-setting>
@@ -19,7 +19,7 @@
 <script>
 import RUserForm from "@/components/forms/UserForm.vue";
 import RUserSetting from "@/components/settings/UserSetting.vue";
-import RCirujanosSetting from "@/components/settings/CirujanosSetting.vue";
+import RSurgeonsSetting from "@/components/settings/SurgeonsSetting.vue";
 import UserMixin from "@/mixins/userMixin.vue";
 
 export default {
@@ -27,7 +27,7 @@ export default {
   components: {
     RUserForm,
     RUserSetting,
-    RCirujanosSetting
+    RSurgeonsSetting
   },
   data() {
     return {

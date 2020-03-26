@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="columns is-multiline">
-      <div class="column" slot="trigger">
+    <div class="columns is-mobile is-multiline">
+      <div class="column is-10-mobile is-10-tablet is-10-desktop" slot="trigger">
         <b-field>
           <b-input placeholder="Buscar..." type="search" icon="magnify" rounded expanded></b-input>
           <p class="control">
@@ -17,8 +17,8 @@
           </p>
         </b-field>
       </div>
-      <div class="column is-narrow">
-        <b-button class="button is-primary" rounded @click="newClient">Nuevo</b-button>
+      <div class="column is-2-mobile is-2-tablet is-2-desktop">
+        <b-button class="button is-primary" rounded expanded @click="newClient">Nuevo</b-button>
       </div>
       <div class="column is-full">
         <b-collapse aria-id="filter" :open.sync="showFilter">

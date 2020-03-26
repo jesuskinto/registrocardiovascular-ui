@@ -1,34 +1,56 @@
 <template>
   <div class="card">
     <section>
-      <b-field label="Correo" :type="email.type" :message="email.message">
-        <b-input
-          v-model="form.email"
-          type="email"
-          icon="email"
-          placeholder="tucorreo@email.com"
-          maxlength="30"
-        ></b-input>
-      </b-field>
-      <b-field label="Contraseña" :type="password.type" :message="password.message">
-        <b-input
-          v-model="form.password"
-          type="password"
-          icon="key"
-          placeholder="*********"
-          password-reveal
-          v-on:keyup.native.enter="login"
-        ></b-input>
-      </b-field>
-      <b-button @click="login">Iniciar</b-button>
+      <ValidationObserver v-slot="{ invalid }">
+        <ValidationProvider rules="required|email" v-slot="{ errors }">
+          <b-field label="Correo" :type="errors[0] && 'is-danger'" :message="errors[0]">
+            <b-input
+              v-model="form.email"
+              type="text"
+              icon="email"
+              placeholder="tucorreo@email.com"
+              maxlength="30"
+            ></b-input>
+          </b-field>
+        </ValidationProvider>
+        <ValidationProvider rules="required" v-slot="{ errors }">
+          <b-field label="Contraseña" :type="errors[0] && 'is-danger'" :message="errors[0]">
+            <b-input
+              v-model="form.password"
+              type="password"
+              icon="key"
+              placeholder="*********"
+              password-reveal
+              v-on:keyup.native.enter="login"
+            ></b-input>
+          </b-field>
+        </ValidationProvider>
+        <b-button class="mt-15" @click="login" :disabled="invalid || !form.email">Iniciar</b-button>
+      </ValidationObserver>
     </section>
   </div>
 </template>
 
 <script>
 import Rest from "@/services/rest";
+import { ValidationProvider, ValidationObserver, extend } from "vee-validate";
+import { email, required } from "vee-validate/dist/rules";
+
+extend("email", {
+  ...email,
+  message: "El correo no es valido"
+});
+
+extend("required", {
+  ...required,
+  message: "El campo es requerido"
+});
 
 export default {
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
   data() {
     return {
       email: {

@@ -29,6 +29,12 @@ export default {
 .ml-10
   margin-left: 10px
 
+.mr-12
+  margin-right: 12px
+
+.mt-15
+  margin-top: 15px
+
 .content-wrapper
   padding: 30px
 
