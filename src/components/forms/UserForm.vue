@@ -62,33 +62,10 @@
 </template>
 
 <script>
-import { ValidationProvider, ValidationObserver, extend } from "vee-validate";
-import { confirmed, email, required } from "vee-validate/dist/rules";
-import Rest from "@/services/rest";
-import UserMixin from "@/mixins/userMixin.vue";
 import formMixin from "@/mixins/formMixin.vue";
 
-extend("confirmed", {
-  ...confirmed,
-  message: "La constraseña no coincide"
-});
-
-extend("email", {
-  ...email,
-  message: "El correo no es valido"
-});
-
-extend("required", {
-  ...required,
-  message: "El campo es requerido"
-});
-
 export default {
-  mixins: [UserMixin, formMixin],
-  components: {
-    ValidationProvider,
-    ValidationObserver
-  },
+  mixins: [formMixin],
   props: {
     modal: {
       type: Boolean,
@@ -111,61 +88,21 @@ export default {
         email: null,
         password: null
       },
-      confirmation: null
+      confirmation: null,
+      url: "users"
     };
   },
   methods: {
-    async getData() {
-      if (this.newU) return;
-      const loading = this.$buefy.loading.open();
-      try {
-        const url = `users/${this.id ? this.id : this.getUserID()._id}`;
-        const res = await Rest.get(url);
-        const { firstname, lastname, email } = res.data.data;
-        this.form.firstname = firstname;
-        this.form.lastname = lastname;
-        this.form.email = email;
-        loading.close();
-      } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
-        loading.close();
-      }
-    },
-    async update() {
-      const loading = this.$buefy.loading.open();
-      try {
-        const payload = this.cleanPayload();
-        const url = `users/${this.id ? this.id : this.getUserID()._id}`;
-        await Rest.patch(url, payload);
-        this.$success("Información actualizada!");
-        loading.close();
-        this.$emit("close-modal");
-      } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
-        loading.close();
-      }
-    },
-    async create() {
-      const loading = this.$buefy.loading.open();
-      try {
-        const payload = this.cleanPayload();
-        await Rest.post(`users`, payload);
-        this.$success("Usuario creado!");
-        loading.close();
-        this.$emit("close-modal");
-      } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
-        loading.close();
-      }
+    setData({ firstname, lastname, email }) {
+      this.form.firstname = firstname;
+      this.form.lastname = lastname;
+      this.form.email = email;
     },
     cleanPayload() {
       const payload = { ...this.form };
       if (!payload.password) delete payload.password;
       return payload;
     }
-  },
-  mounted() {
-    this.getData();
   }
 };
 </script>

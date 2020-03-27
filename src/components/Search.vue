@@ -48,7 +48,8 @@ export default {
         parent: this,
         component: RBasicRegistration,
         hasModalCard: true,
-        trapFocus: true
+        trapFocus: true,
+        props: { newU: true }
       });
     }
   }

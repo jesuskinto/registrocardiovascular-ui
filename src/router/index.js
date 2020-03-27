@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Formulario from "../views/Formulario.vue";
-import Configuraciones from "../views/Configuraciones.vue";
+import Settings from "../views/Settings.vue";
 import RBasicForm from "@/components/forms/BasicForm.vue";
 import RAppForm from "@/components/forms/APPForm.vue";
 import RCoronografiaForm from "@/components/forms/CoronografiaForm.vue";
@@ -22,7 +22,7 @@ const routes = [
     component: Home
   },
   {
-    path: "/formulario",
+    path: "/formulario/:id",
     name: "Formulario",
     component: Formulario,
     children: [
@@ -74,9 +74,9 @@ const routes = [
     component: Login
   },
   {
-    path: "/configuraciones",
-    name: "Configuraciones",
-    component: Configuraciones
+    path: "/settings",
+    name: "Settings",
+    component: Settings
   },
   {
     path: "*",

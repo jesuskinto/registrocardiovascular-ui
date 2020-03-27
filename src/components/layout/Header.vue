@@ -17,7 +17,7 @@
             <b>{{ username }}</b>
           </b-dropdown-item>
           <hr class="dropdown-divider" aria-role="menuitem" />
-          <b-dropdown-item value="settings" @click="$router.push({ name: 'Configuraciones' })">
+          <b-dropdown-item value="settings" @click="$router.push({ name: 'Settings' })">
             <b-icon icon="settings"></b-icon>Configuraciones
           </b-dropdown-item>
           <b-dropdown-item value="logout" aria-role="menuitem" @click="logout">

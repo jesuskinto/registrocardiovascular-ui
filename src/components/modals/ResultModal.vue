@@ -2,13 +2,8 @@
   <form action>
     <div class="modal-card">
       <div class="notification">
-        <div class="content">
-          <h3>No hay resultados</h3>
-          <p>
-            Intente ampliar su criterio de busqueda o
-            <br />registre al paciente
-          </p>
-        </div>
+        <div class="content">{{ id }}</div>
+        <b-button type="is-primary" class="is-small" @click="edit">Editar</b-button>
       </div>
     </div>
   </form>
@@ -19,7 +14,13 @@ export default {
   props: {
     id: {
       default: null,
-      type: Number
+      type: String
+    }
+  },
+  methods: {
+    edit() {
+      this.$router.push(`formulario/${this.id}/basic`);
+      this.$parent.close();
     }
   }
 };

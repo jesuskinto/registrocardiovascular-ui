@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="columns is-mobile is-multiline">
-      <r-result v-for="a in results" :key="a" />
+      <r-result v-for="result in results" :key="result._id" :data="result" />
     </div>
     <div v-show="results.length === 0">
       <div class="notification">
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import Rest from "@/services/rest";
 import RResult from "@/components/Result.vue";
 
 export default {
@@ -44,7 +45,7 @@ export default {
   },
   data() {
     return {
-      results: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+      results: [],
       pagination: {
         total: 200,
         current: 10,
@@ -59,6 +60,22 @@ export default {
         nextIcon: "chevron-right"
       }
     };
+  },
+  methods: {
+    async getData() {
+      const loading = this.$buefy.loading.open();
+      try {
+        const res = await Rest.get("patients");
+        this.results = res.data.data;
+        loading.close();
+      } catch ({ response: res }) {
+        this.$danger(res.data && res.data.message);
+        loading.close();
+      }
+    }
+  },
+  mounted() {
+    this.getData();
   }
 };
 </script>

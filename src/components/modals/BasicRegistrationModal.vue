@@ -5,12 +5,8 @@
         <p class="modal-card-title">Registro</p>
       </header>
       <section class="modal-card-body">
-        <r-basic-form />
+        <r-basic-form :modal="true" :id="id" :newU="newU" v-on:close-modal="$parent.close()" />
       </section>
-      <footer class="modal-card-foot">
-        <button class="button" type="button" @click="$parent.close()">Cancelar</button>
-        <button class="button is-primary" @click="makeClient">Crear</button>
-      </footer>
     </div>
   </form>
 </template>
@@ -19,14 +15,18 @@
 import RBasicForm from "@/components/forms/BasicForm.vue";
 
 export default {
+  props: {
+    id: {
+      default: null,
+      type: String
+    },
+    newU: {
+      default: false,
+      type: Boolean
+    }
+  },
   components: {
     RBasicForm
-  },
-  methods: {
-    makeClient() {
-      this.$parent.close();
-      this.$router.push({ name: "app" });
-    }
   }
 };
 </script>

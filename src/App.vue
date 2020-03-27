@@ -35,6 +35,9 @@ export default {
 .mt-15
   margin-top: 15px
 
+.mb-20
+  margin-bottom: 20px
+
 .content-wrapper
   padding: 30px
 

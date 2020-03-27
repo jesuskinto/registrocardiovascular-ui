@@ -3,7 +3,7 @@
     <b-tabs v-model="activeTab">
       <b-tab-item label="Perfil">
         <div class="user-form">
-          <r-user-form></r-user-form>
+          <r-user-form :id="this.getUserID()._id"></r-user-form>
         </div>
       </b-tab-item>
       <b-tab-item label="Cirujanos">

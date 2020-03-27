@@ -1,13 +1,26 @@
 <template>
   <div>
-    <b-select size="is-small" v-model="filters.firstSurgeon" placeholder="Primer Cirujano" rounded>
-      <option
-        v-for="surgeon in surgeons"
-        :value="surgeon._id"
-        :key="surgeon._id"
-      >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
-      <option :value="null">Ninguno</option>
-    </b-select>
+    <b-field grouped>
+      <b-select
+        size="is-small"
+        v-model="filters.firstSurgeon"
+        placeholder="Primer Cirujano"
+        rounded
+      >
+        <option
+          v-for="surgeon in surgeons"
+          :value="surgeon._id"
+          :key="surgeon._id"
+        >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
+        <option :value="null">Ninguno</option>
+      </b-select>
+      <b-button
+        size="is-small"
+        rounded
+        @click="newSurgeon({ newU: true })"
+        icon-right="account-plus"
+      ></b-button>
+    </b-field>
   </div>
 </template>
 

@@ -20,29 +20,16 @@
 </template>
 
 <script>
-import RSurgeonModal from "@/components/modals/SurgeonModal.vue";
 import surgeonMixin from "@/mixins/surgeonMixin.vue";
 import Rest from "@/services/rest";
 
 export default {
   mixins: [surgeonMixin],
   methods: {
-    newSurgeon({ id = null, newU = false }) {
-      const modal = this.$buefy.modal.open({
-        parent: this,
-        component: RSurgeonModal,
-        hasModalCard: true,
-        trapFocus: true,
-        props: { id, newU }
-      });
-      modal.$on("close", () => {
-        this.getData();
-      });
-    },
     async removeSurgeon(id) {
       const loading = this.$buefy.loading.open();
       try {
-        await Rest.delete(`surgeon/${id}`);
+        await Rest.delete(`surgeons/${id}`);
         this.getData();
         this.$success("Cirujano eliminado");
         loading.close();
