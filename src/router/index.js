@@ -4,13 +4,13 @@ import Home from "../views/Home.vue";
 import Formulario from "../views/Formulario.vue";
 import Settings from "../views/Settings.vue";
 import RBasicForm from "@/components/forms/BasicForm.vue";
-import RAppForm from "@/components/forms/APPForm.vue";
-import RCoronografiaForm from "@/components/forms/CoronografiaForm.vue";
-import REscocardiogramaForm from "@/components/forms/EscocardiogramaForm.vue";
-import RCirugiaCardiacaForm from "@/components/forms/CirugiaCardiacaForm.vue";
-import RCirculacionExtracorporeaForm from "@/components/forms/CirculacionExtracorporeaForm.vue";
-import ROtrosForm from "@/components/forms/OtrosForm.vue";
-import RProtocolosQuirugicos from "@/components/ProtocolosQuirugicos.vue";
+import RPPHForm from "@/components/forms/PPHForm.vue";
+import RCoronaryAngiographyForm from "@/components/forms/CoronaryAngiographyForm.vue";
+import RTransthoracicEchocardiogramForm from "@/components/forms/TransthoracicEchocardiogramForm.vue";
+import RHeartSurgeryForm from "@/components/forms/HeartSurgeryForm.vue";
+import RExtracorporealCirculationForm from "@/components/forms/ExtracorporealCirculationForm.vue";
+import ROthersForm from "@/components/forms/OthersForm.vue";
+import SurgicalProtocols from "@/components/SurgicalProtocols.vue";
 import Login from "../views/Login.vue";
 
 Vue.use(VueRouter);
@@ -22,7 +22,7 @@ const routes = [
     component: Home
   },
   {
-    path: "/formulario/:id",
+    path: "/form/:id",
     name: "Formulario",
     component: Formulario,
     children: [
@@ -32,39 +32,39 @@ const routes = [
         component: RBasicForm
       },
       {
-        path: "app",
-        name: "app",
-        component: RAppForm
+        path: "pph",
+        name: "pph",
+        component: RPPHForm
       },
       {
-        path: "coronografia",
-        name: "coronografia",
-        component: RCoronografiaForm
+        path: "coronary-angiography",
+        name: "coronary-angiography",
+        component: RCoronaryAngiographyForm
       },
       {
-        path: "escocardiograma",
-        name: "escocardiograma",
-        component: REscocardiogramaForm
+        path: "transthoracic-echocardiogram",
+        name: "transthoracic-echocardiogram",
+        component: RTransthoracicEchocardiogramForm
       },
       {
-        path: "cirugia-cardiaca",
-        name: "cirugia-cardiaca",
-        component: RCirugiaCardiacaForm
+        path: "heart-surgery",
+        name: "heart-surgery",
+        component: RHeartSurgeryForm
       },
       {
-        path: "circulacion-extracorporea",
-        name: "circulacion-extracorporea",
-        component: RCirculacionExtracorporeaForm
+        path: "extracorporeal-circulation",
+        name: "extracorporeal-circulation",
+        component: RExtracorporealCirculationForm
       },
       {
-        path: "otros",
-        name: "otros",
-        component: ROtrosForm
+        path: "others",
+        name: "others",
+        component: ROthersForm
       },
       {
-        path: "protocolos-quirurgicos",
-        name: "protocolos-quirurgicos",
-        component: RProtocolosQuirugicos
+        path: "surgical-protocols",
+        name: "surgical-protocols",
+        component: SurgicalProtocols
       }
     ]
   },

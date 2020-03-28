@@ -3,7 +3,7 @@
     <ValidationObserver ref="form">
       <ValidationProvider rules="required" v-slot="{ errors }">
         <b-field label="RUT" :type="errors[0] && 'is-danger'" :message="errors[0]">
-          <b-input type="text" v-model="form.rut" placeholder="RUT" />
+          <b-input type="number" v-model="form.rut" placeholder="RUT" />
         </b-field>
       </ValidationProvider>
       <b-field grouped>
@@ -28,7 +28,7 @@
           />
         </b-field>
         <b-field label="Edad" expanded>
-          <b-input type="text" :value="form.birthdate | edad " placeholder="Tu edad" disabled />
+          <b-input type="text" :value="form.birthdate | age " placeholder="Tu edad" disabled />
         </b-field>
       </b-field>
       <b-field label="Cta. corriente">
@@ -96,14 +96,14 @@ export default {
   },
   methods: {
     setData(data) {
-      let birthdate;
-      if (data.birthdate) {
-        birthdate = new Date(data.birthdate);
-        delete data.birthdate;
-      }
       delete data._id;
-      this.form = data;
-      this.form.birthdate = birthdate;
+      for (let d in data) {
+        if (d === "birthdate") {
+          this.form[d] = new Date(data[d]);
+          continue;
+        }
+        this.form[d] = data[d];
+      }
     }
   }
 };

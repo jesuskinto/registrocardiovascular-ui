@@ -9,44 +9,44 @@
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
-        :active="$route.name === 'app'"
-        :to="{ name: 'app'}"
+        :active="$route.name === 'pph'"
+        :to="{ name: 'pph'}"
         label="Antecedentes personales patologicos"
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
-        :active="$route.name === 'coronografia'"
-        :to="{ name: 'coronografia'}"
+        :active="$route.name === 'coronary-angiography'"
+        :to="{ name: 'coronary-angiography'}"
         label="Coronariografia"
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
-        :active="$route.name === 'escocardiograma'"
-        :to="{ name: 'escocardiograma'}"
+        :active="$route.name === 'transthoracic-echocardiogram'"
+        :to="{ name: 'transthoracic-echocardiogram'}"
         label="Ecocardiograma transtorácico"
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
-        :active="$route.name === 'cirugia-cardiaca'"
-        :to="{ name: 'cirugia-cardiaca'}"
+        :active="$route.name === 'heart-surgery'"
+        :to="{ name: 'heart-surgery'}"
         label="Cirugía cardiaca"
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
-        :active="$route.name === 'circulacion-extracorporea'"
-        :to="{ name: 'circulacion-extracorporea'}"
+        :active="$route.name === 'extracorporeal-circulation'"
+        :to="{ name: 'extracorporeal-circulation'}"
         label="Circulación extracorporea"
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
-        :active="$route.name === 'otros'"
-        :to="{ name: 'otros'}"
+        :active="$route.name === 'others'"
+        :to="{ name: 'others'}"
         label="Otros"
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
-        :active="$route.name === 'protocolos-quirurgicos'"
-        :to="{ name: 'protocolos-quirurgicos'}"
+        :active="$route.name === 'surgical-protocols'"
+        :to="{ name: 'surgical-protocols'}"
         label="Protocolos Quirurgicos"
       ></b-menu-item>
     </b-menu-list>

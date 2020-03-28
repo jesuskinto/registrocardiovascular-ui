@@ -53,7 +53,7 @@ export default {
         this.$success("Usuario eliminado");
         loading.close();
       } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
+        this.$danger((res && res.data) ? res.data.message : "Server Error");
         loading.close();
       }
     },
@@ -63,7 +63,7 @@ export default {
         const users = res.data.data;
         this.users = users.filter(user => user._id !== this.getUserID()._id);
       } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
+        this.$danger((res && res.data) ? res.data.message : "Server Error");
       }
     }
   },

@@ -29,6 +29,7 @@ import App from "@/App.vue";
 import "@/registerServiceWorker";
 import router from "@/router";
 import booleanToHumman from "@/filters/booleanToHumman";
+import arrayToString from "@/filters/arrayToString";
 import age from "@/filters/age";
 
 Vue.use(Button);
@@ -54,6 +55,7 @@ Vue.use(Table);
 Vue.use(Taginput);
 Vue.use(Toast);
 Vue.use(booleanToHumman);
+Vue.use(arrayToString);
 Vue.use(age);
 Vue.config.productionTip = false;
 

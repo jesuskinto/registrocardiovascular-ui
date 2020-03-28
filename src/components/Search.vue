@@ -3,7 +3,15 @@
     <div class="columns is-mobile is-multiline">
       <div class="column is-10-mobile is-10-tablet is-10-desktop" slot="trigger">
         <b-field>
-          <b-input placeholder="Buscar..." type="search" icon="magnify" rounded expanded></b-input>
+          <b-input
+            v-model="text"
+            placeholder="Buscar..."
+            type="search"
+            icon="magnify"
+            v-on:keyup.native.enter="search"
+            rounded
+            expanded
+          ></b-input>
           <p class="control">
             <b-button
               class="button is-warning"
@@ -13,7 +21,7 @@
             >Filtros</b-button>
           </p>
           <p class="control">
-            <b-button class="button is-primary" rounded>Buscar</b-button>
+            <b-button class="button is-primary" rounded @click="search">Buscar</b-button>
           </p>
         </b-field>
       </div>
@@ -39,10 +47,14 @@ export default {
   },
   data() {
     return {
-      showFilter: false
+      showFilter: false,
+      text: null
     };
   },
   methods: {
+    search() {
+      this.$emit("search", this.text);
+    },
     newClient() {
       this.$buefy.modal.open({
         parent: this,

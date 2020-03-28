@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <r-search />
-    <r-results />
+    <r-search @search="text = $event" />
+    <r-results :text="text" />
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
   components: {
     RSearch,
     RResults
+  },
+  data() {
+    return {
+      text: null
+    };
   }
 };
 </script>

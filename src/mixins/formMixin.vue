@@ -37,7 +37,7 @@ export default {
         this.setData(res.data.data);
         loading.close();
       } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
+        this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }
     },
@@ -50,7 +50,7 @@ export default {
         loading.close();
         this.$emit("close-modal");
       } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
+        this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }
     },
@@ -63,13 +63,16 @@ export default {
         loading.close();
         this.$emit("close-modal");
       } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
+        this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }
     },
     async save() {
-      const susses = await this.$refs.form.validate();
-      if (!susses) return;
+      const susses = this.$refs.form ? await this.$refs.form.validate() : true;
+      if (!susses) {
+        this.$danger("Revisar Formulario");
+        return;
+      }
       if (this.newU) return this.create();
       else return this.update();
     },
@@ -79,8 +82,13 @@ export default {
     },
     cleanPayload() {
       const payload = {};
-      for (const l in this.form) if (this.form[l]) payload[l] = this.form[l];
+      for (const l in this.form)
+        if (this.form[l] !== null) payload[l] = this.form[l];
       return payload;
+    },
+    setData(data) {
+      delete data._id;
+      for (let d in data) this.form[d] = data[d];
     }
   },
   mounted() {

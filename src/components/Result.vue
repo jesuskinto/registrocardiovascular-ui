@@ -14,7 +14,7 @@
           </li>
           <li>
             <strong>Edad:</strong>
-            <span v-show="data.birthdate">{{ data.birthdate | edad }}</span>
+            <span v-show="data.birthdate">{{ data.birthdate | age }}</span>
           </li>
           <li>
             <strong>Telefono:</strong>
@@ -44,8 +44,7 @@ export default {
       this.$buefy.modal.open({
         parent: this,
         component: RResultModal,
-        hasModalCard: true,
-        trapFocus: true,
+        scroll: "keep",
         props: { id: this.data._id }
       });
     }

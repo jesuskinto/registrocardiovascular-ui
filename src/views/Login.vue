@@ -77,7 +77,7 @@ export default {
         this.$success(res.data && res.data.message);
         this.$router.push("/");
       } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
+        this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }
     }

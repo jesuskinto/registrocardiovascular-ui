@@ -43,6 +43,9 @@ export default {
   components: {
     RResult
   },
+  props: {
+    text: null
+  },
   data() {
     return {
       results: [],
@@ -62,20 +65,25 @@ export default {
     };
   },
   methods: {
-    async getData() {
+    async getData(params = {}) {
       const loading = this.$buefy.loading.open();
       try {
-        const res = await Rest.get("patients");
+        const res = await Rest.get("patients", { params });
         this.results = res.data.data;
         loading.close();
       } catch ({ response: res }) {
-        this.$danger(res.data && res.data.message);
+        this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }
     }
   },
   mounted() {
     this.getData();
+  },
+  watch: {
+    text(text) {
+      this.getData({ textSearch: text });
+    }
   }
 };
 </script>

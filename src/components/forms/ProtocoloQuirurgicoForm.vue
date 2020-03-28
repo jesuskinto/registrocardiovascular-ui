@@ -17,7 +17,7 @@
             :value="surgeon._id"
             :key="surgeon._id"
           >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Otros Cirujanos" message="Use ctrl para selección multiple" expanded>
@@ -27,7 +27,7 @@
             :value="surgeon.id"
             :key="surgeon.id"
           >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>

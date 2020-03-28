@@ -29,7 +29,7 @@ export default {
         this.surgeons = res.data.data;
       } catch ({ response: res }) {
         loading.close();
-        this.$danger(res.data && res.data.message);
+        this.$danger((res && res.data) ? res.data.message : "Server Error");
       }
     }
   },

@@ -12,7 +12,7 @@
           :value="surgeon._id"
           :key="surgeon._id"
         >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
-        <option :value="null">Ninguno</option>
+        <option value="ninguno">Ninguno</option>
       </b-select>
       <b-button
         size="is-small"

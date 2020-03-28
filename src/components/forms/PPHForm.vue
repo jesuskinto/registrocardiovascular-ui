@@ -5,7 +5,7 @@
         <b-select v-model="form.diabetes" placeholder="Diabetes mellitus" expanded>
           <option value="nir">NIR</option>
           <option value="ir">IR</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Enfermedad cerebro vascular" expanded>
@@ -16,7 +16,7 @@
         >
           <option value="isquemica">Isquemica</option>
           <option value="hemorragica">Hemorragica</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>
@@ -27,7 +27,7 @@
         <b-select v-model="form.enfermedad_renal.tipo" placeholder="Enfermedad renal" expanded>
           <option value="aguda">Aguda</option>
           <option value="cronica">Cronica</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Estadio" expanded>
@@ -36,14 +36,14 @@
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Dialisis" expanded>
         <b-select v-model="form.enfermedad_renal.dialisis" placeholder="Dialisis" expanded>
           <option value="peritoneal">Peritoneal</option>
           <option value="hemodiálisis">Hemodiálisis</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>
@@ -122,7 +122,7 @@
         <option value="tricuspide">Tricuspide</option>
         <option value="aortica">Aortica</option>
         <option value="pulmonar">Pulmonar</option>
-        <option :value="null">Ninguno</option>
+        <option value="ninguno">Ninguno</option>
       </b-select>
     </b-field>
     <div class="columns">
@@ -161,14 +161,13 @@
           <option value="aguda">Aguda</option>
           <option value="cronica">Cronica</option>
           <option value="taco">TACO</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Flutter auricular" expanded>
         <b-switch v-model="form.flutter_auricular">{{ form.flutter_auricular | btm }}</b-switch>
       </b-field>
     </b-field>
-
     <b-field grouped>
       <b-field label="Arritmia Ventriculares" expanded>
         <b-select
@@ -179,7 +178,7 @@
           <option value="esv">ESV</option>
           <option value="tv">TV</option>
           <option value="fv">FV</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Bloqueo AV" expanded>
@@ -187,14 +186,14 @@
           <option value="primer_grado">Primer grado</option>
           <option value="segundo_grado">Segundo grado</option>
           <option value="tercer_grado">Tercer grado</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Portador de marcapaso">
         <b-select v-model="form.bloqueo_av.marcapaso" placeholder="Portador de marcapaso" expanded>
           <option value="bicameral">Bicameral</option>
           <option value="unicameral">Unicameral</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>
@@ -211,7 +210,7 @@
           <option value="1_a_7_dias">1 a 7 días</option>
           <option value="8_a_21_dias">8 a 21 días.</option>
           <option value="mayor_21_dias">&gt; 21 dias</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Tratamiento" expanded>
@@ -230,7 +229,7 @@
           <option value="ii">II</option>
           <option value="iii">III</option>
           <option value="iv">IV</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>
@@ -252,21 +251,23 @@
           >
             <option value="BCIA">BCIA</option>
             <option value="ECMO">ECMO</option>
-            <option :value="null">Ninguno</option>
+            <option value="ninguno">Ninguno</option>
           </b-select>
         </b-field>
       </b-field>
     </b-field>
     <hr />
     <div class="buttons">
-      <b-button>Cancelar</b-button>
-      <b-button type="is-primary">Guardar</b-button>
+      <b-button @click="cancel">Cancelar</b-button>
+      <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>
   </div>
 </template>
 
 <script>
+import formMixin from "@/mixins/formMixin.vue";
 export default {
+  mixins: [formMixin],
   data() {
     return {
       form: {
@@ -293,7 +294,7 @@ export default {
         enfermedad_hepatica: false,
         apnea_del_sueno: false,
         inmunosupresion: false,
-        radiación_mediastinal: false,
+        radiacion_mediastinal: false,
         alergia_medicamentos: null,
         cirugias_previas: null,
         fibrilacion_auricular: null,
@@ -304,14 +305,22 @@ export default {
           marcapaso: null
         },
         infarto_agudo_miocardio: null,
-        infarto_agudo_miocardio_tratamiento: "",
+        infarto_agudo_miocardio_tratamiento: null,
         clase_funcional_nyha: null,
         shock_cardiogenico: {
           colocacion: null,
           presente: null
         }
-      }
+      },
+      url: "pph"
     };
+  },
+  methods: {
+    setData(data) {
+      delete data._id;
+      delete data.patient;
+      for (let d in data) this.form[d] = data[d];
+    }
   }
 };
 </script>

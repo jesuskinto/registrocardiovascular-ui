@@ -27,7 +27,7 @@
     <b-field grouped>
       <b-field label="Prótesis Biológica" expanded>
         <b-select v-model="form.protesis_biologica" placeholder="Prótesis Biológica" expanded>
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="cronw">Cronw</option>
           <option value="perceval">Perceval</option>
           <option value="19">19</option>
@@ -38,7 +38,7 @@
       </b-field>
       <b-field label="Prótesis Mecánica" expanded>
         <b-select v-model="form.protesis_mecanica" placeholder="Prótesis Mecánica" expanded>
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="19">19</option>
           <option value="21">21</option>
           <option value="23">23</option>
@@ -66,7 +66,7 @@
           placeholder="Prótesis Biológica"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="25">25</option>
           <option value="27">27</option>
           <option value="29">29</option>
@@ -80,7 +80,7 @@
           placeholder="Prótesis Mecánica"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="25">25</option>
           <option value="27">27</option>
           <option value="29">29</option>
@@ -108,7 +108,7 @@
           placeholder="Anuloplastia mitral"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="30">30</option>
           <option value="32">32</option>
           <option value="34">34</option>
@@ -121,7 +121,7 @@
           placeholder="Anuloplastia mitral"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="neocuerdas">Neocuerdas</option>
           <option value="resección_triangular">Resección triangular</option>
           <option value="resección_cuadrángular">Resección cuadrángular</option>
@@ -134,7 +134,7 @@
           placeholder="Anuloplastia tricuspidea"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="30">30</option>
           <option value="32">32</option>
           <option value="34">34</option>
@@ -155,7 +155,7 @@
           :disabled="!form.cirugia_bentall.presente"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="biovalsalva">Biovalsalva</option>
           <option value="tubo_valvulado_protesis_mecanica">Tubo valvulado prótesis mecánica</option>
         </b-select>
@@ -176,7 +176,7 @@
         placeholder="Clase"
         expanded
       >
-        <option :value="null">Ninguna</option>
+        <option value="ninguno">Ninguna</option>
         <option value="hemiarco">Hemiarco</option>
         <option value="arco_aortico">Arco aortico</option>
       </b-select>
@@ -196,7 +196,7 @@
           placeholder="Conducto Safena Interna"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="izquierda">Izquierda</option>
           <option value="derecha">Derecha</option>
           <option value="ambas">Ambas</option>
@@ -209,7 +209,7 @@
           placeholder="Tecnica"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="abierta">Abierta</option>
           <option value="cerrada">Cerrada</option>
         </b-select>
@@ -223,7 +223,7 @@
           placeholder="Arteria radial"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="izquierda">Izquierda</option>
           <option value="derecha">Derecha</option>
         </b-select>
@@ -298,14 +298,14 @@
     <b-field grouped>
       <b-field label="Miectomia septal" expanded>
         <b-select v-model="form.miectomia_septal" placeholder="Miectomia septal" expanded>
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="morrow">Morrow</option>
           <option value="ampliada">Ampliada</option>
         </b-select>
       </b-field>
       <b-field label="Resección de tumor" expanded>
         <b-select v-model="form.mixoma" placeholder="Mixoma" expanded>
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="transeptal">Transeptal</option>
           <option value="auricula_izquierda">Auricula izquierda</option>
         </b-select>
@@ -367,14 +367,14 @@
     <b-field grouped>
       <b-field label="Clasificación" expanded>
         <b-select v-model="form.cierre_civ.clasificacion" placeholder="Clasificación" expanded>
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="congenita">Congenita</option>
           <option value="adquirida">Adquirida</option>
         </b-select>
       </b-field>
       <b-field label="Tipo" expanded>
         <b-select v-model="form.cierre_civ.tipo" placeholder="Tipo" expanded>
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="I">I</option>
           <option value="II">II</option>
           <option value="III">III</option>
@@ -383,7 +383,7 @@
       </b-field>
       <b-field label="Parche" expanded>
         <b-select v-model="form.cierre_civ.parche" placeholder="Parche" expanded>
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="parche_pericardio">Parche de pericardio</option>
           <option value="parche_dacron">Parche de Dacron</option>
         </b-select>
@@ -393,7 +393,7 @@
     <h4 class="subtitle is-4">Ventriculoseptoplastia</h4>
     <b-field label="Parche" expanded>
       <b-select v-model="form.ventriculoseptoplastia.parche" placeholder="Parche" expanded>
-        <option :value="null">Ninguna</option>
+        <option value="ninguno">Ninguna</option>
         <option value="parche_pericardio">Parche de pericardio</option>
         <option value="parche_dacron">Parche de Dacron</option>
       </b-select>
@@ -426,7 +426,7 @@
     </b-field>
     <b-field label="Derrame pericardico" expanded>
       <b-select v-model="form.complicaciones.derrame_pericardico.tipo" placeholder="Tipo" expanded>
-        <option :value="null">Ninguna</option>
+        <option value="ninguno">Ninguna</option>
         <option value="hematico">Hematico</option>
         <option value="inflamatorio">Inflamatorio</option>
       </b-select>
@@ -443,7 +443,7 @@
         placeholder="Tipo"
         expanded
       >
-        <option :value="null">Ninguna</option>
+        <option value="ninguno">Ninguna</option>
         <option value="isaquemico">Isaquemico</option>
         <option value="hemorragico">Hemorragico</option>
       </b-select>
@@ -455,7 +455,7 @@
     </b-field>
     <b-field label="Arritmias">
       <b-select v-model="form.complicaciones.arritmias" placeholder="Tipo" expanded>
-        <option :value="null">Ninguna</option>
+        <option value="ninguno">Ninguna</option>
         <option value="fa">FA</option>
         <option value="tv">TV</option>
         <option value="fv">Fv</option>
@@ -466,7 +466,7 @@
     <b-field grouped>
       <b-field label="Tipo" expanded>
         <b-select v-model="form.complicaciones.bloqueo_av.tipo" placeholder="Tipo" expanded>
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="1er">1er</option>
           <option value="2do">2do</option>
           <option value="completo">Completo</option>
@@ -556,7 +556,7 @@
           placeholder="Tipo"
           expanded
         >
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="derecho">Derecho</option>
           <option value="izquierdo">Izquierdo</option>
           <option value="bilateral">Bilateral</option>
@@ -716,13 +716,17 @@
     </b-field>
     <hr />
     <div class="buttons">
-      <b-button>Cancelar</b-button>
-      <b-button type="is-primary">Guardar</b-button>
+      <b-button @click="cancel">Cancelar</b-button>
+      <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>
   </div>
 </template>
+
+
 <script>
+import formMixin from "@/mixins/formMixin.vue";
 export default {
+  mixins: [formMixin],
   data() {
     return {
       form: {
@@ -733,6 +737,11 @@ export default {
         emergencia: false,
         protesis_biologica: null,
         protesis_mecanica: null,
+        esternotomia: null,
+        miniesternotomia: null,
+        transapical: null,
+        anuloplastia_tricuspidea: null,
+        miectomia_septal: null,
         valvula_mitral: {
           protesis_biologica: null,
           protesis_mecanica: null,
@@ -828,13 +837,27 @@ export default {
             causa: null,
             quirofano: null,
             uco: null,
-            Hospitalización: null,
+            hospitalizacion: null,
             presente: null,
             fecha: null
           }
         }
-      }
+      },
+      url: "heart-surgery"
     };
+  },
+  methods: {
+    setData(data) {
+      delete data._id;
+      delete data.patient;
+      for (let d in data) {
+        if (d === "programada") {
+          this.form[d] = new Date(data[d]);
+          continue;
+        }
+        this.form[d] = data[d];
+      }
+    }
   }
 };
 </script>

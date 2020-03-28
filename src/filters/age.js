@@ -30,7 +30,7 @@ const calcularEdad = fecha_nac => {
 };
 
 age.install = function (Vue) {
-  Vue.filter("edad", fecha_nac => {
+  Vue.filter("age", fecha_nac => {
     return calcularEdad(fecha_nac)
   });
 };

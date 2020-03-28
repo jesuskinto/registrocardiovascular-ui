@@ -10,7 +10,7 @@
       </b-field>
       <b-field label="Salida de Cirugía" expanded>
         <b-clockpicker
-          v-model="form.hora_salida_cirugia"
+          v-model="form.hora_fin_cirugia"
           placeholder="Hora de Salida de Cirugía"
           expanded
         ></b-clockpicker>
@@ -35,33 +35,33 @@
       >
         <option value="bcia">BCIA</option>
         <option value="ecmo">ECMO</option>
-        <option :value="null">Ninguno</option>
+        <option value="ninguno">Ninguno</option>
       </b-select>
     </b-field>
     <hr />
     <h4 class="subtitle is-4">Cardioplegia</h4>
     <b-field grouped>
       <b-field expanded>
-        <b-select v-model="form.cardioplegia" placeholder="Cardioplegia" expanded>
+        <b-select v-model="form.cardioplegia.type" placeholder="Cardioplegia" expanded>
           <option value="raiz">Raiz</option>
           <option value="ostium">Ostium</option>
           <option value="retrograda">Retrograda</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field expanded>
-        <b-select v-model="form.cardioplegia" placeholder="Cardioplegia" expanded>
+        <b-select v-model="form.cardioplegia.class" placeholder="Cardioplegia" expanded>
           <option value="fria">fria</option>
           <option value="normotermica">Normotermica</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field expanded>
-        <b-select v-model="form.cardioplegia" placeholder="Cardioplegia" expanded>
+        <b-select v-model="form.cardioplegia.method" placeholder="Cardioplegia" expanded>
           <option value="hematica">Hematica</option>
           <option value="cristalode">Cristalode</option>
           <option value="del_nido">Del Nido</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>
@@ -73,7 +73,7 @@
           <option value="aorta">Aorta</option>
           <option value="femoral">Femoral</option>
           <option value="axilar">Axilar</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Venosa" expanded>
@@ -81,7 +81,7 @@
           <option value="Auiculocava">Auiculocava</option>
           <option value="Bicava">Bicava</option>
           <option value="Femoral">Femoral</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>
@@ -97,7 +97,7 @@
           <option value="stat">stat</option>
           <option value="pHStat">pHStat</option>
           <option value="ambas">ambas</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Temperatura de descenso" expanded>
@@ -153,7 +153,7 @@
           <option value="Axilar">Axilar</option>
           <option value="tronco braquicefalico">tronco braquicefalico</option>
           <option value="Carótida iquierda">Carótida iquierda</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Retrograda" expanded>
@@ -161,20 +161,22 @@
           <option value="Axilar">Axilar</option>
           <option value="tronco braquicefalico">tronco braquicefalico</option>
           <option value="Carótida iquierda">Carótida iquierda</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>
     <hr />
     <div class="buttons">
-      <b-button>Cancelar</b-button>
-      <b-button type="is-primary">Guardar</b-button>
+      <b-button @click="cancel">Cancelar</b-button>
+      <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>
   </div>
 </template>
 
 <script>
+import formMixin from "@/mixins/formMixin.vue";
 export default {
+  mixins: [formMixin],
   data() {
     return {
       form: {
@@ -183,7 +185,11 @@ export default {
         hora_inicio_cec: null,
         tiempo_clamp: null,
         tiempo_cec_total: null,
-        cardioplegia: null,
+        cardioplegia: {
+          type: null,
+          class: null,
+          method: null
+        },
         asistencia_ventricular_izquierda_postoperatoria: null,
         canulacion: {
           arterial: null,
@@ -201,8 +207,27 @@ export default {
           anterograda: null,
           retrograda: null
         }
-      }
+      },
+      url: "extracorporeal-circulation"
     };
+  },
+  methods: {
+    setData(data) {
+      delete data._id;
+      delete data.patient;
+      const dateFields = [
+        "hora_inicio_cirugia",
+        "hora_fin_cirugia",
+        "hora_inicio_cec"
+      ];
+      for (let d in data) {
+        if (dateFields.includes(d)) {
+          this.form[d] = new Date(data[d]);
+          continue;
+        }
+        this.form[d] = data[d];
+      }
+    }
   }
 };
 </script>

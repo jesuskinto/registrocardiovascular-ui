@@ -37,7 +37,7 @@
           <option value="noradrenalina">Noradrenalina</option>
           <option value="dopamina">Dopamina</option>
           <option value="dobutamina">Dobutamina</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>
@@ -77,14 +77,16 @@
     </b-field>
     <hr />
     <div class="buttons">
-      <b-button>Cancelar</b-button>
-      <b-button type="is-primary">Guardar</b-button>
+      <b-button @click="cancel">Cancelar</b-button>
+      <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>
   </div>
 </template>
 
 <script>
+import formMixin from "@/mixins/formMixin.vue";
 export default {
+  mixins: [formMixin],
   data() {
     return {
       form: {
@@ -106,7 +108,8 @@ export default {
           mes_1: null,
           mes_3: null
         }
-      }
+      },
+      url: "others"
     };
   }
 };

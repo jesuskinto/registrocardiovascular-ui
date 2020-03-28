@@ -32,7 +32,7 @@
     <b-field grouped>
       <b-field label="Válvula">
         <b-select v-model="valvula" placeholder="Válvula">
-          <option :value="null">Ninguna</option>
+          <option value="ninguno">Ninguna</option>
           <option value="valvula bicuspide">Bicúspide</option>
           <option value="valvula tricuspide">Tricúspide</option>
           <option value="otra">Otra</option>
@@ -517,15 +517,17 @@
     </b-field>
     <hr />
     <div class="buttons">
-      <b-button>Cancelar</b-button>
-      <b-button type="is-primary">Guardar</b-button>
+      <b-button @click="cancel">Cancelar</b-button>
+      <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>
   </div>
 </template>
 
-
 <script>
+import formMixin from "@/mixins/formMixin.vue";
+
 export default {
+  mixins: [formMixin],
   data() {
     return {
       form: {
@@ -592,14 +594,22 @@ export default {
           viabilidad: null
         },
         score_fragilidad: null,
-        tratamiento_actual: ""
+        tratamiento_actual: null
       },
-      valvula: null
+      valvula: null,
+      url: "transthoracic-echocardiogram"
     };
   },
   watch: {
     valvula(val) {
       if (val === "otra") this.form.valvula = "";
+    }
+  },
+  methods: {
+    setData(data) {
+      delete data._id;
+      delete data.patient;
+      for (let d in data) this.form[d] = data[d];
     }
   }
 };

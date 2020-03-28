@@ -10,26 +10,26 @@
     </b-field>
     <b-field label="Vasos enfermos" expanded>
       <b-select v-model="form.vasos_enfermos" placeholder="Vasos enfermos" expanded>
-        <option :value="1">1</option>
-        <option :value="2">2</option>
-        <option :value="3">3</option>
-        <option :value="null">Ninguno</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="ninguno">Ninguno</option>
       </b-select>
     </b-field>
     <b-field grouped>
       <b-field label="Enfermedad de TCI" expanded>
         <b-input
-          type="number"
+          type="text"
           v-model="form.enfermedad_tci"
           placeholder="Enfermedad de TCI %"
           expanded
         />
       </b-field>
       <b-field label="ADA PROXIMAL" expanded>
-        <b-input type="number" v-model="form.ada_proximal" placeholder="ADA PROXIMAL %" expanded />
+        <b-input type="text" v-model="form.ada_proximal" placeholder="ADA PROXIMAL %" expanded />
       </b-field>
       <b-field label="FEVI" expanded>
-        <b-input type="number" v-model="form.fevi" placeholder="FEVI %" expanded />
+        <b-input type="text" v-model="form.fevi" placeholder="FEVI %" expanded />
       </b-field>
     </b-field>
     <hr />
@@ -42,7 +42,7 @@
         <b-select v-model="form.angioplastia.pcta" placeholder="PCTA" expanded>
           <option value="metalico">Metálico</option>
           <option value="farmacoactivo">Fármaco activo</option>
-          <option :value="null">Ninguno</option>
+          <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
     </b-field>
@@ -70,14 +70,16 @@
     </b-field>
     <hr />
     <div class="buttons">
-      <b-button>Cancelar</b-button>
-      <b-button type="is-primary">Guardar</b-button>
+      <b-button @click="cancel">Cancelar</b-button>
+      <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>
   </div>
 </template>
 
 <script>
+import formMixin from "@/mixins/formMixin.vue";
 export default {
+  mixins: [formMixin],
   data() {
     return {
       form: {
@@ -86,17 +88,31 @@ export default {
         enfermedad_tci: null,
         ada_proximal: null,
         fevi: null,
-        arterias_revascularizadas: "",
-        complicaciones: "",
-        nro_coronariografias: "",
+        arterias_revascularizadas: null,
+        complicaciones: null,
+        nro_coronariografias: null,
         clopidogrel: false,
         ticagrelor: false,
         angioplastia: {
           presente: null,
           pcta: null
         }
-      }
+      },
+      url: "coronary-angiography"
     };
+  },
+  methods: {
+    setData(data) {
+      delete data._id;
+      delete data.patient;
+      for (let d in data) {
+        if (d === "fecha") {
+          this.form[d] = new Date(data[d]);
+          continue;
+        }
+        this.form[d] = data[d];
+      }
+    }
   }
 };
 </script>
