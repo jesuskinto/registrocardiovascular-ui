@@ -5,7 +5,9 @@
     </div>
     <div class="column is-three-quarters">
       <div class="card">
-        <router-view></router-view>
+        <transition name="fade">
+          <router-view />
+        </transition>
       </div>
     </div>
   </div>
@@ -21,8 +23,10 @@ export default {
 };
 </script>
 
-<style scoped>
-.card {
-  padding: 20px;
-}
+<style lang="sass" scoped>
+.fade-enter-active, .fade-leave-active
+  transition: opacity .2s
+
+.card
+  padding: 20px
 </style>

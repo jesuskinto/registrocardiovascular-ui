@@ -2,7 +2,9 @@
   <div id="app">
     <div class="content-wrapper">
       <r-header />
-      <router-view class="view" />
+      <transition name="fade">
+        <router-view class="view" />
+      </transition>
     </div>
     <r-footer />
   </div>
@@ -18,6 +20,25 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// Set your colors
+$primary: #00d1b2;
+$primary-invert: findColorInvert($primary);
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+</style>
+
 
 <style lang="sass">
 .padding-10
@@ -38,10 +59,20 @@ export default {
 .mb-20
   margin-bottom: 20px
 
+.mb-5
+  margin-bottom: 5px
+
+
 .content-wrapper
   padding: 30px
 
 .view
   max-width: 1024px
   margin: 0 auto
+
+.fade-enter-active, .fade-leave-active
+  transition: opacity .3s
+
+.fade-enter, .fade-leave-active
+  opacity: 0
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <r-search @search="text = $event" />
-    <r-results :text="text" />
+    <r-search @search="searchPatient($event)" />
+    <r-results ref="refResult" />
   </div>
 </template>
 
@@ -18,6 +18,11 @@ export default {
     return {
       text: null
     };
+  },
+  methods: {
+    searchPatient(text) {
+      this.$refs.refResult.getData({ textSearch: text });
+    }
   }
 };
 </script>

@@ -1,12 +1,7 @@
 <template>
   <div>
     <b-field label="Fecha">
-      <b-datepicker
-        v-model="form.fecha"
-        :month-names="$monthNames"
-        :day-names="$dayNames"
-        placeholder="Fecha"
-      />
+      <b-datepicker v-model="form.fecha" placeholder="Fecha" editable />
     </b-field>
     <b-field label="Vasos enfermos" expanded>
       <b-select v-model="form.vasos_enfermos" placeholder="Vasos enfermos" expanded>

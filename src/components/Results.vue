@@ -16,17 +16,11 @@
     </div>
     <hr />
     <b-pagination
+      @change="getData({}, $event)"
       :total="pagination.total"
       :current.sync="pagination.current"
-      :range-before="pagination.rangeBefore"
-      :range-after="pagination.rangeAfter"
-      :order="pagination.order"
-      :size="pagination.size"
-      :simple="pagination.isSimple"
-      :rounded="pagination.isRounded"
       :per-page="pagination.perPage"
-      :icon-prev="pagination.prevIcon"
-      :icon-next="pagination.nextIcon"
+      :rounded="true"
       aria-next-label="Next page"
       aria-previous-label="Previous page"
       aria-page-label="Page"
@@ -43,33 +37,26 @@ export default {
   components: {
     RResult
   },
-  props: {
-    text: null
-  },
   data() {
     return {
       results: [],
       pagination: {
-        total: 200,
-        current: 10,
-        perPage: 10,
-        rangeBefore: 3,
-        rangeAfter: 1,
-        order: "",
-        size: "",
-        isSimple: false,
-        isRounded: false,
-        prevIcon: "chevron-left",
-        nextIcon: "chevron-right"
+        total: null,
+        current: null,
+        perPage: null
       }
     };
   },
   methods: {
-    async getData(params = {}) {
+    async getData(params = {}, page = 1) {
       const loading = this.$buefy.loading.open();
+      params.page = page;
       try {
         const res = await Rest.get("patients", { params });
         this.results = res.data.data;
+        this.pagination.total = res.data.count;
+        this.pagination.current = res.data.page;
+        this.pagination.perPage = res.data.resPerPage;
         loading.close();
       } catch ({ response: res }) {
         this.$danger(res && res.data ? res.data.message : "Server Error");
@@ -79,16 +66,12 @@ export default {
   },
   mounted() {
     this.getData();
-  },
-  watch: {
-    text(text) {
-      this.getData({ textSearch: text });
-    }
   }
 };
 </script>
 
 <style lang="sass" scoped>
 .card
-    padding: 20px
+  padding: 20px
+
 </style>

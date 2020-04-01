@@ -7,32 +7,36 @@
       @click="newProtocol"
     >Nuevo</b-button>
     <div class="columns is-mobile is-multiline">
-      <r-surgical-protocol v-for="a in results" :key="a"></r-surgical-protocol>
+      <r-surgical-protocol @getdata="getData()" v-for="f in form" :key="f._id" :data="f"></r-surgical-protocol>
     </div>
   </div>
 </template>
 
 <script>
-import RProtocoloQuirurgicoModal from "@/components/modals/ProtocoloQuirurgicoModal.vue";
 import RSurgicalProtocol from "@/components/SurgicalProtocol";
+import formMixin from "@/mixins/formMixin.vue";
+import newProtocolMixin from "@/mixins/newProtocolMixin.vue";
 
 export default {
+  mixins: [formMixin, newProtocolMixin],
   components: {
     RSurgicalProtocol
   },
+  props: {
+    id: {
+      type: String,
+      default: null
+    }
+  },
   data() {
     return {
-      results: [1, 2, 3, 4]
+      form: [],
+      url: "surgical-protocols"
     };
   },
   methods: {
-    newProtocol() {
-      this.$buefy.modal.open({
-        parent: this,
-        component: RProtocoloQuirurgicoModal,
-        hasModalCard: true,
-        trapFocus: true
-      });
+    setData(data) {
+      this.form = data;
     }
   }
 };

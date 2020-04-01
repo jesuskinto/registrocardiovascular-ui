@@ -20,12 +20,7 @@
       </b-field>
       <b-field grouped>
         <b-field label="Fecha nacimiento" expanded>
-          <b-datepicker
-            v-model="form.birthdate"
-            :month-names="$monthNames"
-            :day-names="$dayNames"
-            placeholder="Tu fecha de nacimiento"
-          />
+          <b-datepicker v-model="form.birthdate" placeholder="Tu fecha de nacimiento" editable />
         </b-field>
         <b-field label="Edad" expanded>
           <b-input type="text" :value="form.birthdate | age " placeholder="Tu edad" disabled />

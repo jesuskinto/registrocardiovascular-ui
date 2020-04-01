@@ -56,7 +56,7 @@
             </ul>
             <h3>Antecedentes personales patologicos</h3>
             <ul>
-              <li>
+              <li v-if="res.pph.bloqueo_av">
                 <strong>bloqueo_av:</strong>
                 <ul>
                   <li>
@@ -69,7 +69,7 @@
                   </li>
                 </ul>
               </li>
-              <li>
+              <li v-if="res.pph.bloqueo_av">
                 <strong>cancer:</strong>
                 <ul>
                   <li>
@@ -90,7 +90,7 @@
                 <strong>enfermedad_cerebro_vascular:</strong>
                 {{ res.pph.enfermedad_cerebro_vascular}}
               </li>
-              <li>
+              <li v-if="res.pph.enfermedad_renal">
                 <strong>enfermedad_renal:</strong>
                 <ul>
                   <li>
@@ -109,7 +109,7 @@
               </li>
               <li>
                 <strong>shock_cardiogenico:</strong>
-                <ul>
+                <ul v-if="res.pph.shock_cardiogenico">
                   <li>
                     <strong>presente:</strong>
                     {{ res.pph.shock_cardiogenico.presente | btm}}
@@ -120,7 +120,6 @@
                   </li>
                 </ul>
               </li>
-
               <li>
                 <strong>alcohol:</strong>
                 {{ res.pph.alcohol | btm}}
@@ -210,7 +209,7 @@
             <ul>
               <li>
                 <strong>angioplastia:</strong>
-                <ul>
+                <ul v-if="res.coronaryAngiography.angioplastia">
                   <li>
                     <strong>Presente:</strong>
                     {{ res.coronaryAngiography.angioplastia.presente | btm }}
@@ -262,7 +261,7 @@
             <ul>
               <li>
                 <strong>derrame_pericardico</strong>
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.derrame_pericardico">
                   <li>
                     <strong>tipo:</strong>
                     {{ res.transthoracicEchocardiogram.derrame_pericardico.tipo | btm }}
@@ -271,7 +270,7 @@
               </li>
               <li>
                 <strong>estenosis_mitral</strong>
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.estenosis_mitral">
                   <li>
                     <strong>tipo:</strong>
                     {{ res.transthoracicEchocardiogram.estenosis_mitral.tipo }}
@@ -292,20 +291,20 @@
               </li>
               <li>
                 <strong>estenosis_valvula_pulmonar</strong>
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.estenosis_valvula_pulmonar">
                   <li>
                     <strong>tipo:</strong>
                     {{ res.transthoracicEchocardiogram.estenosis_valvula_pulmonar.tipo }}
                   </li>
                   <li>
                     <strong>valor:</strong>
-                    {{ res.transthoracicEchocardiogram.estenosis_valvula_pulmonar.valor | ast }}
+                    {{ res.transthoracicEchocardiogram.estenosis_valvula_pulmonar.valor | ats }}
                   </li>
                 </ul>
               </li>
               <li>
                 <strong>estenosis_valvula_tricuspide</strong>
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.estenosis_valvula_tricuspide">
                   <li>
                     <strong>tipo:</strong>
                     {{ res.transthoracicEchocardiogram.estenosis_valvula_tricuspide.tipo }}
@@ -318,7 +317,7 @@
               </li>
               <li>
                 <strong>esternosis_aortica</strong>
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.esternosis_aortica">
                   <li>
                     <strong>tipo:</strong>
                     {{ res.transthoracicEchocardiogram.esternosis_aortica.tipo }}
@@ -339,7 +338,7 @@
               </li>
               <li>
                 <strong>insuficiencia_aortica:</strong>
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.insuficiencia_aortica">
                   <li>
                     <strong>tipo:</strong>
                     {{ res.transthoracicEchocardiogram.insuficiencia_aortica.tipo }}
@@ -372,8 +371,7 @@
               </li>
               <li>
                 <strong>insuficiencia_mitral:</strong>
-
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.insuficiencia_mitral">
                   <li>
                     <strong>tipo:</strong>
                     {{ res.transthoracicEchocardiogram.insuficiencia_mitral.tipo }}
@@ -386,14 +384,14 @@
               </li>
               <li>
                 <strong>insuficiencia_valvula_pulmonar:</strong>
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.insuficiencia_valvula_pulmonar">
                   <strong>tipo:</strong>
                   {{ res.transthoracicEchocardiogram.insuficiencia_valvula_pulmonar.tipo }}
                 </ul>
               </li>
               <li>
                 <strong>insuficiencia_valvula_tricuspide:</strong>
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.insuficiencia_valvula_tricuspide">
                   <li>
                     <strong>tipo:</strong>
                     {{ res.transthoracicEchocardiogram.insuficiencia_valvula_tricuspide.tipo }}
@@ -406,7 +404,7 @@
               </li>
               <li>
                 <strong>resonancia_cardiaca:</strong>
-                <ul>
+                <ul v-if="res.transthoracicEchocardiogram.resonancia_cardiaca">
                   <li>
                     <strong>fevi:</strong>
                     {{ res.transthoracicEchocardiogram.resonancia_cardiaca.fevi }}
@@ -454,7 +452,7 @@
               </li>
               <li>
                 <strong>valvula_mitral:</strong>
-                <ul>
+                <ul v-if="res.heartSurgery.valvula_mitral">
                   <li>
                     <strong>protesis_biologica:</strong>
                     {{ res.heartSurgery.valvula_mitral.protesis_biologica }}
@@ -483,7 +481,7 @@
               </li>
               <li>
                 <strong>revascularizacion_coronaria:</strong>
-                <ul>
+                <ul v-if="res.heartSurgery.revascularizacion_coronaria">
                   <li>
                     <strong>presente:</strong>
                     {{ res.heartSurgery.revascularizacion_coronaria.presente | btm }}
@@ -504,7 +502,7 @@
               </li>
               <li>
                 <strong>cirugia_bentall:</strong>
-                <ul>
+                <ul v-if="res.heartSurgery.cirugia_bentall">
                   <li>
                     <strong>presente</strong>
                     {{ res.heartSurgery.cirugia_bentall.presente | btm }}
@@ -529,7 +527,7 @@
               </li>
               <li>
                 <strong>conducto_safena_interna:</strong>
-                <ul>
+                <ul v-if="res.heartSurgery.conducto_safena_interna">
                   <li>
                     <strong>conducto_safena_interna:</strong>
                     {{ res.heartSurgery.conducto_safena_interna.conducto_safena_interna}}
@@ -554,7 +552,7 @@
               </li>
               <li>
                 <strong>cirugia_arco_aortico:</strong>
-                <ul>
+                <ul v-if="res.heartSurgery.cirugia_arco_aortico">
                   <li>
                     <strong>tubo_dacron</strong>
                     {{ res.heartSurgery.cirugia_arco_aortico.tubo_dacron}}
@@ -571,7 +569,7 @@
               </li>
               <li>
                 <strong>cierre_comunicacion_interauricular:</strong>
-                <ul>
+                <ul v-if="res.heartSurgery.cierre_comunicacion_interauricular">
                   <li>
                     <strong>tamano_defecto_auricular</strong>
                     {{ res.heartSurgery.cierre_comunicacion_interauricular.tamano_defecto_auricular}}
@@ -588,7 +586,7 @@
               </li>
               <li>
                 <strong>cierre_civ:</strong>
-                <ul>
+                <ul v-if="res.heartSurgery.cierre_civ">
                   <li>
                     <strong>clasificacion:</strong>
                     {{ res.heartSurgery.cierre_civ.clasificacion}}
@@ -605,7 +603,7 @@
               </li>
               <li>
                 <strong>ventriculoseptoplastia:</strong>
-                <ul>
+                <ul v-if="res.heartSurgery.estenosis_valvula_tricuspide">
                   <li>
                     <strong>parche</strong>
                     {{ res.heartSurgery.ventriculoseptoplastia.parche}}
@@ -618,7 +616,7 @@
               </li>
               <li>
                 <strong>opciones_quirurgicas:</strong>
-                <ul>
+                <ul v-if="res.heartSurgery.opciones_quirurgicas">
                   <li>
                     <strong>lima_rima:</strong>
                     {{ res.heartSurgery.opciones_quirurgicas.lima_rima}}
@@ -814,7 +812,7 @@
               </li>
             </ul>
             <h3>Circulación extracorporea</h3>
-            <ul>
+            <ul v-if="res.extracorporealCirculation">
               <li>
                 <strong>hora_inicio_cirugia:</strong>
                 {{ res.extracorporealCirculation.hora_inicio_cirugia }}
@@ -837,7 +835,7 @@
               </li>
               <li>
                 <strong>cardioplegia:</strong>
-                <ul>
+                <ul v-if="res.extracorporealCirculation.cardioplegia">
                   <li>
                     <strong>type</strong>
                     {{ res.extracorporealCirculation.cardioplegia.type }}
@@ -858,7 +856,7 @@
               </li>
               <li>
                 <strong>canulacion:</strong>
-                <ul>
+                <ul v-if="res.extracorporealCirculation.canulacion">
                   <li>
                     <strong>arterial</strong>
                     {{ res.extracorporealCirculation.canulacion.arterial }}
@@ -871,7 +869,7 @@
               </li>
               <li>
                 <strong>tiempo_arresto_circulatorio:</strong>
-                <ul>
+                <ul v-if="res.extracorporealCirculation.tiempo_arresto_circulatorio">
                   <li>
                     <strong>tecnica_correcion_ph:</strong>
                     {{ res.extracorporealCirculation.tiempo_arresto_circulatorio.tecnica_correcion_ph }}
@@ -900,7 +898,7 @@
               </li>
               <li>
                 <strong>perfusion_cerebral:</strong>
-                <ul>
+                <ul v-if="res.extracorporealCirculation.perfusion_cerebral">
                   <li>
                     <strong>anterograda</strong>
                     {{ res.extracorporealCirculation.perfusion_cerebral.anterograda }}
@@ -932,7 +930,7 @@
               </li>
               <li>
                 <strong>drogras_vasoactivas:</strong>
-                <ul>
+                <ul v-if="res.others.drogras_vasoactivas">
                   <li>
                     <strong>tiene:</strong>
                     {{res.others.drogras_vasoactivas.tiene | btm }}
@@ -945,7 +943,7 @@
               </li>
               <li>
                 <strong>ecocardiograma_postoperatorio:</strong>
-                <ul>
+                <ul v-if="res.others.ecocardiograma_postoperatorio">
                   <li>
                     <strong>fevi</strong>
                     {{res.others.ecocardiograma_postoperatorio.fevi}}
@@ -962,7 +960,7 @@
               </li>
               <li>
                 <strong>control_postoperatorio:</strong>
-                <ul>
+                <ul v-if="res.others.control_postoperatorio">
                   <li>
                     <strong>dias_15:</strong>
                     {{res.others.control_postoperatorio.dias_15}}
@@ -979,7 +977,7 @@
               </li>
             </ul>
             <h3>Protocolos Quirurgicos</h3>
-            <r-surgical-protocols :data="res.surgicalProtocols"></r-surgical-protocols>
+            <r-surgical-protocols :id="id"></r-surgical-protocols>
           </small>
         </div>
         <hr />

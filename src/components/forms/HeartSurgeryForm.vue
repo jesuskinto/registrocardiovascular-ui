@@ -15,12 +15,7 @@
       </b-field>
     </b-field>
     <b-field label="Programada" expanded>
-      <b-datepicker
-        v-model="form.programada"
-        :month-names="$monthNames"
-        :day-names="$dayNames"
-        placeholder="Fecha de programación"
-      />
+      <b-datepicker v-model="form.programada" placeholder="Fecha de programación" editable />
     </b-field>
     <hr />
     <h4 class="subtitle is-4">Reemplazo de Válvula Aórtica</h4>
@@ -668,8 +663,6 @@
       <b-datetimepicker
         :disabled="!form.complicaciones.muerte.presente"
         v-model="form.complicaciones.muerte.fecha"
-        :month-names="$monthNames"
-        :day-names="$dayNames"
         :timepicker="{ enableSeconds: true, hourFormat: '12' }"
         placeholder="Fecha de muerte"
       />

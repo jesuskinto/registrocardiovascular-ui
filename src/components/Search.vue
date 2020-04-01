@@ -56,13 +56,14 @@ export default {
       this.$emit("search", this.text);
     },
     newClient() {
-      this.$buefy.modal.open({
+      const modal = this.$buefy.modal.open({
         parent: this,
         component: RBasicRegistration,
         hasModalCard: true,
         trapFocus: true,
         props: { newU: true }
       });
+      modal.$on("close", () => this.search());
     }
   }
 };

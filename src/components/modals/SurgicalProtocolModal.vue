@@ -5,28 +5,24 @@
         <p class="modal-card-title">Registro</p>
       </header>
       <section class="modal-card-body">
-        <r-user-form :id="id" />
+        <r-surgical-protocol-form :id="id" :modal="true" v-on:close-modal="$parent.close()" />
       </section>
-      <footer class="modal-card-foot">
-        <button class="button" type="button" @click="$parent.close()">Cancelar</button>
-        <button class="button is-primary" @click="$parent.close()">Crear</button>
-      </footer>
     </div>
   </form>
 </template>
 
 <script>
-import RUserForm from "@/components/forms/ProtocoloQuirurgicoForm.vue";
+import RSurgicalProtocolForm from "@/components/forms/SurgicalProtocolForm.vue";
 
 export default {
   props: {
     id: {
       default: null,
-      type: Number
+      type: String
     }
   },
   components: {
-    RUserForm
+    RSurgicalProtocolForm
   }
 };
 </script>

@@ -1,14 +1,21 @@
 <template>
   <div>
+    {{ id }}
+    {{ form }}
     <b-field label="Fecha">
       <b-datetimepicker
         v-model="form.date"
-        :month-names="$monthNames"
-        :day-names="$dayNames"
         :timepicker="{ enableSeconds: true, hourFormat: '12' }"
         placeholder="Fecha"
       />
     </b-field>
+    <hr />
+    <b-button
+      class="mb-20"
+      size="is-small"
+      @click="newSurgeon({ newU: true })"
+      icon-right="account-plus"
+    >Crear Cirujano</b-button>
     <b-field grouped>
       <b-field label="Primer Cirujano" expanded>
         <b-select v-model="form.firstSurgeon" placeholder="Primer Cirujano" expanded>
@@ -31,6 +38,7 @@
         </b-select>
       </b-field>
     </b-field>
+    <hr />
     <b-field label="Nota Operatoria" expanded>
       <b-input
         rows="30"
@@ -39,13 +47,33 @@
         placeholder="Nota Operatoria"
       />
     </b-field>
+    <div class="buttons">
+      <b-button @click="cancel">Cancelar</b-button>
+      <b-button type="is-primary" @click="save">Guardar</b-button>
+    </div>
   </div>
 </template>
 
 <script>
 import surgeonMixin from "@/mixins/surgeonMixin.vue";
+import formMixin from "@/mixins/formMixin.vue";
+
 export default {
-  mixins: [surgeonMixin],
+  mixins: [formMixin, surgeonMixin],
+  props: {
+    modal: {
+      default: false,
+      type: Boolean
+    },
+    id: {
+      default: null,
+      type: String
+    },
+    new: {
+      default: false,
+      type: Boolean
+    }
+  },
   data() {
     return {
       form: {
@@ -53,7 +81,8 @@ export default {
         firstSurgeon: null,
         date: null,
         othersSurgeons: []
-      }
+      },
+      url: "surgical-protocols"
     };
   }
 };

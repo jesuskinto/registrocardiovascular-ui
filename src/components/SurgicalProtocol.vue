@@ -4,54 +4,53 @@
       <b-button
         type="is-small"
         v-show="$route.name === 'surgical-protocols'"
-        @click="newProtocol"
+        @click="newProtocol({ id: data._id })"
         class="is-pulled-right"
         rounded
       >editar</b-button>
       <ul>
         <li>
-          <strong>Fecha:</strong> 12/02/1996
+          <strong>Fecha:</strong>
+          {{ data.date | df}}
         </li>
         <li>
-          <strong>Primer Cirujano:</strong> Marcos Durand
+          <strong>Primer Cirujano:</strong>
+          {{ data.firstSurgeon }}
         </li>
         <li>
           <strong>Otros Cirujanos:</strong>
           <ul>
-            <li>Felix Durand</li>
-            <li>Francis Durand</li>
+            <li v-for="other in data.othersSurgeons" :key="other">{{ other }}</li>
           </ul>
         </li>
       </ul>
       <br />
       <strong>Nota Operatoria:</strong>
       <p>
-        <truncate
-          clamp="...mas"
-          :length="200"
-          less="... menos"
-          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam modi consequuntur quis porro explicabo iusto repudiandae odio nobis, assumenda iure totam, eum expedita quae at nostrum excepturi corrupti unde et. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam modi consequuntur quis porro explicabo iusto repudiandae odio nobis, assumenda iure totam, eum expedita quae at nostrum excepturi corrupti unde et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam modi consequuntur quis porro explicabo iusto repudiandae odio nobis, assumenda iure totam, eum expedita quae at nostrum excepturi corrupti unde et."
-        ></truncate>
+        <truncate clamp="...mas" :length="200" less="... menos" :text="data.operativeNotes"></truncate>
       </p>
     </div>
   </div>
 </template>
 
 <script>
-import RProtocoloQuirurgicoModal from "@/components/modals/ProtocoloQuirurgicoModal.vue";
+import newProtocolMixin from "@/mixins/newProtocolMixin.vue";
+
 import truncate from "vue-truncate-collapsed";
 export default {
+  mixins: [newProtocolMixin],
   components: {
     truncate
   },
+  props: {
+    data: {
+      type: Object,
+      default: () => {}
+    }
+  },
   methods: {
-    newProtocol() {
-      this.$buefy.modal.open({
-        parent: this,
-        component: RProtocoloQuirurgicoModal,
-        hasModalCard: true,
-        trapFocus: true
-      });
+    getData() {
+      this.$emit("getdata");
     }
   }
 };
