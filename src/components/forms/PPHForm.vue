@@ -314,13 +314,6 @@ export default {
       },
       url: "pph"
     };
-  },
-  methods: {
-    setData(data) {
-      delete data._id;
-      delete data.patient;
-      for (let d in data) this.form[d] = data[d];
-    }
   }
 };
 </script>

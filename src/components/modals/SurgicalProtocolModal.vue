@@ -5,7 +5,12 @@
         <p class="modal-card-title">Registro</p>
       </header>
       <section class="modal-card-body">
-        <r-surgical-protocol-form :id="id" :modal="true" v-on:close-modal="$parent.close()" />
+        <r-surgical-protocol-form
+          :id="id"
+          :modal="true"
+          :newU="newU"
+          v-on:close-modal="$parent.close()"
+        />
       </section>
     </div>
   </form>
@@ -19,6 +24,10 @@ export default {
     id: {
       default: null,
       type: String
+    },
+    newU: {
+      default: false,
+      type: Boolean
     }
   },
   components: {

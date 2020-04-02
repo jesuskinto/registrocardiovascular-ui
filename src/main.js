@@ -7,6 +7,7 @@ import router from "@/router";
 import booleanToHumman from "@/filters/booleanToHumman";
 import arrayToString from "@/filters/arrayToString";
 import dateForm from "@/filters/dateForm";
+import fullName from "@/filters/fullName";
 import age from "@/filters/age";
 import moment from "moment";
 
@@ -21,6 +22,7 @@ Vue.use(booleanToHumman);
 Vue.use(arrayToString);
 Vue.use(age);
 Vue.use(dateForm);
+Vue.use(fullName);
 Vue.config.productionTip = false;
 
 Vue.prototype.$danger = function (message) {

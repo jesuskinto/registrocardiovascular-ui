@@ -14,39 +14,39 @@
                 {{ res.rut }}
               </li>
               <li>
-                <strong>firstname:</strong>
+                <strong>nombres:</strong>
                 {{ res.firstname }}
               </li>
               <li>
-                <strong>lastname:</strong>
+                <strong>apellidos:</strong>
                 {{ res.lastname }}
               </li>
               <li>
-                <strong>birthdate:</strong>
-                {{ res.birthdate }}
+                <strong>fecha de nacimiento:</strong>
+                {{ res.birthdate | df }}
               </li>
               <li>
-                <strong>age:</strong>
+                <strong>edad:</strong>
                 <span v-show="res.birthdate">{{ res.birthdate | age }}</span>
               </li>
               <li>
-                <strong>account:</strong>
+                <strong>cuenta:</strong>
                 {{ res.account }}
               </li>
               <li>
-                <strong>phone:</strong>
+                <strong>telefono:</strong>
                 {{ res.phone }}
               </li>
               <li>
-                <strong>weight:</strong>
+                <strong>peso:</strong>
                 {{ res.weight }}
               </li>
               <li>
-                <strong>size:</strong>
+                <strong>talla:</strong>
                 {{ res.size }}
               </li>
               <li>
-                <strong>address:</strong>
+                <strong>dirección:</strong>
                 {{ res.address }}
               </li>
               <li>
@@ -87,11 +87,11 @@
                 {{ res.pph.diabetes}}
               </li>
               <li>
-                <strong>enfermedad_cerebro_vascular:</strong>
+                <strong>enfermedad cerebro vascular:</strong>
                 {{ res.pph.enfermedad_cerebro_vascular}}
               </li>
               <li v-if="res.pph.enfermedad_renal">
-                <strong>enfermedad_renal:</strong>
+                <strong>enfermedad renal:</strong>
                 <ul>
                   <li>
                     <strong>tipo:</strong>
@@ -108,7 +108,7 @@
                 </ul>
               </li>
               <li>
-                <strong>shock_cardiogenico:</strong>
+                <strong>shock cardiogenico:</strong>
                 <ul v-if="res.pph.shock_cardiogenico">
                   <li>
                     <strong>presente:</strong>
@@ -133,15 +133,15 @@
                 {{ res.pph.drogas | btm}}
               </li>
               <li>
-                <strong>enfermedad_arterial_periferica:</strong>
+                <strong>enfermedad arterial periferica:</strong>
                 {{ res.pph.enfermedad_arterial_periferica | btm}}
               </li>
               <li>
-                <strong>enfermedad_carotidea:</strong>
+                <strong>enfermedad carotidea:</strong>
                 {{ res.pph.enfermedad_carotidea | btm}}
               </li>
               <li>
-                <strong>enfermedad_pulmonar_obstructiva_cronica:</strong>
+                <strong>enfermedad pulmonar obstructiva cronica:</strong>
                 {{ res.pph.enfermedad_pulmonar_obstructiva_cronica | btm}}
               </li>
               <li>
@@ -153,15 +153,15 @@
                 {{ res.pph.tabaquismo | btm}}
               </li>
               <li>
-                <strong>alergia_medicamentos:</strong>
+                <strong>alergia medicamentos:</strong>
                 {{ res.pph.alergia_medicamentos}}
               </li>
               <li>
-                <strong>apnea_del_sueno:</strong>
+                <strong>apnea del sueno:</strong>
                 {{ res.pph.apnea_del_sueno | btm}}
               </li>
               <li>
-                <strong>cirugias_previas:</strong>
+                <strong>cirugias previas:</strong>
                 {{ res.pph.cirugias_previas}}
               </li>
               <li>
@@ -169,7 +169,7 @@
                 {{ res.pph.endocarditis}}
               </li>
               <li>
-                <strong>enfermedad_hepatica:</strong>
+                <strong>enfermedad hepatica:</strong>
                 {{ res.pph.enfermedad_hepatica | btm}}
               </li>
               <li>
@@ -177,31 +177,31 @@
                 {{ res.pph.inmunosupresion | btm}}
               </li>
               <li>
-                <strong>radiacion_mediastinal:</strong>
+                <strong>radiacion mediastinal:</strong>
                 {{ res.pph.radiacion_mediastinal | btm }}
               </li>
               <li>
-                <strong>arritmia_ventriculares:</strong>
+                <strong>arritmia ventriculares:</strong>
                 {{ res.pph.arritmia_ventriculares}}
               </li>
               <li>
-                <strong>clase_funcional_nyha:</strong>
+                <strong>clase funcional nyha:</strong>
                 {{ res.pph.clase_funcional_nyha}}
               </li>
               <li>
-                <strong>fibrilacion_auricular:</strong>
+                <strong>fibrilacion auricular:</strong>
                 {{ res.pph.fibrilacion_auricular}}
               </li>
               <li>
-                <strong>flutter_auricular:</strong>
+                <strong>flutter auricular:</strong>
                 {{ res.pph.flutter_auricular | btm }}
               </li>
               <li>
-                <strong>infarto_agudo_miocardio:</strong>
+                <strong>infarto agudo miocardio:</strong>
                 {{ res.pph.infarto_agudo_miocardio}}
               </li>
               <li>
-                <strong>infarto_agudo_miocardio_tratamiento:</strong>
+                <strong>infarto agudo miocardio tratamiento:</strong>
                 {{ res.pph.infarto_agudo_miocardio_tratamiento}}
               </li>
             </ul>
@@ -226,18 +226,18 @@
               </li>
               <li>
                 <strong>fecha:</strong>
-                {{ res.coronaryAngiography.fecha }}
+                {{ res.coronaryAngiography.fecha | df }}
               </li>
               <li>
                 <strong>ticagrelor:</strong>
                 {{ res.coronaryAngiography.ticagrelor | btm}}
               </li>
               <li>
-                <strong>vasos_enfermos:</strong>
+                <strong>vasos enfermos:</strong>
                 {{ res.coronaryAngiography.vasos_enfermos }}
               </li>
               <li>
-                <strong>arterias_revascularizadas:</strong>
+                <strong>arterias revascularizadas:</strong>
                 {{ res.coronaryAngiography.arterias_revascularizadas }}
               </li>
               <li>
@@ -245,22 +245,22 @@
                 {{ res.coronaryAngiography.complicaciones }}
               </li>
               <li>
-                <strong>nro_coronariografias:</strong>
+                <strong>nro coronariografias:</strong>
                 {{ res.coronaryAngiography.nro_coronariografias }}
               </li>
               <li>
-                <strong>ada_proximal:</strong>
+                <strong>ada proximal:</strong>
                 {{ res.coronaryAngiography.ada_proximal }}
               </li>
               <li>
-                <strong>enfermedad_tci:</strong>
+                <strong>enfermedad tci:</strong>
                 {{ res.coronaryAngiography.enfermedad_tci }}
               </li>
             </ul>
             <h3>Ecocardiograma transtorácico</h3>
             <ul>
               <li>
-                <strong>derrame_pericardico</strong>
+                <strong>derrame pericardico</strong>
                 <ul v-if="res.transthoracicEchocardiogram.derrame_pericardico">
                   <li>
                     <strong>tipo:</strong>
@@ -269,7 +269,7 @@
                 </ul>
               </li>
               <li>
-                <strong>estenosis_mitral</strong>
+                <strong>estenosis mitral</strong>
                 <ul v-if="res.transthoracicEchocardiogram.estenosis_mitral">
                   <li>
                     <strong>tipo:</strong>
@@ -290,7 +290,7 @@
                 </ul>
               </li>
               <li>
-                <strong>estenosis_valvula_pulmonar</strong>
+                <strong>estenosis valvula pulmonar</strong>
                 <ul v-if="res.transthoracicEchocardiogram.estenosis_valvula_pulmonar">
                   <li>
                     <strong>tipo:</strong>
@@ -303,7 +303,7 @@
                 </ul>
               </li>
               <li>
-                <strong>estenosis_valvula_tricuspide</strong>
+                <strong>estenosis valvula tricuspide</strong>
                 <ul v-if="res.transthoracicEchocardiogram.estenosis_valvula_tricuspide">
                   <li>
                     <strong>tipo:</strong>
@@ -316,7 +316,7 @@
                 </ul>
               </li>
               <li>
-                <strong>esternosis_aortica</strong>
+                <strong>esternosis aortica</strong>
                 <ul v-if="res.transthoracicEchocardiogram.esternosis_aortica">
                   <li>
                     <strong>tipo:</strong>
@@ -337,30 +337,30 @@
                 </ul>
               </li>
               <li>
-                <strong>insuficiencia_aortica:</strong>
+                <strong>insuficiencia aortica:</strong>
                 <ul v-if="res.transthoracicEchocardiogram.insuficiencia_aortica">
                   <li>
                     <strong>tipo:</strong>
                     {{ res.transthoracicEchocardiogram.insuficiencia_aortica.tipo }}
                   </li>
                   <li>
-                    <strong>dilatacion_anular:</strong>
+                    <strong>dilatacion anular:</strong>
                     {{ res.transthoracicEchocardiogram.insuficiencia_aortica.dilatacion_anular }}
                   </li>
                   <li>
-                    <strong>prolapso_velo:</strong>
+                    <strong>prolapso velo:</strong>
                     {{ res.transthoracicEchocardiogram.insuficiencia_aortica.prolapso_velo }}
                   </li>
                   <li>
-                    <strong>perforacion_velo:</strong>
+                    <strong>perforacion velo:</strong>
                     {{ res.transthoracicEchocardiogram.insuficiencia_aortica.perforacion_velo }}
                   </li>
                   <li>
-                    <strong>vena_contracta:</strong>
+                    <strong>vena contracta:</strong>
                     {{ res.transthoracicEchocardiogram.insuficiencia_aortica.vena_contracta }}
                   </li>
                   <li>
-                    <strong>vol_regurgitante:</strong>
+                    <strong>vol regurgitante:</strong>
                     {{ res.transthoracicEchocardiogram.insuficiencia_aortica.vol_regurgitante }}
                   </li>
                   <li>
@@ -370,7 +370,7 @@
                 </ul>
               </li>
               <li>
-                <strong>insuficiencia_mitral:</strong>
+                <strong>insuficiencia mitral:</strong>
                 <ul v-if="res.transthoracicEchocardiogram.insuficiencia_mitral">
                   <li>
                     <strong>tipo:</strong>
@@ -383,14 +383,14 @@
                 </ul>
               </li>
               <li>
-                <strong>insuficiencia_valvula_pulmonar:</strong>
+                <strong>insuficiencia valvula pulmonar:</strong>
                 <ul v-if="res.transthoracicEchocardiogram.insuficiencia_valvula_pulmonar">
                   <strong>tipo:</strong>
                   {{ res.transthoracicEchocardiogram.insuficiencia_valvula_pulmonar.tipo }}
                 </ul>
               </li>
               <li>
-                <strong>insuficiencia_valvula_tricuspide:</strong>
+                <strong>insuficiencia valvula tricuspide:</strong>
                 <ul v-if="res.transthoracicEchocardiogram.insuficiencia_valvula_tricuspide">
                   <li>
                     <strong>tipo:</strong>
@@ -403,14 +403,14 @@
                 </ul>
               </li>
               <li>
-                <strong>resonancia_cardiaca:</strong>
+                <strong>resonancia cardiaca:</strong>
                 <ul v-if="res.transthoracicEchocardiogram.resonancia_cardiaca">
                   <li>
                     <strong>fevi:</strong>
                     {{ res.transthoracicEchocardiogram.resonancia_cardiaca.fevi }}
                   </li>
                   <li>
-                    <strong>septum_ventricular:</strong>
+                    <strong>septum ventricular:</strong>
                     {{ res.transthoracicEchocardiogram.resonancia_cardiaca.septum_ventricular }}
                   </li>
                   <li>
@@ -423,7 +423,7 @@
             <h3>Cirugía cardiaca</h3>
             <ul>
               <li>
-                <strong>primera_cirujia:</strong>
+                <strong>primera cirujia:</strong>
                 {{ res.heartSurgery.primera_cirujia | btm}}
               </li>
               <li>
@@ -443,22 +443,22 @@
                 {{ res.heartSurgery.emergencia | btm}}
               </li>
               <li>
-                <strong>protesis_biologica:</strong>
+                <strong>protesis biologica:</strong>
                 {{ res.heartSurgery.protesis_biologica}}
               </li>
               <li>
-                <strong>protesis_mecanica:</strong>
+                <strong>protesis mecanica:</strong>
                 {{ res.heartSurgery.protesis_mecanica}}
               </li>
               <li>
-                <strong>valvula_mitral:</strong>
+                <strong>valvula mitral:</strong>
                 <ul v-if="res.heartSurgery.valvula_mitral">
                   <li>
-                    <strong>protesis_biologica:</strong>
+                    <strong>protesis biologica:</strong>
                     {{ res.heartSurgery.valvula_mitral.protesis_biologica }}
                   </li>
                   <li>
-                    <strong>protesis_mecanica:</strong>
+                    <strong>protesis mecanica:</strong>
                     {{ res.heartSurgery.valvula_mitral.protesis_mecanica }}
                   </li>
                   <li>
@@ -480,14 +480,14 @@
                 </ul>
               </li>
               <li>
-                <strong>revascularizacion_coronaria:</strong>
+                <strong>revascularizacion coronaria:</strong>
                 <ul v-if="res.heartSurgery.revascularizacion_coronaria">
                   <li>
                     <strong>presente:</strong>
                     {{ res.heartSurgery.revascularizacion_coronaria.presente | btm }}
                   </li>
                   <li>
-                    <strong>conducto_safena_interna:</strong>
+                    <strong>conducto safena interna:</strong>
                     {{ res.heartSurgery.revascularizacion_coronaria.conducto_safena_interna}}
                   </li>
                   <li>
@@ -495,13 +495,13 @@
                     {{ res.heartSurgery.revascularizacion_coronaria.tecnica}}
                   </li>
                   <li>
-                    <strong>arteria_radial:</strong>
+                    <strong>arteria radial:</strong>
                     {{ res.heartSurgery.revascularizacion_coronaria.arteria_radial}}
                   </li>
                 </ul>
               </li>
               <li>
-                <strong>cirugia_bentall:</strong>
+                <strong>cirugia bentall:</strong>
                 <ul v-if="res.heartSurgery.cirugia_bentall">
                   <li>
                     <strong>presente</strong>
@@ -526,10 +526,10 @@
                 </ul>
               </li>
               <li>
-                <strong>conducto_safena_interna:</strong>
+                <strong>conducto safena interna:</strong>
                 <ul v-if="res.heartSurgery.conducto_safena_interna">
                   <li>
-                    <strong>conducto_safena_interna:</strong>
+                    <strong>conducto safena interna:</strong>
                     {{ res.heartSurgery.conducto_safena_interna.conducto_safena_interna}}
                   </li>
                   <li>
@@ -541,7 +541,7 @@
                     {{ res.heartSurgery.conducto_safena_interna.tecnica}}
                   </li>
                   <li>
-                    <strong>arteria_radial:</strong>
+                    <strong>arteria radial:</strong>
                     {{ res.heartSurgery.conducto_safena_interna.arteria_radial}}
                   </li>
                 </ul>
@@ -551,10 +551,10 @@
                 {{ res.heartSurgery.mixoma}}
               </li>
               <li>
-                <strong>cirugia_arco_aortico:</strong>
+                <strong>cirugia arco aortico:</strong>
                 <ul v-if="res.heartSurgery.cirugia_arco_aortico">
                   <li>
-                    <strong>tubo_dacron</strong>
+                    <strong>tubo dacron</strong>
                     {{ res.heartSurgery.cirugia_arco_aortico.tubo_dacron}}
                   </li>
                   <li>
@@ -568,24 +568,24 @@
                 </ul>
               </li>
               <li>
-                <strong>cierre_comunicacion_interauricular:</strong>
+                <strong>cierre comunicacion interauricular:</strong>
                 <ul v-if="res.heartSurgery.cierre_comunicacion_interauricular">
                   <li>
-                    <strong>tamano_defecto_auricular</strong>
+                    <strong>tamano defecto auricular</strong>
                     {{ res.heartSurgery.cierre_comunicacion_interauricular.tamano_defecto_auricular}}
                   </li>
                   <li>
-                    <strong>parche_pericardio</strong>
+                    <strong>parche pericardio</strong>
                     {{ res.heartSurgery.cierre_comunicacion_interauricular.parche_pericardio}}
                   </li>
                   <li>
-                    <strong>parche_dacron</strong>
+                    <strong>parche dacron</strong>
                     {{ res.heartSurgery.cierre_comunicacion_interauricular.parche_dacron}}
                   </li>
                 </ul>
               </li>
               <li>
-                <strong>cierre_civ:</strong>
+                <strong>cierre civ:</strong>
                 <ul v-if="res.heartSurgery.cierre_civ">
                   <li>
                     <strong>clasificacion:</strong>
@@ -611,14 +611,14 @@
                 </ul>
               </li>
               <li>
-                <strong>pericardiectomia_anterior:</strong>
+                <strong>pericardiectomia anterior:</strong>
                 {{ res.heartSurgery.pericardiectomia_anterior | btm }}
               </li>
               <li>
-                <strong>opciones_quirurgicas:</strong>
+                <strong>opciones quirurgicas:</strong>
                 <ul v-if="res.heartSurgery.opciones_quirurgicas">
                   <li>
-                    <strong>lima_rima:</strong>
+                    <strong>lima rima:</strong>
                     {{ res.heartSurgery.opciones_quirurgicas.lima_rima}}
                   </li>
                   <li>
@@ -638,13 +638,13 @@
                         {{ res.heartSurgery.complicaciones.reintervencion.causa }}
                       </li>
                       <li>
-                        <strong>tiempo_despues</strong>
+                        <strong>tiempo despues</strong>
                         {{ res.heartSurgery.complicaciones.reintervencion.tiempo_despues }}
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <strong>derrame_pericardico:</strong>
+                    <strong>derrame pericardico:</strong>
                     <ul>
                       <li>
                         <strong>tipo:</strong>
@@ -657,11 +657,11 @@
                     </ul>
                   </li>
                   <li>
-                    <strong>accidente_vascular_cerebra:</strong>
+                    <strong>accidente vascular cerebra:</strong>
                     {{ res.heartSurgery.complicaciones.accidente_vascular_cerebra }}
                   </li>
                   <li>
-                    <strong>delirio_alucinaciones:</strong>
+                    <strong>delirio alucinaciones:</strong>
                     {{ res.heartSurgery.complicaciones.delirio_alucinaciones | btm }}
                   </li>
                   <li>
@@ -669,7 +669,7 @@
                     {{ res.heartSurgery.complicaciones.arritmias }}
                   </li>
                   <li>
-                    <strong>bloqueo_av:</strong>
+                    <strong>bloqueo av:</strong>
                     <ul>
                       <li>
                         <strong>tipo</strong>
@@ -682,27 +682,27 @@
                     </ul>
                   </li>
                   <li>
-                    <strong>infeccion_herida_operatoria_superficial:</strong>
+                    <strong>infeccion herida operatoria superficial:</strong>
                     <ul>
                       <li>
                         <strong>cultivo:</strong>
                         {{ res.heartSurgery.complicaciones.infeccion_herida_operatoria_superficial.cultivo }}
                       </li>
                       <li>
-                        <strong>tiempo_desde_cirugia:</strong>
+                        <strong>tiempo desde cirugia:</strong>
                         {{ res.heartSurgery.complicaciones.infeccion_herida_operatoria_superficial.tiempo_desde_cirugia }}
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <strong>infenccion_herida_operatoria_profunda:</strong>
+                    <strong>infenccion herida operatoria profunda:</strong>
                     <ul>
                       <li>
                         <strong>cultivo</strong>
                         {{ res.heartSurgery.complicaciones.infenccion_herida_operatoria_profunda.cultivo }}
                       </li>
                       <li>
-                        <strong>tiempo_desde_cirugia</strong>
+                        <strong>tiempo desde cirugia</strong>
                         {{ res.heartSurgery.complicaciones.infenccion_herida_operatoria_profunda.tiempo_desde_cirugia }}
                       </li>
                       <li>
@@ -712,7 +712,7 @@
                     </ul>
                   </li>
                   <li>
-                    <strong>dehiscencia_esternal:</strong>
+                    <strong>dehiscencia esternal:</strong>
                     <ul>
                       <li>
                         <strong>presente:</strong>
@@ -725,7 +725,7 @@
                     </ul>
                   </li>
                   <li>
-                    <strong>derrame_pleural:</strong>
+                    <strong>derrame pleural:</strong>
                     <ul>
                       <li>
                         <strong>presente:</strong>
@@ -757,20 +757,20 @@
                         {{res.heartSurgery.complicaciones.mediastinitis.tratamiento}}
                       </li>
                       <li>
-                        <strong>tiempo_desde_cirugia:</strong>
+                        <strong>tiempo desde cirugia:</strong>
                         {{res.heartSurgery.complicaciones.mediastinitis.tiempo_desde_cirugia}}
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <strong>endocarditis_valvula_protesica:</strong>
+                    <strong>endocarditis valvula protesica:</strong>
                     <ul>
                       <li>
                         <strong>presente</strong>
                         {{ res.heartSurgery.complicaciones.endocarditis_valvula_protesica.presente | btm }}
                       </li>
                       <li>
-                        <strong>precoz_tardia</strong>
+                        <strong>precoz tardia</strong>
                         {{ res.heartSurgery.complicaciones.endocarditis_valvula_protesica.precoz_tardia }}
                       </li>
                       <li>
@@ -803,7 +803,7 @@
                         {{ res.heartSurgery.complicaciones.muerte.uco }}
                       </li>
                       <li>
-                        <strong>hospitalizacion:</strong>
+                        <strong>hospitalización:</strong>
                         {{ res.heartSurgery.complicaciones.muerte.hospitalizacion }}
                       </li>
                     </ul>
@@ -814,23 +814,23 @@
             <h3>Circulación extracorporea</h3>
             <ul v-if="res.extracorporealCirculation">
               <li>
-                <strong>hora_inicio_cirugia:</strong>
+                <strong>hora inicio cirugia:</strong>
                 {{ res.extracorporealCirculation.hora_inicio_cirugia }}
               </li>
               <li>
-                <strong>hora_fin_cirugia:</strong>
+                <strong>hora fin cirugia:</strong>
                 {{ res.extracorporealCirculation.hora_fin_cirugia }}
               </li>
               <li>
-                <strong>hora_inicio_cec:</strong>
+                <strong>hora inicio cec:</strong>
                 {{ res.extracorporealCirculation.hora_inicio_cec }}
               </li>
               <li>
-                <strong>tiempo_clamp:</strong>
+                <strong>tiempo clamp:</strong>
                 {{ res.extracorporealCirculation.tiempo_clamp }}
               </li>
               <li>
-                <strong>tiempo_cec_total:</strong>
+                <strong>tiempo cec total:</strong>
                 {{ res.extracorporealCirculation.tiempo_cec_total }}
               </li>
               <li>
@@ -851,11 +851,11 @@
                 </ul>
               </li>
               <li>
-                <strong>asistencia_ventricular_izquierda_postoperatoria:</strong>
+                <strong>asistencia ventricular izquierda postoperatoria:</strong>
                 {{ res.extracorporealCirculation.asistencia_ventricular_izquierda_postoperatoria }}
               </li>
               <li>
-                <strong>canulacion:</strong>
+                <strong>canulación:</strong>
                 <ul v-if="res.extracorporealCirculation.canulacion">
                   <li>
                     <strong>arterial</strong>
@@ -868,18 +868,18 @@
                 </ul>
               </li>
               <li>
-                <strong>tiempo_arresto_circulatorio:</strong>
+                <strong>tiempo arresto circulatorio:</strong>
                 <ul v-if="res.extracorporealCirculation.tiempo_arresto_circulatorio">
                   <li>
-                    <strong>tecnica_correcion_ph:</strong>
+                    <strong>tecnica correción ph:</strong>
                     {{ res.extracorporealCirculation.tiempo_arresto_circulatorio.tecnica_correcion_ph }}
                   </li>
                   <li>
-                    <strong>temperatura_descenso:</strong>
+                    <strong>temperatura descenso:</strong>
                     {{ res.extracorporealCirculation.tiempo_arresto_circulatorio.temperatura_descenso }}
                   </li>
                   <li>
-                    <strong>tiempo_descenso:</strong>
+                    <strong>tiempo descenso:</strong>
                     {{ res.extracorporealCirculation.tiempo_arresto_circulatorio.tiempo_descenso }}
                   </li>
                   <li>
@@ -887,17 +887,17 @@
                     {{ res.extracorporealCirculation.tiempo_arresto_circulatorio.recalentamiento }}
                   </li>
                   <li>
-                    <strong>tiempo_recalentamiento:</strong>
+                    <strong>tiempo recalentamiento:</strong>
                     {{ res.extracorporealCirculation.tiempo_arresto_circulatorio.tiempo_recalentamiento }}
                   </li>
                   <li>
-                    <strong>tiempo_total_arresto_circulatorio:</strong>
+                    <strong>tiempo total arresto circulatorio:</strong>
                     {{ res.extracorporealCirculation.tiempo_arresto_circulatorio.tiempo_total_arresto_circulatorio }}
                   </li>
                 </ul>
               </li>
               <li>
-                <strong>perfusion_cerebral:</strong>
+                <strong>perfusion cerebral:</strong>
                 <ul v-if="res.extracorporealCirculation.perfusion_cerebral">
                   <li>
                     <strong>anterograda</strong>
@@ -913,23 +913,23 @@
             <h3>Otros</h3>
             <ul>
               <li>
-                <strong>dias_uci:</strong>
+                <strong>dias uci:</strong>
                 {{res.others.dias_uci}}
               </li>
               <li>
-                <strong>dias_uti:</strong>
+                <strong>dias uti:</strong>
                 {{res.others.dias_uti}}
               </li>
               <li>
-                <strong>dias_totales_hospitalizacion:</strong>
+                <strong>dias totales hospitalización:</strong>
                 {{res.others.dias_totales_hospitalizacion}}
               </li>
               <li>
-                <strong>dias_intubacion:</strong>
+                <strong>dias intubacion:</strong>
                 {{res.others.dias_intubacion}}
               </li>
               <li>
-                <strong>drogras_vasoactivas:</strong>
+                <strong>drogras vasoactivas:</strong>
                 <ul v-if="res.others.drogras_vasoactivas">
                   <li>
                     <strong>tiene:</strong>
@@ -942,35 +942,35 @@
                 </ul>
               </li>
               <li>
-                <strong>ecocardiograma_postoperatorio:</strong>
+                <strong>ecocardiograma postoperatorio:</strong>
                 <ul v-if="res.others.ecocardiograma_postoperatorio">
                   <li>
                     <strong>fevi</strong>
                     {{res.others.ecocardiograma_postoperatorio.fevi}}
                   </li>
                   <li>
-                    <strong>cinesia_ventricular</strong>
+                    <strong>cinesia ventricular</strong>
                     {{res.others.ecocardiograma_postoperatorio.cinesia_ventricular}}
                   </li>
                   <li>
-                    <strong>protesis_valvular</strong>
+                    <strong>protesis valvular</strong>
                     {{res.others.ecocardiograma_postoperatorio.protesis_valvular }}
                   </li>
                 </ul>
               </li>
               <li>
-                <strong>control_postoperatorio:</strong>
+                <strong>control postoperatorio:</strong>
                 <ul v-if="res.others.control_postoperatorio">
                   <li>
-                    <strong>dias_15:</strong>
+                    <strong>dias 15:</strong>
                     {{res.others.control_postoperatorio.dias_15}}
                   </li>
                   <li>
-                    <strong>mes_1:</strong>
+                    <strong>mes 1:</strong>
                     {{res.others.control_postoperatorio.mes_1}}
                   </li>
                   <li>
-                    <strong>mes_3:</strong>
+                    <strong>mes 3:</strong>
                     {{res.others.control_postoperatorio.mes_3}}
                   </li>
                 </ul>

@@ -88,6 +88,7 @@ export default {
     },
     setData(data) {
       delete data._id;
+      delete data.patient;
       for (let d in data) this.form[d] = data[d];
     }
   },

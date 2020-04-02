@@ -18,10 +18,10 @@ export default {
         props: { id, newU }
       });
       modal.$on("close", () => {
-        this.getData();
+        this.getSurgeon();
       });
     },
-    async getData() {
+    async getSurgeon() {
       const loading = this.$buefy.loading.open();
       try {
         const res = await Rest.get("surgeons");
@@ -29,12 +29,12 @@ export default {
         this.surgeons = res.data.data;
       } catch ({ response: res }) {
         loading.close();
-        this.$danger((res && res.data) ? res.data.message : "Server Error");
+        this.$danger(res && res.data ? res.data.message : "Server Error");
       }
     }
   },
   mounted() {
-    this.getData();
+    this.getSurgeon();
   }
 };
 </script>
