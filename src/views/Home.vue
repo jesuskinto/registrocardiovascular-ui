@@ -20,8 +20,8 @@ export default {
     };
   },
   methods: {
-    searchPatient(text) {
-      this.$refs.refResult.getData({ textSearch: text });
+    searchPatient({ text, filters = {} }) {
+      this.$refs.refResult.getData({ textSearch: text, ...filters });
     }
   }
 };

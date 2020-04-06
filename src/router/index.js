@@ -10,6 +10,7 @@ import RTransthoracicEchocardiogramForm from "@/components/forms/TransthoracicEc
 import RHeartSurgeryForm from "@/components/forms/HeartSurgeryForm.vue";
 import RExtracorporealCirculationForm from "@/components/forms/ExtracorporealCirculationForm.vue";
 import ROthersForm from "@/components/forms/OthersForm.vue";
+import RDiagnosisForm from "@/components/forms/DiagnosisForm.vue";
 import SurgicalProtocols from "@/components/SurgicalProtocols.vue";
 import Login from "../views/Login.vue";
 
@@ -55,6 +56,11 @@ const routes = [
         path: "extracorporeal-circulation",
         name: "extracorporeal-circulation",
         component: RExtracorporealCirculationForm
+      },
+      {
+        path: "diagnosis",
+        name: "diagnosis",
+        component: RDiagnosisForm
       },
       {
         path: "others",

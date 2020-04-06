@@ -3,8 +3,12 @@
     <div class>
       <div class="notification">
         <div class="content" v-if="res">
+          <h3
+            class="is-pulled-left has-text-primary"
+          >{{ res.rut }} - {{ res.date | df('DD/MM/YY') }}</h3>
           <b-button type="is-primary" class="is-small is-pulled-right ml-10" @click="edit">Editar</b-button>
           <b-button type="is-danger" class="is-small is-pulled-right" @click="remove">Eliminar</b-button>
+          <br />
           <small>
             <hr />
             <h3>Basico</h3>
@@ -52,6 +56,73 @@
               <li>
                 <strong>imc:</strong>
                 {{ res.imc }}
+              </li>
+            </ul>
+            <h3 v-if="res.diagnosis">Diagnostico</h3>
+            <ul v-if="res.diagnosis">
+              <li>
+                <strong>Estenosis aortica:</strong>
+                {{ res.diagnosis.estenosis_aortica | btm }}
+              </li>
+              <li>
+                <strong>Insuficiencia aortica:</strong>
+                {{ res.diagnosis.insuficiencia_aortica | btm }}
+              </li>
+              <li>
+                <strong>Estenosis mitral:</strong>
+                {{ res.diagnosis.estenosis_mitral | btm }}
+              </li>
+              <li>
+                <strong>Insuficiencia mitral:</strong>
+                {{ res.diagnosis.insuficiencia_mitral | btm }}
+              </li>
+              <li>
+                <strong>Insuficiencia tricuspidea:</strong>
+                {{ res.diagnosis.insuficiencia_tricuspidea | btm }}
+              </li>
+              <li>
+                <strong>Aneurisma aorta ascendente:</strong>
+                {{ res.diagnosis.aneurisma_aorta_ascendente | btm }}
+              </li>
+              <li>
+                <strong>Enfermedad valvular aortica:</strong>
+                {{ res.diagnosis.enfermedad_valvular_aortica | btm }}
+              </li>
+              <li>
+                <strong>Enfermedad coronaria:</strong>
+                {{ res.diagnosis.enfermedad_coronaria | btm }}
+              </li>
+              <li>
+                <strong>Enfermedad valvular mitral:</strong>
+                {{ res.diagnosis.enfermedad_valvular_mitral | btm }}
+              </li>
+              <li>
+                <strong>Enfermedad aorta ascendente:</strong>
+                {{ res.diagnosis.enfermedad_aorta_ascendente | btm }}
+              </li>
+              <li>
+                <strong>Miocardiopatia hipertrofica obst:</strong>
+                {{ res.diagnosis.miocardiopatia_hipertrofica_obstructiva | btm }}
+              </li>
+              <li>
+                <strong>Comunicación interauricular:</strong>
+                {{ res.diagnosis.comunicacion_interauricular | btm }}
+              </li>
+              <li>
+                <strong>Comunicación interventricular:</strong>
+                {{ res.diagnosis.comunicacion_interventricular | btm }}
+              </li>
+              <li>
+                <strong>Pericardico constrictiva:</strong>
+                {{ res.diagnosis.pericardico_constrictiva | btm }}
+              </li>
+              <li>
+                <strong>Ductus arteriosus persistente:</strong>
+                {{ res.diagnosis.ductus_arteriosus_persistente | btm }}
+              </li>
+              <li>
+                <strong>Otros:</strong>
+                {{ res.diagnosis.otros }}
               </li>
             </ul>
             <h3>Antecedentes personales patologicos</h3>

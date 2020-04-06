@@ -42,9 +42,9 @@
 </template>
 
 <script>
+import truncate from "vue-truncate-collapsed";
 import newProtocolMixin from "@/mixins/newProtocolMixin.vue";
 
-import truncate from "vue-truncate-collapsed";
 export default {
   mixins: [newProtocolMixin],
   components: {

@@ -9,6 +9,12 @@
       ></b-menu-item>
       <b-menu-item
         tag="router-link"
+        :active="$route.name === 'diagnosis'"
+        :to="{ name: 'diagnosis'}"
+        label="Diagnostico"
+      ></b-menu-item>
+      <b-menu-item
+        tag="router-link"
         :active="$route.name === 'pph'"
         :to="{ name: 'pph'}"
         label="Antecedentes personales patologicos"

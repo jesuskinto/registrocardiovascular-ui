@@ -30,7 +30,7 @@
       </div>
       <div class="column is-full">
         <b-collapse aria-id="filter" :open.sync="showFilter">
-          <r-filters />
+          <r-filters @close="showFilter = !showFilter" @filters="filter" @restart="clear" />
         </b-collapse>
       </div>
     </div>
@@ -53,7 +53,16 @@ export default {
   },
   methods: {
     search() {
-      this.$emit("search", this.text);
+      this.$emit("search", { text: this.text, filters: this.filters });
+    },
+    filter(e) {
+      this.filters = e;
+      this.search();
+    },
+    clear() {
+      this.filters = {};
+      this.text = null;
+      this.search();
     },
     newClient() {
       const modal = this.$buefy.modal.open({

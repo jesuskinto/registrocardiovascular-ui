@@ -47,6 +47,12 @@ $link-focus-border: $primary;
 .padding-30
   padding: 30px
 
+.mt-31
+  margin-top: 31px
+
+.mt-10
+  margin-top: 10px
+
 .ml-10
   margin-left: 10px
 
