@@ -2,7 +2,7 @@
   <div class="column is-12-mobile is-6-tablet is-4-desktop">
     <div class="notification">
       <small class="has-text-primary">{{ data.rut }}</small>
-      <small class="is-pulled-right">{{ data.date | df('DD/MM/YY') }}</small>
+      <small class="is-pulled-right">{{ data._id | od | df('DD/MM/YY') }}</small>
       <small>
         <ul>
           <li>

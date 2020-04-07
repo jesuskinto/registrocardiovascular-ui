@@ -5,7 +5,7 @@
         <div class="content" v-if="res">
           <h3
             class="is-pulled-left has-text-primary"
-          >{{ res.rut }} - {{ res.date | df('DD/MM/YY') }}</h3>
+          >{{ res.rut }} - {{ res._id | od | df('DD/MM/YY') }}</h3>
           <b-button type="is-primary" class="is-small is-pulled-right ml-10" @click="edit">Editar</b-button>
           <b-button type="is-danger" class="is-small is-pulled-right" @click="remove">Eliminar</b-button>
           <br />
@@ -27,7 +27,7 @@
               </li>
               <li>
                 <strong>fecha de nacimiento:</strong>
-                {{ res.birthdate | df }}
+                {{ res.birthdate | df('DD/MM/YY') }}
               </li>
               <li>
                 <strong>edad:</strong>

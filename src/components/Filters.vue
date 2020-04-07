@@ -18,7 +18,7 @@
                   :value="surgeon._id"
                   :key="surgeon._id"
                 >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
-                <option value="ninguno">Ninguno</option>
+                <option :value="null">Ninguno</option>
               </b-select>
             </b-field>
             <b-button
@@ -31,15 +31,24 @@
           </b-field>
         </div>
         <div class="column">
-          <b-field label="Rango de fechas:" expanded>
-            <b-datepicker
-              placeholder="Click para seleccionar..."
-              v-model="filters.datesRange"
-              range
+          <b-field grouped expanded>
+            <b-field label="Rango de fechas:" expanded>
+              <b-datepicker
+                placeholder="Click para seleccionar..."
+                v-model="filters.datesRange"
+                range
+                size="is-small"
+                rounded
+                expanded
+              ></b-datepicker>
+            </b-field>
+            <b-button
+              class="mt-31"
               size="is-small"
               rounded
-              expanded
-            ></b-datepicker>
+              @click="filters.datesRange = []"
+              icon-right="close"
+            ></b-button>
           </b-field>
         </div>
         <div class="column"></div>

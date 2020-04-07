@@ -9,7 +9,7 @@
           <h3>No hay resultados</h3>
           <p>
             Intente ampliar su criterio de busqueda o
-            <br />registre al paciente
+            <br />registrar al paciente
           </p>
         </div>
       </div>

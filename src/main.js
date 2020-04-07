@@ -10,6 +10,7 @@ import dateForm from "@/filters/dateForm";
 import fullName from "@/filters/fullName";
 import age from "@/filters/age";
 import moment from "moment";
+import objectIdToDate from "@/filters/objectIdToDate";
 
 Vue.use(buefy, {
   defaultDateParser: (date) => moment(date, ["DD-MM-YY", "DD-MM-YYYY"]).toDate(),
@@ -23,6 +24,7 @@ Vue.use(arrayToString);
 Vue.use(age);
 Vue.use(dateForm);
 Vue.use(fullName);
+Vue.use(objectIdToDate);
 Vue.config.productionTip = false;
 
 Vue.prototype.$danger = function (message) {
