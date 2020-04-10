@@ -59,6 +59,7 @@ export default {
         this.pagination.perPage = res.data.resPerPage;
         loading.close();
       } catch ({ response: res }) {
+this.$goLogin(res);
         this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }

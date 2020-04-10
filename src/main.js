@@ -45,6 +45,19 @@ Vue.prototype.$success = function (message) {
   });
 };
 
+
+Vue.prototype.$logout = function () {
+  sessionStorage.clear();
+  router.push({ name: "Login" });
+};
+
+Vue.prototype.$goLogin = function ({ data }) {
+  const messages = ["Token invalid", "Token is not provider"];
+  if (data && data.message && messages.includes(data.message))
+    Vue.prototype.$logout();
+};
+
+
 new Vue({
   router,
   render: h => h(App)

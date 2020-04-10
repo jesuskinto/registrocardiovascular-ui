@@ -12,10 +12,6 @@ export default {
     isAdmin() {
       const user = this.getUserID();
       return user.admin;
-    },
-    logout() {
-      sessionStorage.clear();
-      this.$router.push({ name: "Login" });
     }
   }
 };

@@ -28,6 +28,7 @@ export default {
         loading.close();
         this.surgeons = res.data.data;
       } catch ({ response: res }) {
+        this.$goLogin(res);
         loading.close();
         this.$danger(res && res.data ? res.data.message : "Server Error");
       }

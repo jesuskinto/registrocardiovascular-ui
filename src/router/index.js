@@ -2,16 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Formulario from "../views/Formulario.vue";
-import Settings from "../views/Settings.vue";
-import RBasicForm from "@/components/forms/BasicForm.vue";
-import RPPHForm from "@/components/forms/PPHForm.vue";
-import RCoronaryAngiographyForm from "@/components/forms/CoronaryAngiographyForm.vue";
-import RTransthoracicEchocardiogramForm from "@/components/forms/TransthoracicEchocardiogramForm.vue";
-import RHeartSurgeryForm from "@/components/forms/HeartSurgeryForm.vue";
-import RExtracorporealCirculationForm from "@/components/forms/ExtracorporealCirculationForm.vue";
-import ROthersForm from "@/components/forms/OthersForm.vue";
-import RDiagnosisForm from "@/components/forms/DiagnosisForm.vue";
-import SurgicalProtocols from "@/components/SurgicalProtocols.vue";
 import Login from "../views/Login.vue";
 
 Vue.use(VueRouter);
@@ -30,47 +20,47 @@ const routes = [
       {
         path: "basic",
         name: "basic",
-        component: RBasicForm
+        component: () => import("@/components/forms/BasicForm")
       },
       {
         path: "pph",
         name: "pph",
-        component: RPPHForm
+        component: () => import("@/components/forms/PPHForm")
       },
       {
         path: "coronary-angiography",
         name: "coronary-angiography",
-        component: RCoronaryAngiographyForm
+        component: () => import("@/components/forms/CoronaryAngiographyForm")
       },
       {
         path: "transthoracic-echocardiogram",
         name: "transthoracic-echocardiogram",
-        component: RTransthoracicEchocardiogramForm
+        component: () => import("@/components/forms/TransthoracicEchocardiogramForm")
       },
       {
         path: "heart-surgery",
         name: "heart-surgery",
-        component: RHeartSurgeryForm
+        component: () => import("@/components/forms/HeartSurgeryForm")
       },
       {
         path: "extracorporeal-circulation",
         name: "extracorporeal-circulation",
-        component: RExtracorporealCirculationForm
+        component: () => import("@/components/forms/ExtracorporealCirculationForm")
       },
       {
         path: "diagnosis",
         name: "diagnosis",
-        component: RDiagnosisForm
+        component: () => import("@/components/forms/DiagnosisForm")
       },
       {
         path: "others",
         name: "others",
-        component: ROthersForm
+        component: () => import("@/components/forms/OthersForm")
       },
       {
         path: "surgical-protocols",
         name: "surgical-protocols",
-        component: SurgicalProtocols
+        component: () => import("@/components/SurgicalProtocols")
       }
     ]
   },
@@ -82,7 +72,7 @@ const routes = [
   {
     path: "/settings",
     name: "Settings",
-    component: Settings
+    component: () => import("@/views/Settings.vue")
   },
   {
     path: "*",
@@ -105,5 +95,7 @@ router.beforeEach(async (to, from, next) => {
   if (to.name === "Login" && auth) return next({ name: "Home" });
   return next();
 });
+
+router.scrollBehavior = () => ({ x: 0, y: 0 });
 
 export default router;

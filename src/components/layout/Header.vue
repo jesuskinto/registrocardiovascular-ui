@@ -1,8 +1,9 @@
 <template>
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" @click="$router.push({ name: 'Home' })">
-        <img src="/static/img/buefy-logo.png" alt="Registro" />
+      <a class="has-text-primary logo" @click="$router.push({ name: 'Home' })">
+        <img src="@/assets/heart.png" alt="Registro" />
+        <h1>Registro Cardiovascular</h1>
       </a>
     </div>
     <div class="navbar-menu">
@@ -20,7 +21,7 @@
           <b-dropdown-item value="settings" @click="$router.push({ name: 'Settings' })">
             <b-icon icon="settings"></b-icon>Configuraciones
           </b-dropdown-item>
-          <b-dropdown-item value="logout" aria-role="menuitem" @click="logout">
+          <b-dropdown-item value="logout" aria-role="menuitem" @click="$logout">
             <b-icon icon="logout"></b-icon>Salir
           </b-dropdown-item>
         </b-dropdown>
@@ -49,3 +50,20 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.navbar-menu {
+  display: block !important;
+}
+
+.logo > h1 {
+  display: inline-block;
+  position: absolute;
+  top: 20%;
+  left: 42px;
+}
+
+.logo > img {
+  height: 50px;
+}
+</style>

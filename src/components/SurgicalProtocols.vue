@@ -52,6 +52,7 @@ export default {
         this.$success("Protocolo eliminado");
         loading.close();
       } catch ({ response: res }) {
+        this.$goLogin(res);
         this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }
@@ -65,6 +66,7 @@ export default {
         this.setData(res.data.data);
         loading.close();
       } catch ({ response: res }) {
+        this.$goLogin(res);
         this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }

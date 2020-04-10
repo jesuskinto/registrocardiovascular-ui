@@ -1,8 +1,14 @@
 import axios from "axios";
 
-export default axios.create({
+const res = axios.create({
   baseURL: "http://localhost:3000/api/",
-  headers: {
-    "access-token": sessionStorage.getItem("token")
-  }
 });
+
+res.interceptors.request.use(function (config) {
+  const token = sessionStorage.getItem("token");
+  config.headers["access-token"] = token;
+  return config;
+});
+
+
+export default res
