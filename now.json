@@ -1,6 +1,6 @@
 {
     "version": 2,
     "env": {
-        "API_URL": "@registro-medico-app-api_url"
+        "VUE_APP_API_URL": "@registro-medico-app-api_url"
     }
 }
