@@ -30,7 +30,10 @@ export default {
 
 <style scoped>
 .footer {
-  position: relative;
+  position: absolute;
+  bottom: -200px;
+  width: 100%;
+  height: 2.5rem;
 }
 .data {
   color: gray;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="columns is-mobile is-multiline">
-      <div class="column is-10-mobile is-10-tablet is-10-desktop" slot="trigger">
+      <div class="column is-9-mobile is-9-tablet is-9-desktop" slot="trigger">
         <b-field>
           <b-input
             v-model="text"
@@ -17,15 +17,16 @@
               class="button is-warning"
               aria-controls="filter"
               @click="showFilter = !showFilter"
+              icon-right="filter"
               rounded
-            >Filtros</b-button>
+            ></b-button>
           </p>
           <p class="control">
             <b-button class="button is-primary" rounded @click="search">Buscar</b-button>
           </p>
         </b-field>
       </div>
-      <div class="column is-2-mobile is-2-tablet is-2-desktop">
+      <div class="column is-3-mobile is-3-tablet is-3-desktop">
         <b-button class="button is-primary" rounded expanded @click="newClient">Nuevo</b-button>
       </div>
       <div class="column is-full">

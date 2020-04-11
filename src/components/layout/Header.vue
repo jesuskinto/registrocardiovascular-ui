@@ -6,7 +6,7 @@
         <h1>Registro Cardiovascular</h1>
       </a>
     </div>
-    <div class="navbar-menu">
+    <div class="custom-navbar">
       <div class="navbar-end" v-show="!isLogin()">
         <b-dropdown position="is-bottom-left" aria-role="menu">
           <a class="navbar-item" slot="trigger" role="button">
@@ -52,8 +52,14 @@ export default {
 </script>
 
 <style scoped>
-.navbar-menu {
-  display: block !important;
+.navbar {
+  position: relative;
+}
+
+.custom-navbar {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .logo > h1 {

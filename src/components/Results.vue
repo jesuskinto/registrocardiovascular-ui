@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="columns is-mobile is-multiline">
-      <r-result v-for="result in results" :key="result._id" :data="result" />
+      <r-result v-for="result in results" :key="result._id" :data="result" @refresh="getData()" />
     </div>
     <div v-show="results.length === 0">
       <div class="notification">
@@ -59,7 +59,7 @@ export default {
         this.pagination.perPage = res.data.resPerPage;
         loading.close();
       } catch ({ response: res }) {
-this.$goLogin(res);
+        this.$goLogin(res);
         this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }

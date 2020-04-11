@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <div class="content-wrapper">
-      <r-header />
-      <transition name="fade">
-        <router-view class="view" />
-      </transition>
+    <div id="page-container">
+      <div class="content-wrapper">
+        <r-header />
+        <transition name="fade">
+          <router-view class="view" />
+        </transition>
+      </div>
+      <r-footer />
     </div>
-    <r-footer />
   </div>
 </template>
 
@@ -41,6 +43,10 @@ $link-focus-border: $primary;
 
 
 <style lang="sass">
+#page-container
+  position: relative
+  min-height: 100vh
+
 .padding-10
   padding: 10px
 
@@ -62,6 +68,9 @@ $link-focus-border: $primary;
 .mt-15
   margin-top: 15px
 
+.mb-10
+  margin-bottom: 10px
+
 .mb-20
   margin-bottom: 20px
 
@@ -71,6 +80,7 @@ $link-focus-border: $primary;
 
 .content-wrapper
   padding: 30px
+  padding-bottom: 2.5rem
 
 .view
   max-width: 1024px

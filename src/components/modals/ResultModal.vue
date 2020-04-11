@@ -6,7 +6,11 @@
           <h3
             class="is-pulled-left has-text-primary"
           >{{ res.rut }} - {{ res._id | od | df('DD/MM/YY') }}</h3>
-          <b-button type="is-primary" class="is-small is-pulled-right ml-10" @click="edit">Editar</b-button>
+          <b-button
+            type="is-primary"
+            class="is-small is-pulled-right ml-10 mb-10"
+            @click="edit"
+          >Editar</b-button>
           <b-button type="is-danger" class="is-small is-pulled-right" @click="remove">Eliminar</b-button>
           <br />
           <small>
@@ -1090,35 +1094,20 @@ export default {
         this.res = res.data.data;
         loading.close();
       } catch ({ response: res }) {
-this.$goLogin(res);
+        this.$goLogin(res);
         this.$danger(res && res.data ? res.data.message : "Server Error");
         loading.close();
       }
     },
     remove() {
-      const question = {
-        title: "¿Desea Eliminar ?",
-        message: `¿Desea eliminar toda la informacion del paciente ${this.res.rut}?, ¡esta acción es permanente!`
-      };
-      this.$buefy.modal.open({
+      const modal = this.$buefy.modal.open({
         parent: this,
         component: RQuestionModal,
         hasModalCard: true,
-        props: { question }
+        props: { rut: this.res.rut, id: this.id }
       });
-    },
-    async acceptModal() {
-      const loading = this.$buefy.loading.open();
-      try {
-        await Rest.delete(`patients/${this.id}`);
-        this.$success("Paciente eliminado");
-        this.$emit("patientdeleted");
-        loading.close();
-      } catch ({ response: res }) {
-this.$goLogin(res);
-        this.$danger(res && res.data ? res.data.message : "Server Error");
-        loading.close();
-      }
+
+      modal.$on("close", () => this.$parent.close());
     }
   },
   mounted() {

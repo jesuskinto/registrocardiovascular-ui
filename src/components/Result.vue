@@ -134,12 +134,13 @@ export default {
   },
   methods: {
     details() {
-      this.$buefy.modal.open({
+      const modal = this.$buefy.modal.open({
         parent: this,
         component: RResultModal,
         scroll: "keep",
         props: { id: this.data._id }
       });
+      modal.$on("close", () => this.$emit("refresh"));
     }
   }
 };

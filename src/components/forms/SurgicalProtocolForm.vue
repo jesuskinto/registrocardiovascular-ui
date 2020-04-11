@@ -1,63 +1,85 @@
 <template>
   <div>
-    <b-field label="Fecha">
-      <b-datetimepicker
-        v-model="form.date"
-        :timepicker="{ enableSeconds: true, hourFormat: '12' }"
-        placeholder="Fecha"
-      />
-    </b-field>
-    <hr />
-    <b-button
-      class="mb-20"
-      size="is-small"
-      @click="newSurgeon({ newU: true })"
-      icon-right="account-plus"
-    >Crear Cirujano</b-button>
-    <b-field grouped>
-      <b-field label="Primer Cirujano" expanded>
-        <b-select v-model="form.firstSurgeon" placeholder="Primer Cirujano" expanded>
-          <option
-            v-for="surgeon in surgeons"
-            :value="surgeon._id"
-            :key="surgeon._id"
-          >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
-          <option value="ninguno">Ninguno</option>
-        </b-select>
+    <ValidationObserver ref="form">
+      <b-field label="Fecha">
+        <b-datetimepicker
+          v-model="form.date"
+          :timepicker="{ enableSeconds: true, hourFormat: '12' }"
+          placeholder="Fecha"
+        />
       </b-field>
-      <b-field label="Otros Cirujanos" message="Use ctrl para selección multiple" expanded>
-        <b-select v-model="form.othersSurgeons" placeholder="Otros Cirujanos" multiple expanded>
-          <option
-            v-for="surgeon in surgeons"
-            :value="surgeon._id"
-            :key="surgeon._id"
-          >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
-          <option value="ninguno">Ninguno</option>
-        </b-select>
+      <hr />
+      <b-button
+        class="mb-20"
+        size="is-small"
+        @click="newSurgeon({ newU: true })"
+        icon-right="account-plus"
+      >Crear Cirujano</b-button>
+      <b-field grouped>
+        <ValidationProvider rules="required" v-slot="{ errors }">
+          <b-field
+            label="Primer Cirujano"
+            :type="errors[0] && 'is-danger'"
+            :message="errors[0]"
+            expanded
+          >
+            <b-select v-model="form.firstSurgeon" placeholder="Primer Cirujano" expanded>
+              <option
+                v-for="surgeon in surgeons"
+                :value="surgeon._id"
+                :key="surgeon._id"
+              >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
+              <option value="ninguno">Ninguno</option>
+            </b-select>
+          </b-field>
+        </ValidationProvider>
+
+        <b-field label="Otros Cirujanos" message="Use ctrl para selección multiple" expanded>
+          <b-select v-model="form.othersSurgeons" placeholder="Otros Cirujanos" multiple expanded>
+            <option
+              v-for="surgeon in surgeons"
+              :value="surgeon._id"
+              :key="surgeon._id"
+            >{{ `${surgeon.firstname} ${surgeon.lastname}`}}</option>
+            <option value="ninguno">Ninguno</option>
+          </b-select>
+        </b-field>
       </b-field>
-    </b-field>
-    <hr />
-    <b-field label="Nota Operatoria" expanded>
-      <b-input
-        rows="30"
-        type="textarea"
-        v-model="form.operativeNotes"
-        placeholder="Nota Operatoria"
-      />
-    </b-field>
-    <div class="buttons">
-      <b-button @click="$emit('close-modal')">Cancelar</b-button>
-      <b-button type="is-primary" @click="save">Guardar</b-button>
-    </div>
+      <hr />
+      <b-field label="Nota Operatoria" expanded>
+        <b-input
+          rows="30"
+          type="textarea"
+          v-model="form.operativeNotes"
+          placeholder="Nota Operatoria"
+        />
+      </b-field>
+      <div class="buttons">
+        <b-button @click="$emit('close-modal')">Cancelar</b-button>
+        <b-button type="is-primary" @click="save">Guardar</b-button>
+      </div>
+    </ValidationObserver>
   </div>
 </template>
 
 <script>
+import { ValidationProvider, ValidationObserver, extend } from "vee-validate";
+import { required } from "vee-validate/dist/rules";
 import surgeonMixin from "@/mixins/surgeonMixin.vue";
 import Rest from "@/services/rest";
 
+extend("required", {
+  ...required,
+  message: "El campo es requerido"
+});
+
 export default {
   mixins: [surgeonMixin],
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
+
   props: {
     modal: {
       default: false,
@@ -136,7 +158,12 @@ export default {
         if (this.form[l] !== null) payload[l] = this.form[l];
       return payload;
     },
-    save() {
+    async save() {
+      const susses = this.$refs.form ? await this.$refs.form.validate() : true;
+      if (!susses) {
+        this.$danger("Revisar Formulario");
+        return;
+      }
       if (this.newU) return this.create();
       else return this.update();
     },

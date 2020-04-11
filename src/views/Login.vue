@@ -89,7 +89,7 @@ export default {
 <style lang="sass" scoped>
 .card
     padding: 30px
-    width: 400px
+    max-width: 400px
     margin: 0 auto
     margin-top: 18vh
     margin-bottom: 18vh
