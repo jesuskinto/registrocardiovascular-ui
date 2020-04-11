@@ -1,6 +1,6 @@
 {
     "version": 2,
     "env": {
-        "HOST": "@registro-medico-app-host"
+        "API_URL": "@registro-medico-app-api_url"
     }
 }
