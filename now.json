@@ -1,0 +1,6 @@
+{
+    "version": 2,
+    "env": {
+        "HOST": "@registro-medico-app-host"
+    }
+}
