@@ -2,7 +2,7 @@
     "name": "registros-cardiovascular-app",
     "version": 2,
     "env": {
-        "VUE_APP_API_URL": "@registro-medico-app-api-urll"
+        "VUE_APP_API_URL": "@registro-medico-app-api-url"
     },
     "builds": [
         {
