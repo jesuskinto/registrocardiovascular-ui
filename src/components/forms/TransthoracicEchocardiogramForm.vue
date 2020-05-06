@@ -181,8 +181,14 @@
           <div class="field">
             <b-checkbox
               v-model="form.insuficiencia_mitral.valor"
-              native-value="prolapso_de_velo"
-            >Prolapso de velo</b-checkbox>
+              native-value="prolapso_de_velo_anterior"
+            >Prolapso de velo anterior</b-checkbox>
+          </div>
+          <div class="field">
+            <b-checkbox
+              v-model="form.insuficiencia_mitral.valor"
+              native-value="prolapso_de_velo_posterior"
+            >Prolapso de velo posterior</b-checkbox>
           </div>
           <div class="field">
             <b-checkbox v-model="form.insuficiencia_mitral.valor" native-value="anterior">Anterior</b-checkbox>

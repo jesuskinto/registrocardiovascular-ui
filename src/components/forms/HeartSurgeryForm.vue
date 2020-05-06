@@ -229,18 +229,7 @@
     <div class="columns">
       <div class="column">
         <div class="field">
-          <b-radio v-model="form.opciones_quirurgicas.lima_rima" native-value="LIMA">LIMA</b-radio>
-        </div>
-        <div class="field">
-          <b-radio v-model="form.opciones_quirurgicas.lima_rima" native-value="RIMA">RIMA</b-radio>
-        </div>
-        <div class="field">
-          <b-radio v-model="form.opciones_quirurgicas.lima_rima" native-value="AMBAS">AMBAS</b-radio>
-        </div>
-      </div>
-      <div class="column">
-        <div class="field">
-          <b-checkbox v-model="form.opciones_quirurgicas.opciones" native-value="LIMA -DA">LIMA -DA</b-checkbox>
+          <b-checkbox v-model="form.opciones_quirurgicas.opciones" native-value="LIMA-DA">LIMA-DA</b-checkbox>
         </div>
         <div class="field">
           <b-checkbox v-model="form.opciones_quirurgicas.opciones" native-value="RIMA-DA">RIMA-DA</b-checkbox>
@@ -250,6 +239,12 @@
             v-model="form.opciones_quirurgicas.opciones"
             native-value="LIMA-DA +PAC A CX"
           >LIMA-DA +PAC A CX</b-checkbox>
+        </div>
+        <div class="field">
+          <b-checkbox
+            v-model="form.opciones_quirurgicas.opciones"
+            native-value="LIMA-DA +PAC A DP"
+          >LIMA-DA +PAC A DP</b-checkbox>
         </div>
         <div class="field">
           <b-checkbox
@@ -266,7 +261,7 @@
         <div class="field">
           <b-checkbox
             v-model="form.opciones_quirurgicas.opciones"
-            native-value="LIMA -DA + PAC A RI"
+            native-value="LIMA-DA + PAC A RI"
           >LIMA -DA + PAC A RI</b-checkbox>
         </div>
         <div class="field">
@@ -287,6 +282,14 @@
             native-value="PAC A ADA + PAC A CX"
           >PAC A ADA + PAC A CX</b-checkbox>
         </div>
+        <b-field label="Otros" expanded>
+          <b-input
+            type="textarea"
+            v-model="form.opciones_quirurgicas.otros"
+            placeholder="Otros"
+            expanded
+          />
+        </b-field>
       </div>
     </div>
     <hr />
@@ -776,8 +779,8 @@ export default {
         },
         pericardiectomia_anterior: false,
         opciones_quirurgicas: {
-          lima_rima: null,
-          opciones: []
+          opciones: [],
+          otros: null
         },
         complicaciones: {
           reintervencion: {

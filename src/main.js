@@ -51,7 +51,7 @@ Vue.prototype.$logout = function () {
   router.push({ name: "Login" });
 };
 
-Vue.prototype.$goLogin = function ({ data }) {
+Vue.prototype.$goLogin = function ({ data } = {}) {
   const messages = ["Token invalid", "Token is not provider"];
   if (data && data.message && messages.includes(data.message))
     Vue.prototype.$logout();

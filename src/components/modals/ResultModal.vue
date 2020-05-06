@@ -693,12 +693,12 @@
                 <strong>opciones quirurgicas:</strong>
                 <ul v-if="res.heartSurgery.opciones_quirurgicas">
                   <li>
-                    <strong>lima rima:</strong>
-                    {{ res.heartSurgery.opciones_quirurgicas.lima_rima}}
-                  </li>
-                  <li>
                     <strong>opciones:</strong>
                     {{ res.heartSurgery.opciones_quirurgicas.opciones | ats }}
+                  </li>
+                  <li>
+                    <strong>otros:</strong>
+                    {{ res.heartSurgery.opciones_quirurgicas.otros }}
                   </li>
                 </ul>
               </li>
@@ -912,15 +912,15 @@
                 <strong>cardioplegia:</strong>
                 <ul v-if="res.extracorporealCirculation.cardioplegia">
                   <li>
-                    <strong>type</strong>
+                    <strong>tipo</strong>
                     {{ res.extracorporealCirculation.cardioplegia.type }}
                   </li>
                   <li>
-                    <strong>class</strong>
+                    <strong>clase</strong>
                     {{ res.extracorporealCirculation.cardioplegia.class }}
                   </li>
                   <li>
-                    <strong>method</strong>
+                    <strong>metodo</strong>
                     {{ res.extracorporealCirculation.cardioplegia.method }}
                   </li>
                 </ul>
@@ -980,7 +980,7 @@
                   </li>
                   <li>
                     <strong>retrograda</strong>
-                    {{ res.extracorporealCirculation.perfusion_cerebral.retrograda }}
+                    {{ res.extracorporealCirculation.perfusion_cerebral.retrograda | btm}}
                   </li>
                 </ul>
               </li>
@@ -988,19 +988,19 @@
             <h3>Otros</h3>
             <ul>
               <li>
-                <strong>dias uci:</strong>
+                <strong>días uci:</strong>
                 {{res.others.dias_uci}}
               </li>
               <li>
-                <strong>dias uti:</strong>
+                <strong>días uti:</strong>
                 {{res.others.dias_uti}}
               </li>
               <li>
-                <strong>dias totales hospitalización:</strong>
+                <strong>días totales hospitalización:</strong>
                 {{res.others.dias_totales_hospitalizacion}}
               </li>
               <li>
-                <strong>dias intubacion:</strong>
+                <strong>días intubacion:</strong>
                 {{res.others.dias_intubacion}}
               </li>
               <li>
@@ -1012,7 +1012,7 @@
                   </li>
                   <li>
                     <strong>tipo:</strong>
-                    {{res.others.drogras_vasoactivas.tipo}}
+                    {{res.others.drogras_vasoactivas.tipo | ats }}
                   </li>
                 </ul>
               </li>
@@ -1037,7 +1037,7 @@
                 <strong>control postoperatorio:</strong>
                 <ul v-if="res.others.control_postoperatorio">
                   <li>
-                    <strong>dias 15:</strong>
+                    <strong>días 15:</strong>
                     {{res.others.control_postoperatorio.dias_15}}
                   </li>
                   <li>

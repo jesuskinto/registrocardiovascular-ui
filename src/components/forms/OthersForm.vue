@@ -26,10 +26,11 @@
           v-model="form.drogras_vasoactivas.tiene"
         >{{ form.drogras_vasoactivas.tiene | btm }}</b-switch>
       </b-field>
-      <b-field label="Tipo" expanded>
+      <b-field label="Tipo" message="Use ctrl para selección multiple" expanded>
         <b-select
           v-model="form.drogras_vasoactivas.tipo"
           placeholder="Tipo"
+          multiple
           expanded
           :disabled="!form.drogras_vasoactivas.tiene"
         >

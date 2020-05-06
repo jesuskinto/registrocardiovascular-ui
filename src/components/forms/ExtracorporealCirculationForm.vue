@@ -152,17 +152,14 @@
         <b-select v-model="form.perfusion_cerebral.anterograda" placeholder="Anterograda" expanded>
           <option value="Axilar">Axilar</option>
           <option value="tronco braquicefalico">tronco braquicefalico</option>
-          <option value="Carótida iquierda">Carótida iquierda</option>
+          <option value="Carótida iquierda">Carótida izquierda</option>
           <option value="ninguno">Ninguno</option>
         </b-select>
       </b-field>
       <b-field label="Retrograda" expanded>
-        <b-select v-model="form.perfusion_cerebral.retrograda" placeholder="Retrograda" expanded>
-          <option value="Axilar">Axilar</option>
-          <option value="tronco braquicefalico">tronco braquicefalico</option>
-          <option value="Carótida iquierda">Carótida iquierda</option>
-          <option value="ninguno">Ninguno</option>
-        </b-select>
+        <b-switch
+          v-model="form.perfusion_cerebral.retrograda"
+        >{{ form.perfusion_cerebral.retrograda | btm }}</b-switch>
       </b-field>
     </b-field>
     <hr />
