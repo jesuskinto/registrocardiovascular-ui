@@ -3,7 +3,7 @@
     <ValidationObserver ref="form">
       <ValidationProvider rules="required" v-slot="{ errors }">
         <b-field label="RUT" :type="errors[0] && 'is-danger'" :message="errors[0]">
-          <b-input type="number" v-model="form.rut" placeholder="RUT" />
+          <b-input type="text" v-model="form.rut" placeholder="RUT" />
         </b-field>
       </ValidationProvider>
       <b-field grouped>
