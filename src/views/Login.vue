@@ -4,13 +4,7 @@
       <ValidationObserver v-slot="{ invalid }">
         <ValidationProvider rules="required|email" v-slot="{ errors }">
           <b-field label="Correo" :type="errors[0] && 'is-danger'" :message="errors[0]">
-            <b-input
-              v-model="form.email"
-              type="text"
-              icon="email"
-              placeholder="tucorreo@email.com"
-              maxlength="30"
-            ></b-input>
+            <b-input v-model="form.email" type="text" icon="email" placeholder="tucorreo@email.com"></b-input>
           </b-field>
         </ValidationProvider>
         <ValidationProvider rules="required" v-slot="{ errors }">
@@ -88,9 +82,9 @@ export default {
 
 <style lang="sass" scoped>
 .card
-    padding: 30px
-    max-width: 400px
-    margin: 0 auto
-    margin-top: 18vh
-    margin-bottom: 18vh
+  padding: 30px
+  max-width: 400px
+  margin: 0 auto
+  margin-top: 18vh
+  margin-bottom: 18vh
 </style>
