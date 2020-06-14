@@ -82,7 +82,10 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior() {
+    return { x: 0, y: 0 }
+  }
 });
 
 async function isAuthenticated() {
@@ -95,7 +98,5 @@ router.beforeEach(async (to, from, next) => {
   if (to.name === "Login" && auth) return next({ name: "Home" });
   return next();
 });
-
-router.scrollBehavior = () => ({ x: 0, y: 0 });
 
 export default router;

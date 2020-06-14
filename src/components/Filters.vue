@@ -53,9 +53,9 @@
         </div>
         <div class="column"></div>
       </div>
-      <label class="label">Diagnostico:</label>
       <div class="columns">
         <div class="column">
+          <label class="label">Diagnostico:</label>
           <div class="field">
             <b-checkbox
               v-model="filters.diagnosis.estenosis_aortica"
@@ -106,6 +106,9 @@
           </div>
         </div>
         <div class="column">
+          <label class="label">
+            <br />
+          </label>
           <div class="field">
             <b-checkbox
               v-model="filters.diagnosis.enfermedad_valvular_mitral"
@@ -149,7 +152,33 @@
             >Ductus arteriosus persistente</b-checkbox>
           </div>
         </div>
-        <div class="column"></div>
+        <div class="column">
+          <label class="label">Complicaciones:</label>
+          <div class="field">
+            <b-checkbox
+              v-model="filters.diagnosis.accidente_cerebro_vascular"
+              size="is-small"
+            >Accidente cerebro vascular</b-checkbox>
+          </div>
+          <div class="field">
+            <b-checkbox v-model="filters.diagnosis.delirio" size="is-small">Delirio</b-checkbox>
+          </div>
+          <div class="field">
+            <b-checkbox
+              v-model="filters.diagnosis.fibrilacion_auricular"
+              size="is-small"
+            >Fibrilación auricular</b-checkbox>
+          </div>
+          <div class="field">
+            <b-checkbox
+              v-model="filters.diagnosis.infeccion_herida_superficial"
+              size="is-small"
+            >Infección de herida superficial</b-checkbox>
+          </div>
+          <div class="field">
+            <b-checkbox v-model="filters.diagnosis.muerte" size="is-small">Muerte</b-checkbox>
+          </div>
+        </div>
       </div>
     </div>
     <div class="button-wrapper">
@@ -217,9 +246,9 @@ export default {
   button
     margin-left: 5px
 
-.notification 
+.notification
   background: white
-  border: whitesmoke solid 2px 
+  border: whitesmoke solid 2px
 
 .button-wrapper
   bottom: 20px

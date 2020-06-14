@@ -866,6 +866,10 @@
                         {{ res.heartSurgery.complicaciones.muerte.presente | btm }}
                       </li>
                       <li>
+                        <strong>fecha:</strong>
+                        {{ res.heartSurgery.complicaciones.muerte.fecha | df }}
+                      </li>
+                      <li>
                         <strong>causa:</strong>
                         {{ res.heartSurgery.complicaciones.muerte.causa }}
                       </li>

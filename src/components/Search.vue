@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.columns 
-    margin-top: 30px
-    margin-bottom: 30px
+.columns
+  margin-top: 10px
+  margin-bottom: 10px
 </style>

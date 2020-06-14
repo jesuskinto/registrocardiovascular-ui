@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="has-text-primary logo" @click="$router.push({ name: 'Home' })">
-        <img src="@/assets/heart.png" alt="Registro" />
+        <b-icon icon="heartbeat"></b-icon>
         <h1>Registro Cardiovascular</h1>
       </a>
     </div>
@@ -18,6 +18,9 @@
             <b>{{ username }}</b>
           </b-dropdown-item>
           <hr class="dropdown-divider" aria-role="menuitem" />
+          <b-dropdown-item value="Risk Calculator" @click="openCalculator">
+            <b-icon icon="calculator"></b-icon>Risk Calculator
+          </b-dropdown-item>
           <b-dropdown-item value="settings" @click="$router.push({ name: 'Settings' })">
             <b-icon icon="settings"></b-icon>Configuraciones
           </b-dropdown-item>
@@ -43,6 +46,9 @@ export default {
   methods: {
     isLogin() {
       return this.$route.name === "Login";
+    },
+    openCalculator() {
+      window.open("http://riskcalc.sts.org/stswebriskcalc/calculate");
     }
   },
   updated() {
@@ -66,7 +72,8 @@ export default {
   display: inline-block;
   position: absolute;
   top: 20%;
-  left: 42px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .logo > img {

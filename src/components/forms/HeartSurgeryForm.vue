@@ -460,7 +460,7 @@
       </b-select>
     </b-field>
     <hr />
-    <h4 class="subtitle is-4">Bloqueo AV</h4>
+    <h4>Bloqueo AV</h4>
     <b-field grouped>
       <b-field label="Tipo" expanded>
         <b-select v-model="form.complicaciones.bloqueo_av.tipo" placeholder="Tipo" expanded>
@@ -479,13 +479,19 @@
       </b-field>
     </b-field>
     <hr />
-    <h4 class="subtitle is-4">Infección de Herida operatoria superficial</h4>
+    <h4>Infección de Herida operatoria superficial</h4>
     <b-field grouped>
+      <b-field label="Presente" expanded>
+        <b-switch
+          v-model="form.complicaciones.infeccion_herida_operatoria_superficial.presente"
+        >{{ form.complicaciones.infeccion_herida_operatoria_superficial.presente | btm }}</b-switch>
+      </b-field>
       <b-field label="Cultivo" expanded>
         <b-input
           v-model="form.complicaciones.infeccion_herida_operatoria_superficial.cultivo"
           placeholder="Cultivo"
           expanded
+          :disabled="!form.complicaciones.infeccion_herida_operatoria_superficial.presente"
         />
       </b-field>
       <b-field label="Tiempo desde la cirugía" expanded>
@@ -493,17 +499,24 @@
           v-model="form.complicaciones.infeccion_herida_operatoria_superficial.tiempo_desde_cirugia"
           placeholder="Cuanto tiempo desde la cirugía"
           expanded
+          :disabled="!form.complicaciones.infeccion_herida_operatoria_superficial.presente"
         />
       </b-field>
     </b-field>
     <hr />
-    <h4 class="subtitle is-4">Infeccion de Herida operatoria profunda</h4>
+    <h4>Infeccion de Herida operatoria profunda</h4>
     <b-field grouped>
+      <b-field label="Presente" expanded>
+        <b-switch
+          v-model="form.complicaciones.infenccion_herida_operatoria_profunda.presente"
+        >{{ form.complicaciones.infenccion_herida_operatoria_profunda.presente | btm }}</b-switch>
+      </b-field>
       <b-field label="Cultivo" expanded>
         <b-input
           v-model="form.complicaciones.infenccion_herida_operatoria_profunda.cultivo"
           placeholder="Cultivo"
           expanded
+          :disabled="!form.complicaciones.infenccion_herida_operatoria_profunda.presente"
         />
       </b-field>
       <b-field label="Tiempo desde la cirugía" expanded>
@@ -511,6 +524,7 @@
           v-model="form.complicaciones.infenccion_herida_operatoria_profunda.tiempo_desde_cirugia"
           placeholder="Cuanto tiempo desde la cirugía"
           expanded
+          :disabled="!form.complicaciones.infenccion_herida_operatoria_profunda.presente"
         />
       </b-field>
       <b-field label="Hospitalización" expanded>
@@ -518,11 +532,12 @@
           v-model="form.complicaciones.infenccion_herida_operatoria_profunda.hospitalizacion"
           placeholder="Hospitalización"
           expanded
+          :disabled="!form.complicaciones.infenccion_herida_operatoria_profunda.presente"
         />
       </b-field>
     </b-field>
     <hr />
-    <h4 class="subtitle is-4">Dehiscencia Esternal</h4>
+    <h4>Dehiscencia Esternal</h4>
     <b-field grouped>
       <b-field label="Presente" expanded>
         <b-switch
@@ -540,7 +555,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4 class="subtitle is-4">Derrame pleural</h4>
+    <h4>Derrame pleural</h4>
     <b-field grouped>
       <b-field label="Presente" expanded>
         <b-switch
@@ -562,7 +577,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4 class="subtitle is-4">Mediastinitis</h4>
+    <h4>Mediastinitis</h4>
     <b-field label="Presente" expanded>
       <b-switch
         v-model="form.complicaciones.mediastinitis.presente"
@@ -609,7 +624,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4 class="subtitle is-4">Endocarditis de válvula protesica</h4>
+    <h4>Endocarditis de válvula protesica</h4>
     <b-field label="Presente" expanded>
       <b-switch
         v-model="form.complicaciones.endocarditis_valvula_protesica.presente"
@@ -656,7 +671,7 @@
       </b-field>
     </b-field>
     <hr />
-    <h4 class="subtitle is-4">Muerte</h4>
+    <h4>Muerte</h4>
     <b-field label="Presente" expanded>
       <b-switch
         v-model="form.complicaciones.muerte.presente"
@@ -800,12 +815,14 @@ export default {
           },
           infeccion_herida_operatoria_superficial: {
             cultivo: null,
-            tiempo_desde_cirugia: null
+            tiempo_desde_cirugia: null,
+            presente: null
           },
           infenccion_herida_operatoria_profunda: {
             cultivo: null,
             tiempo_desde_cirugia: null,
-            hospitalizacion: null
+            hospitalizacion: null,
+            presente: null
           },
           dehiscencia_esternal: {
             tratamiento: null,

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="page-container">
+      <r-header />
       <div class="content-wrapper">
-        <r-header />
         <transition name="fade">
           <router-view class="view" />
         </transition>
@@ -77,10 +77,8 @@ $link-focus-border: $primary;
 .mb-5
   margin-bottom: 5px
 
-
 .content-wrapper
-  padding: 30px
-  padding-bottom: 2.5rem
+  padding: 0 30px
 
 .view
   max-width: 1024px
