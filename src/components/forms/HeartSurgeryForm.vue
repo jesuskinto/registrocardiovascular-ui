@@ -882,9 +882,8 @@ export default {
           "muerte" in data.complicaciones &&
           "fecha" in data.complicaciones.muerte
         ) {
-          data.complicaciones.muerte.fecha = new Date(
-            data.complicaciones.muerte.fecha
-          );
+          const fecha = data.complicaciones.muerte.fecha;
+          if (fecha) data.complicaciones.muerte.fecha = new Date(fecha);
         }
         this.form[d] = data[d];
       }
