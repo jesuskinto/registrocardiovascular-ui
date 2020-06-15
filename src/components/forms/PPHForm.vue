@@ -101,6 +101,13 @@
         </b-field>
       </div>
     </div>
+    <div class="columns">
+      <div class="column">
+        <b-field label="Enfermedad gástrica" expanded>
+          <b-switch v-model="form.enfermedad_gastrica">{{ form.enfermedad_gastrica | btm }}</b-switch>
+        </b-field>
+      </div>
+    </div>
     <hr />
     <h4 class="subtitle is-4">Cancer</h4>
     <b-field grouped>
@@ -256,8 +263,7 @@
         </b-field>
       </b-field>
     </b-field>
-    <hr />
-    <div class="buttons">
+    <div class="buttons buttons-footer-form">
       <b-button @click="cancel">Cancelar</b-button>
       <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>
@@ -282,6 +288,7 @@ export default {
         enfermedad_arterial_periferica: false,
         enfermedad_cerebro_vascular: null,
         enfermedad_pulmonar_obstructiva_cronica: false,
+        enfermedad_gastrica: false,
         enfermedad_carotidea: false,
         tabaquismo: false,
         alcohol: false,

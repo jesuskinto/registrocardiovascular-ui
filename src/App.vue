@@ -80,6 +80,16 @@ $link-focus-border: $primary;
 .content-wrapper
   padding: 0 30px
 
+.buttons-footer-form
+  position: sticky
+  bottom: 0px
+  background: white
+  border-top: solid 2px #e8e8e8
+  padding-top: 15px
+  padding-bottom: 6px
+  margin-top: 30px
+  z-index: 10
+
 .view
   max-width: 1024px
   margin: 0 auto

@@ -76,8 +76,7 @@
     <b-field label="Contro a los 3meses">
       <b-input v-model="form.control_postoperatorio.mes_3" type="textarea" />
     </b-field>
-    <hr />
-    <div class="buttons">
+    <div class="buttons buttons-footer-form">
       <b-button @click="cancel">Cancelar</b-button>
       <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>

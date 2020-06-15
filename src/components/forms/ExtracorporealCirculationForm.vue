@@ -162,8 +162,7 @@
         >{{ form.perfusion_cerebral.retrograda | btm }}</b-switch>
       </b-field>
     </b-field>
-    <hr />
-    <div class="buttons">
+    <div class="buttons buttons-footer-form">
       <b-button @click="cancel">Cancelar</b-button>
       <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>

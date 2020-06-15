@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="r-search">
     <div class="columns is-mobile is-multiline">
       <div class="column is-9-mobile is-9-tablet is-9-desktop" slot="trigger">
         <b-field>
@@ -29,7 +29,7 @@
       <div class="column is-3-mobile is-3-tablet is-3-desktop">
         <b-button class="button is-primary" rounded expanded @click="newClient">Nuevo</b-button>
       </div>
-      <div class="column is-full">
+      <div class="column">
         <b-collapse aria-id="filter" :open.sync="showFilter">
           <r-filters @close="showFilter = !showFilter" @filters="filter" @restart="clear" />
         </b-collapse>

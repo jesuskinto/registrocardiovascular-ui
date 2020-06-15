@@ -402,6 +402,16 @@
       <b-switch v-model="form.pericardiectomia_anterior">{{ form.pericardiectomia_anterior | btm }}</b-switch>
     </b-field>
     <hr />
+    <h4 class="subtitle is-4">Trauma vascular postpunción</h4>
+    <b-field label="Trauma vascular postpunción" expanded>
+      <b-input
+        type="textarea"
+        v-model="form.trauma_vascular_postpuncion"
+        placeholder="Trauma vascular postpunción"
+        expanded
+      />
+    </b-field>
+    <hr />
     <h4 class="subtitle is-4">Complicaciones</h4>
     <h3>Reintervención</h3>
     <b-field grouped>
@@ -725,8 +735,7 @@
         />
       </b-field>
     </b-field>
-    <hr />
-    <div class="buttons">
+    <div class="buttons buttons-footer-form">
       <b-button @click="cancel">Cancelar</b-button>
       <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>
@@ -752,6 +761,7 @@ export default {
         miniesternotomia: null,
         transapical: null,
         anuloplastia_tricuspidea: null,
+        trauma_vascular_postpuncion: null,
         miectomia_septal: null,
         valvula_mitral: {
           protesis_biologica: null,
@@ -867,6 +877,14 @@ export default {
         if (d === "programada") {
           this.form[d] = new Date(data[d]);
           continue;
+        } else if (
+          d === "complicaciones" &&
+          "muerte" in data.complicaciones &&
+          "fecha" in data.complicaciones.muerte
+        ) {
+          data.complicaciones.muerte.fecha = new Date(
+            data.complicaciones.muerte.fecha
+          );
         }
         this.form[d] = data[d];
       }

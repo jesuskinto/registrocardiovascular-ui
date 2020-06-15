@@ -54,7 +54,7 @@
           placeholder="Nota Operatoria"
         />
       </b-field>
-      <div class="buttons">
+      <div class="buttons buttons-footer-form">
         <b-button @click="$emit('close-modal')">Cancelar</b-button>
         <b-button type="is-primary" @click="save">Guardar</b-button>
       </div>

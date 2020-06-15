@@ -45,7 +45,6 @@ Vue.prototype.$success = function (message) {
   });
 };
 
-
 Vue.prototype.$logout = function () {
   sessionStorage.clear();
   router.push({ name: "Login" });
@@ -56,6 +55,10 @@ Vue.prototype.$goLogin = function ({ data } = {}) {
   if (data && data.message && messages.includes(data.message))
     Vue.prototype.$logout();
 };
+
+Vue.prototype.$openRiskCalculator = function () {
+  window.open("http://riskcalc.sts.org/stswebriskcalc/calculate");
+}
 
 
 new Vue({

@@ -61,6 +61,10 @@
                 <strong>imc:</strong>
                 {{ res.imc }}
               </li>
+              <li>
+                <strong>resultado Risk Calculator:</strong>
+                {{ res.riskcalculatorresult }}
+              </li>
             </ul>
             <h3 v-if="res.diagnosis">Diagnostico</h3>
             <ul v-if="res.diagnosis">
@@ -206,6 +210,10 @@
               <li>
                 <strong>drogas:</strong>
                 {{ res.pph.drogas | btm}}
+              </li>
+              <li>
+                <strong>enfermedad gástrica:</strong>
+                {{ res.pph.enfermedad_gastrica | btm}}
               </li>
               <li>
                 <strong>enfermedad arterial periferica:</strong>
@@ -701,6 +709,10 @@
                     {{ res.heartSurgery.opciones_quirurgicas.otros }}
                   </li>
                 </ul>
+              </li>
+              <li>
+                <strong>Trauma vascular postpunción:</strong>
+                {{ res.heartSurgery.trauma_vascular_postpuncion }}
               </li>
               <li v-if="res.heartSurgery.complicaciones">
                 <strong>complicaciones:</strong>

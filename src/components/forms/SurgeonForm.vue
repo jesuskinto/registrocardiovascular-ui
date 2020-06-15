@@ -24,7 +24,7 @@
         </ValidationProvider>
       </b-field>
       <hr />
-      <div class="buttons">
+      <div class="buttons buttons-footer-form">
         <b-button @click="cancel">{{ modal ? 'Cancelar':'Restablecer'}}</b-button>
         <b-button type="is-primary" @click="save">Guardar</b-button>
       </div>

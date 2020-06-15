@@ -44,10 +44,21 @@
         </b-field>
       </b-field>
       <b-field label="Dirección">
-        <b-input type="textarea" v-model="form.address" placeholder="Tu dirección" />
+        <b-input type="textarea" v-model="form.address" placeholder="Tú dirección" />
       </b-field>
       <hr />
-      <div class="buttons">
+      <b-button
+        class="mb-10"
+        @click="$openRiskCalculator"
+        icon-left="calculator"
+        size="is-medium"
+      >Risk Calculator</b-button>
+      <b-field grouped>
+        <b-field label="STS" expanded>
+          <b-input type="textarea" v-model="form.riskcalculatorresult" placeholder="STS" />
+        </b-field>
+      </b-field>
+      <div class="buttons buttons-footer-form">
         <b-button @click="cancel">Restaurar</b-button>
         <b-button type="is-primary" @click="save">Guardar</b-button>
       </div>
@@ -84,7 +95,8 @@ export default {
         phone: null,
         weight: null,
         size: null,
-        address: null
+        address: null,
+        riskcalculatorresult: null
       },
       url: "patients"
     };

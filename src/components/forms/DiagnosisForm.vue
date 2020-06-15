@@ -68,8 +68,7 @@
     <b-field label="Otro" expanded>
       <b-input type="textarea" v-model="form.otros">{{ form.otros | btm }}</b-input>
     </b-field>
-    <hr />
-    <div class="buttons">
+    <div class="buttons buttons-footer-form">
       <b-button @click="cancel">Cancelar</b-button>
       <b-button type="is-primary" @click="save">Guardar</b-button>
     </div>

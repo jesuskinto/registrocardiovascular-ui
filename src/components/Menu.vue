@@ -58,3 +58,10 @@
     </b-menu-list>
   </b-menu>
 </template>
+
+<style scoped>
+.menu {
+  position: sticky;
+  top: 15px;
+}
+</style>
